@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="8dp"
+    android:layout_marginHorizontal="8dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/employeeCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:id="@+id/employeeCardViewLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/employeeImage"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/login_background"
+                    app:civ_border_color="@color/black"
+                    app:civ_border_width="1.5dp">
+                </de.hdodenhof.circleimageview.CircleImageView>
+
+                <ImageView
+                    android:id="@+id/employeeVisibilityIcon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/employee_item_visibility"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"></ImageView>
+
+                <ImageView
+                    android:id="@+id/employeeInvisibilityIcon"
+                    android:layout_alignParentRight="true"
+                    android:visibility="gone"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/employee_item_invisibility">
+
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/employeeLayoutName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Employee Name"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20sp"
+                    android:layout_toRightOf="@+id/employeeImage"
+                    android:layout_marginStart="20dp"></TextView>
+
+                <TextView
+                    android:id="@+id/employeeLayoutTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/employeeLayoutName"
+                    android:text="Title"
+                    android:textColor="@color/gray"
+                    android:gravity="center"
+                    android:layout_toRightOf="@id/employeeImage"
+                    android:layout_marginStart="20dp"
+
+                    android:textSize="20sp"></TextView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/expandedEmployeeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:id="@+id/employeeHireDate"
+                    android:text="Hire Date:"
+                    android:paddingStart="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/employeeHireDateIcon">
+                </TextView>
+
+                <ImageView
+                    android:id="@+id/employeeHireDateIcon"
+                    android:src="@drawable/employee_hire_vectotr"
+                    android:layout_marginStart="10dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:tint="@color/gray">
+
+                </ImageView>
+
+                <ImageView
+                    android:id="@+id/employeeItemBdayVector"
+                    android:src="@drawable/signup_birthday_vector"
+                    app:tint="@color/gray"
+                    android:layout_marginStart="10dp"
+                    android:layout_width="30dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_height="30dp"
+                    android:layout_below="@+id/employeeHireDate"
+                    ></ImageView>
+                <TextView
+                    android:id="@+id/employeeBirthday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/employeeHireDate"
+                    android:layout_toRightOf="@+id/employeeItemBdayVector"
+                    android:layout_marginTop="15dp"
+                    android:paddingTop="5dp"
+                    android:text="Date of Birth"
+                    android:paddingStart="10dp">
+                </TextView>
+
+                <ImageView
+                    android:id="@+id/employeePhoneContactVector"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/employee_contact_vector"
+                    app:tint="@color/gray"
+                    android:layout_marginStart="10dp"
+                    android:layout_below="@id/employeeBirthday"
+                    android:layout_marginTop="15dp">
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/employeePhoneNumber"
+                    android:layout_toRightOf="@id/employeePhoneContactVector"
+                    android:layout_below="@id/employeeBirthday"
+                    android:layout_marginTop="15dp"
+                    android:text="Phone #"
+                    android:paddingStart="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></TextView>
+
+                <TextView
+                    android:id="@+id/employeeItemBio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="10dp"
+                    android:layout_below="@+id/employeePhoneContactVector"
+                    android:paddingTop="30dp"
+                    android:text="hey guys this is my bio for the employee of my month let me continue to spread joy and cheer"></TextView>
+
+                <Button
+                    android:id="@+id/employeeManageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/timecard_and_manage"
+                    android:backgroundTint="@color/transparent"
+                    android:textColor="@color/purple_200"
+                    android:layout_below="@id/employeeItemBio"
+                    android:layout_marginTop="10dp"
+                    android:textSize="13sp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"></Button>
+
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp">
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            app:cardCornerRadius="10dp"
+            android:layout_marginBottom="15dp"
+            >
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tvCompanyName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Company Name"
+                    android:textSize="30sp"
+                    android:layout_centerHorizontal="true"
+                    android:paddingStart="50dp"
+                    android:paddingEnd="50dp"
+                    android:paddingTop="15dp" />
+
+                <TextView
+                    android:id="@+id/tvCompanySize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/gray"
+                    android:layout_below="@id/tvCompanyName"
+                    android:paddingStart="50dp"
+                    android:layout_marginTop="20dp"
+                    android:textSize="15sp"
+                    android:text="Company Size:" />
+
+                <TextView
+                    android:id="@+id/tvCompanyOwner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_below="@id/tvCompanySize"
+                    android:text="Owner:"
+                    android:textSize="15sp"
+                    android:textColor="@color/gray" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:src="@drawable/login_background"
+            android:scaleType="centerCrop"></ImageView>
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/employeeRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:paddingBottom="100dp"
+        android:clipToPadding="false" />
+</LinearLayout>

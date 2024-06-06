@@ -20,6 +20,8 @@
             android:id="@+id/punchRelativeLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp"
             >
 
             <TextView
@@ -27,8 +29,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Punch Date"
-                android:textSize="20sp"></TextView>
+                android:textSize="20sp"
+                android:layout_toRightOf="@+id/punchDateIcon"
+                android:layout_marginStart="5dp"
+                android:paddingTop=""></TextView>
 
+            <ImageView
+                android:id="@+id/punchDateIcon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/employee_hire_vectotr"
+                android:layout_marginStart="10dp"></ImageView>
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>

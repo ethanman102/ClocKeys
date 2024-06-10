@@ -74,6 +74,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="vertical"
                 >
                 <TextView
                     android:layout_width="wrap_content"
@@ -83,6 +84,32 @@
                     android:layout_marginTop="10dp"
                     android:textSize="25dp"
                     android:textStyle="bold"></TextView>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/gray"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    ></View>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Works at:"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:textSize="15sp"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Company Name"
+                        android:textSize="15sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="2dp"></TextView>
+                </LinearLayout>
             </LinearLayout>
             
             

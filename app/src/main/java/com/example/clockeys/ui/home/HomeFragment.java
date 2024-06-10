@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.clockeys.Adapters.EmployeeAdapter;
 import com.example.clockeys.Models.Company;
 import com.example.clockeys.R;
+import com.example.clockeys.Time.Punch;
 import com.example.clockeys.Time.Timecard;
 import com.example.clockeys.Users.Employee;
 import com.example.clockeys.databinding.FragmentHomeBinding;
@@ -35,10 +36,10 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
         ArrayList<Employee> myEmployees = new ArrayList<Employee>();
-        myEmployees.add(new Employee(1092,"Ethan Keys",new Date(),new Timecard(new ArrayList<Date>()),new Date(),"Worker"));
-        myEmployees.add(new Employee(1092,"Ethan Keys2",new Date(),new Timecard(new ArrayList<Date>()),new Date(),"Worker2"));
-        myEmployees.add(new Employee(1092,"Ethan Keys3",new Date(),new Timecard(new ArrayList<Date>()),new Date(),"Worker3"));
-        myEmployees.add(new Employee(1092,"Ethan Keys4",new Date(),new Timecard(new ArrayList<Date>()),new Date(),"Worker4"));
+        myEmployees.add(new Employee(1092,"Ethan Keys",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker"));
+        myEmployees.add(new Employee(1092,"Ethan Keys2",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker2"));
+        myEmployees.add(new Employee(1092,"Ethan Keys3",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker3"));
+        myEmployees.add(new Employee(1092,"Ethan Keys4",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker4"));
 
         company = new Company("Resource Bearing",myEmployees.size(),myEmployees,"Image",19289,12);
 

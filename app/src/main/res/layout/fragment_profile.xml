@@ -4,13 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/below_card"
     tools:context=".ui.notifications.ProfileFragment">
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:scaleType="center"
+            android:src="@drawable/purple_big_bubbles_wallpaper"></ImageView>
 
         <LinearLayout
-            android:background="@color/purple_700"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -22,7 +27,8 @@
                 android:src="@drawable/addison_rae"
                 android:layout_gravity="center"
                 app:civ_border_color="@color/white"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                app:civ_border_width="3dp">
             </de.hdodenhof.circleimageview.CircleImageView>
 
             <TextView
@@ -58,14 +64,28 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="225dp">
-            <TextView
-                android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_marginTop="225dp"
+            app:cardCornerRadius="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:cardElevation="5dp"
+            android:layout_marginBottom="5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 >
-
-            </TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="About"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="25dp"
+                    android:textStyle="bold"></TextView>
+            </LinearLayout>
+            
+            
         </androidx.cardview.widget.CardView>
 
     </FrameLayout>

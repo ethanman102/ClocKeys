@@ -6,115 +6,126 @@
     android:layout_height="match_parent"
     android:background="@color/below_card"
     tools:context=".ui.notifications.ProfileFragment">
-    <FrameLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ImageView
+        android:layout_height="match_parent">
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:scaleType="center"
-            android:src="@drawable/purple_big_bubbles_wallpaper"></ImageView>
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:scaleType="center"
+                android:src="@drawable/purple_big_bubbles_wallpaper"></ImageView>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profileEmployeeImage"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:src="@drawable/addison_rae"
-                android:layout_gravity="center"
-                app:civ_border_color="@color/white"
-                android:layout_marginTop="20dp"
-                app:civ_border_width="3dp">
-            </de.hdodenhof.circleimageview.CircleImageView>
-
-            <TextView
-                android:id="@+id/profileEmployeeName"
-                android:text="Employee Name"
-                android:textColor="@color/white"
-                android:textSize="25sp"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-            </TextView>
-
-            <TextView
-                android:id="@+id/profileEmployeeHometown"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="15sp"
-                android:text="Employee Hometown"
-                android:layout_gravity="center"></TextView>
-
-            <TextView
-                android:id="@+id/profileEmployeeNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="15sp"
-                android:text="Employee ID"
-                android:layout_gravity="center"
-                android:layout_marginBottom="50dp"
-                ></TextView>
-        </LinearLayout>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="225dp"
-            app:cardCornerRadius="10dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            app:cardElevation="5dp"
-            android:layout_marginBottom="5dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 >
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profileEmployeeImage"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/addison_rae"
+                    android:layout_gravity="center"
+                    app:civ_border_color="@color/white"
+                    android:layout_marginTop="20dp"
+                    app:civ_border_width="3dp">
+                </de.hdodenhof.circleimageview.CircleImageView>
+
                 <TextView
+                    android:id="@+id/profileEmployeeName"
+                    android:text="Employee Name"
+                    android:textColor="@color/white"
+                    android:textSize="25sp"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </TextView>
+
+                <TextView
+                    android:id="@+id/profileEmployeeHometown"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="About"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:textSize="25dp"
-                    android:textStyle="bold"></TextView>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="@color/gray"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    ></View>
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:text="Employee Hometown"
+                    android:layout_gravity="center"></TextView>
+
+                <TextView
+                    android:id="@+id/profileEmployeeNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:text="Employee ID"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="50dp"
+                    ></TextView>
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="225dp"
+                app:cardCornerRadius="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                app:cardElevation="5dp"
+                android:layout_marginBottom="5dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="vertical"
+                    >
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Works at:"
+                        android:text="Employment"
                         android:layout_marginStart="10dp"
-                        android:layout_marginTop="5dp"
-                        android:textSize="15sp"></TextView>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Company Name"
-                        android:textSize="15sp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="2dp"></TextView>
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:textSize="25dp"
+                        android:textStyle="bold"></TextView>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/gray"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        ></View>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/employeeProfileJobPicture"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:scaleType="center"
+                            android:src="@drawable/addison_rae"
+                            >
+                        </ImageView>
+                        <TextView
+                            android:id="@+id/employeeProfileJobCompany"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginEnd="40dp"
+                            android:text="Mcdonalds"
+                            android:textSize="27sp">
+                        </TextView>
+                    </RelativeLayout>
                 </LinearLayout>
-            </LinearLayout>
-            
-            
-        </androidx.cardview.widget.CardView>
 
-    </FrameLayout>
 
+            </androidx.cardview.widget.CardView>
+
+        </FrameLayout>
+    </ScrollView>
 </RelativeLayout>

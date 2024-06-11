@@ -61,14 +61,27 @@
                     android:textSize="15sp"
                     android:text="Employee ID"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="50dp"
                     ></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLength="120"
+                    android:layout_gravity="center"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="10sp"
+                    android:layout_marginEnd="10sp"
+                    android:background="@color/transparent_white"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:text="Hello all, I am a 23 year old tiktoker who just lost her job and am now working at Mcdonalds, #TiktokBan"></TextView>
             </LinearLayout>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="225dp"
+                android:layout_marginTop="260dp"
                 app:cardCornerRadius="10dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"

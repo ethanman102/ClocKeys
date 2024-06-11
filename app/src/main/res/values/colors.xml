@@ -12,4 +12,5 @@
     <color name="gray">#989595</color>
     <color name="below_card">#EAEAEA</color>
     <color name="transparent">#00989595</color>
+    <color name="transparent_white">#A8FFFFFF</color>
 </resources>

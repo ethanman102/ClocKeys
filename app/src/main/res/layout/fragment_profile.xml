@@ -69,6 +69,7 @@
                         ></TextView>
 
                     <TextView
+                        android:id="@+id/profileEmployeeBio"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:maxLength="120"
@@ -79,7 +80,7 @@
                         android:layout_marginEnd="10sp"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
-                        android:text="Hello all, I am a 23 year old tiktoker who just lost her job and am now working at Mcdonalds, #TiktokBan"></TextView>
+                        android:text="This is a textview for an Employees biography which will be visible to all companies this ID is apart of"></TextView>
                 </LinearLayout>
 
                 <androidx.cardview.widget.CardView

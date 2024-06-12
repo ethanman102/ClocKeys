@@ -192,6 +192,7 @@
                     app:cardCornerRadius="10dp"
                     android:layout_margin="7dp">
                     <LinearLayout
+                        android:id="@+id/employeeProfileTimecardLinearLayout"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
@@ -219,6 +220,7 @@
                     app:cardCornerRadius="10dp"
                     android:layout_margin="7dp">
                     <LinearLayout
+                        android:id="@+id/employeeProfileInfoLinearLayout"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
@@ -246,6 +248,7 @@
                     app:cardCornerRadius="10dp"
                     android:layout_margin="7dp">
                     <LinearLayout
+                        android:id="@+id/employeeProfileLogoutLinearLayout"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">

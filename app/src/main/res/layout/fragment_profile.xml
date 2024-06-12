@@ -74,10 +74,9 @@
                         android:maxLength="120"
                         android:layout_gravity="center"
                         android:textSize="15sp"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:layout_marginStart="10sp"
                         android:layout_marginEnd="10sp"
-                        android:background="@color/transparent_white"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
                         android:text="Hello all, I am a 23 year old tiktoker who just lost her job and am now working at Mcdonalds, #TiktokBan"></TextView>

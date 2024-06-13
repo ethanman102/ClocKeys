@@ -1,5 +1,6 @@
 package com.example.clockeys.ui.notifications;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,13 +12,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.clockeys.MainActivity;
+import com.example.clockeys.Management.TimecardActivity;
 import com.example.clockeys.R;
+import com.example.clockeys.Time.Punch;
+import com.example.clockeys.Time.Timecard;
+import com.example.clockeys.Users.Employee;
 import com.example.clockeys.databinding.FragmentProfileBinding;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 public class ProfileFragment extends Fragment {
 
+    private Employee user;
     private FragmentProfileBinding binding;
     private LinearLayout timeCardButton,infoButton,logoutButton;
     private TextView employeeName,employeeId,employeeBio,employeeHometown,employeeCompany,employeeJobTitle,employeeJobAddress;
@@ -31,6 +41,7 @@ public class ProfileFragment extends Fragment {
         View root = binding.getRoot();
 
         bindViews(root); // bind the views to the root...
+        user = new Employee(1092,"Ethan Keys",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker");
 
         timeCardButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +84,12 @@ public class ProfileFragment extends Fragment {
         employeeCompany = root.findViewById(R.id.employeeProfileJobCompany);
         employeeJobAddress = root.findViewById(R.id.employeeProfileJobAddress);
         employeeJobTitle = root.findViewById(R.id.employeeProfileJobTitle);
+    }
+
+    private void startTimeCardActivity(){
+        Intent intent = new Intent(getActivity(), TimecardActivity.class);
+        intent.putExtra("employee",user);
+        startActivity(intent);
     }
     @Override
     public void onDestroyView() {

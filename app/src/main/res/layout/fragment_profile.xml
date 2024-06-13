@@ -131,7 +131,7 @@
                                 android:layout_marginStart="10dp"
                                 android:layout_marginTop="10dp"
                                 android:scaleType="fitCenter"
-                                android:layout_marginBottom="30dp"
+                                android:layout_marginBottom="10dp"
                                 android:src="@drawable/addison_rae"
                                 >
                             </ImageView>

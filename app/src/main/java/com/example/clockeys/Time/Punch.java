@@ -1,5 +1,6 @@
 package com.example.clockeys.Time;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -7,7 +8,7 @@ import java.time.ZonedDateTime;
 import java.util.Date;
 import java.util.Locale;
 
-public class Punch {
+public class Punch implements Serializable {
     private String stringDate;
     private Date punchIn;
     private Date punchOut;

@@ -1,11 +1,12 @@
 package com.example.clockeys.Time;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Timecard {
+public class Timecard implements Serializable {
     private ArrayList<Punch> clockedHours;
 
 

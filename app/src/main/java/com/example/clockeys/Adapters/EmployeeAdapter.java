@@ -1,6 +1,7 @@
 package com.example.clockeys.Adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.clockeys.Callbacks.OnEmployeeFiredCallback;
+import com.example.clockeys.Models.Company;
 import com.example.clockeys.R;
 import com.example.clockeys.Users.Employee;
 
@@ -24,19 +27,22 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.MyView
     private Context context;
     private List<Employee> employeeList;
     private SparseBooleanArray expandedItems;
+    private OnEmployeeFiredCallback callback;
+    private Company company;
 
-    public EmployeeAdapter(Context context, List<Employee> employeeList) {
+    public EmployeeAdapter(Context context, List<Employee> employeeList, OnEmployeeFiredCallback callback, Company company) {
         this.context = context;
         this.employeeList = employeeList;
         this.expandedItems = new SparseBooleanArray();
-
+        this.callback = callback;
+        this.company = company;
     }
 
     @NonNull
     @Override
     public EmployeeAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.employee_item,parent,false);
-        return new MyViewHolder(view,this);
+        return new MyViewHolder(view,this,callback);
     }
 
     @Override
@@ -94,6 +100,18 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.MyView
                 public void onClick(View v) {
                     adapter.expandedItems.put(getAdapterPosition(),!adapter.expandedItems.get(getAdapterPosition()));
                     adapter.notifyItemChanged(getAdapterPosition());
+                }
+            });
+
+            employeeImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    boolean employeeFired = adapter.callback.onEmployeeFired(adapter.employeeList.get(getAdapterPosition()));
+                    if (employeeFired){
+                        adapter.company.fireEmployee(adapter.employeeList.get(getAdapterPosition()));
+                    }else{
+                        Log.d("GTA", "NOT REMOVED... ");
+                    }
                 }
             });
 

@@ -188,6 +188,7 @@
                 android:text="Functions"
                 android:textColor="@color/gray"
                 android:textSize="30sp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp">
             </TextView>
             <LinearLayout
@@ -215,8 +216,8 @@
                         android:orientation="horizontal">
                         <ImageView
 
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
                             android:layout_marginStart="5dp"
                             android:layout_marginEnd="5dp"
                             android:src="@drawable/employee_hire_vectotr"
@@ -227,7 +228,7 @@
                             android:text="Timecard"
                             android:layout_gravity="center"
                             android:textColor="@color/white"
-                            android:textSize="40sp"></TextView>
+                            android:textSize="20sp"></TextView>
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
@@ -244,8 +245,8 @@
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
                         <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
                             android:layout_marginStart="5dp"
                             android:layout_marginEnd="5dp"
                             android:src="@drawable/employee_settings_vector"
@@ -256,7 +257,7 @@
                             android:text="Edit Info"
                             android:layout_gravity="center"
                             android:textColor="@color/white"
-                            android:textSize="40sp"></TextView>
+                            android:textSize="20sp"></TextView>
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
@@ -273,8 +274,8 @@
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
                         <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
                             android:layout_marginStart="5dp"
                             android:layout_marginEnd="5dp"
                             android:src="@drawable/signup_activity_back"
@@ -285,7 +286,7 @@
                             android:text="Logout"
                             android:layout_gravity="center"
                             android:textColor="@color/white"
-                            android:textSize="40sp"></TextView>
+                            android:textSize="20sp"></TextView>
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>

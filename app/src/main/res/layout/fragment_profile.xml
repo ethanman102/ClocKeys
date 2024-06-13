@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green_200"
+    android:background="@color/below_card"
     tools:context=".ui.notifications.ProfileFragment">
     <ScrollView
         android:layout_width="match_parent"
@@ -12,6 +12,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingBottom="100dp"
             android:orientation="vertical">
             <FrameLayout
                 android:id="@+id/employeeProfileFrameLayout"
@@ -114,7 +115,7 @@
                             android:layout_marginStart="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginBottom="5dp"
-                            android:textSize="25dp"
+                            android:textSize="40sp"
                             android:textStyle="bold"></TextView>
                         <View
                             android:layout_width="match_parent"
@@ -185,9 +186,9 @@
 
             </FrameLayout>
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:id="@+id/profileNavigationButtons"
@@ -196,16 +197,16 @@
 
                 <androidx.cardview.widget.CardView
                     app:cardBackgroundColor="@color/cream_100"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:cardElevation="5dp"
                     app:cardCornerRadius="10dp"
-                    android:layout_margin="7dp">
+                    android:layout_margin="10dp">
                     <LinearLayout
                         android:id="@+id/employeeProfileTimecardLinearLayout"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:orientation="horizontal">
                         <ImageView
 
                             android:layout_width="100dp"
@@ -213,72 +214,72 @@
                             android:layout_marginStart="5dp"
                             android:layout_marginEnd="5dp"
                             android:src="@drawable/employee_hire_vectotr"
-                            app:tint="@color/gray"></ImageView>
+                            app:tint="@color/black"></ImageView>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Timecard"
                             android:layout_gravity="center"
                             android:textColor="@color/black"
-                            android:textSize="20sp"></TextView>
+                            android:textSize="40sp"></TextView>
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:cardElevation="5dp"
                     app:cardBackgroundColor="@color/cream_100"
                     app:cardCornerRadius="10dp"
-                    android:layout_margin="7dp">
+                    android:layout_margin="10dp">
                     <LinearLayout
                         android:id="@+id/employeeProfileInfoLinearLayout"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:orientation="horizontal">
                         <ImageView
                             android:layout_width="100dp"
                             android:layout_height="100dp"
                             android:layout_marginStart="5dp"
                             android:layout_marginEnd="5dp"
                             android:src="@drawable/employee_settings_vector"
-                            app:tint="@color/gray"></ImageView>
+                            app:tint="@color/black"></ImageView>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Edit Info"
                             android:layout_gravity="center"
                             android:textColor="@color/black"
-                            android:textSize="20sp"></TextView>
+                            android:textSize="40sp"></TextView>
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:cardElevation="5dp"
                     app:cardBackgroundColor="@color/cream_100"
                     app:cardCornerRadius="10dp"
-                    android:layout_margin="7dp">
+                    android:layout_margin="10dp">
                     <LinearLayout
                         android:id="@+id/employeeProfileLogoutLinearLayout"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:orientation="horizontal">
                         <ImageView
                             android:layout_width="100dp"
                             android:layout_height="100dp"
                             android:layout_marginStart="5dp"
                             android:layout_marginEnd="5dp"
                             android:src="@drawable/signup_activity_back"
-                            app:tint="@color/gray"></ImageView>
+                            app:tint="@color/black"></ImageView>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Logout"
                             android:layout_gravity="center"
                             android:textColor="@color/black"
-                            android:textSize="20sp"></TextView>
+                            android:textSize="40sp"></TextView>
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>

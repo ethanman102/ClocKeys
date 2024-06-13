@@ -10,7 +10,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#989595</color>
-    <color name="below_card">#F7F8F3</color>
+    <color name="below_card">#E6E6E6</color>
     <color name="transparent">#00989595</color>
     <color name="transparent_white">#A8FFFFFF</color>
     <color name="green_200">#DAE4D4</color>

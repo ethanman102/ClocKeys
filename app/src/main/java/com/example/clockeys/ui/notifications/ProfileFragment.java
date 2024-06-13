@@ -46,7 +46,7 @@ public class ProfileFragment extends Fragment {
         timeCardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startTimeCardActivity();
             }
         });
 

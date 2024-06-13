@@ -13,4 +13,6 @@
     <color name="below_card">#EAEAEA</color>
     <color name="transparent">#00989595</color>
     <color name="transparent_white">#A8FFFFFF</color>
+    <color name="green_200">#45A15F</color>
+    <color name="cream_100">#F6F8E7</color>
 </resources>

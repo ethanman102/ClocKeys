@@ -21,7 +21,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     android:scaleType="center"
-                    android:src="@drawable/purple_big_bubbles_wallpaper"></ImageView>
+                    android:background="@color/green_200"></ImageView>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -91,6 +91,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
                     app:cardElevation="5dp"
+                    app:cardBackgroundColor="@color/cream_100"
                     android:layout_marginBottom="5dp">
 
                     <LinearLayout
@@ -186,6 +187,7 @@
                 >
 
                 <androidx.cardview.widget.CardView
+                    app:cardBackgroundColor="@color/cream_100"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:cardElevation="5dp"
@@ -197,18 +199,19 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical">
                         <ImageView
+
                             android:layout_width="100dp"
                             android:layout_height="100dp"
                             android:layout_marginStart="5dp"
                             android:layout_marginEnd="5dp"
                             android:src="@drawable/employee_hire_vectotr"
-                            app:tint="@color/purple_700"></ImageView>
+                            app:tint="@color/gray"></ImageView>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Timecard"
                             android:layout_gravity="center"
-                            android:textColor="@color/purple_700"
+                            android:textColor="@color/black"
                             android:textSize="20sp"></TextView>
                     </LinearLayout>
 
@@ -217,6 +220,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:cardElevation="5dp"
+                    app:cardBackgroundColor="@color/cream_100"
                     app:cardCornerRadius="10dp"
                     android:layout_margin="7dp">
                     <LinearLayout
@@ -229,14 +233,14 @@
                             android:layout_height="100dp"
                             android:layout_marginStart="5dp"
                             android:layout_marginEnd="5dp"
-                            android:src="@drawable/signup_activity_back"
-                            app:tint="@color/purple_700"></ImageView>
+                            android:src="@drawable/employee_settings_vector"
+                            app:tint="@color/gray"></ImageView>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Edit Info"
                             android:layout_gravity="center"
-                            android:textColor="@color/purple_700"
+                            android:textColor="@color/black"
                             android:textSize="20sp"></TextView>
                     </LinearLayout>
 
@@ -245,6 +249,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:cardElevation="5dp"
+                    app:cardBackgroundColor="@color/cream_100"
                     app:cardCornerRadius="10dp"
                     android:layout_margin="7dp">
                     <LinearLayout
@@ -258,13 +263,13 @@
                             android:layout_marginStart="5dp"
                             android:layout_marginEnd="5dp"
                             android:src="@drawable/signup_activity_back"
-                            app:tint="@color/purple_700"></ImageView>
+                            app:tint="@color/gray"></ImageView>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Logout"
                             android:layout_gravity="center"
-                            android:textColor="@color/purple_700"
+                            android:textColor="@color/black"
                             android:textSize="20sp"></TextView>
                     </LinearLayout>
 

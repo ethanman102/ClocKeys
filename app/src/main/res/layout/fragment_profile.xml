@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/below_card"
+    android:background="@color/green_200"
     tools:context=".ui.notifications.ProfileFragment">
     <ScrollView
         android:layout_width="match_parent"
@@ -21,7 +21,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     android:scaleType="center"
+                    android:src="@drawable/green_minimalist"
                     android:background="@color/green_200"></ImageView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:background="@color/white"
+                    android:layout_marginTop="300dp"></View>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -41,9 +48,10 @@
 
                     <TextView
                         android:id="@+id/profileEmployeeName"
-                        android:text="Employee Name"
-                        android:textColor="@color/white"
-                        android:textSize="25sp"
+                        android:text="Addison Rae"
+                        android:textColor="@color/gray"
+                        android:textStyle="bold"
+                        android:textSize="30sp"
                         android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
@@ -53,18 +61,18 @@
                         android:id="@+id/profileEmployeeHometown"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/white"
+                        android:textColor="@color/gray"
                         android:textSize="15sp"
-                        android:text="Employee Hometown"
+                        android:text="Los Angeles, California"
                         android:layout_gravity="center"></TextView>
 
                     <TextView
                         android:id="@+id/profileEmployeeNumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/white"
+                        android:textColor="@color/gray"
                         android:textSize="15sp"
-                        android:text="Employee ID"
+                        android:text="T6B0J6"
                         android:layout_gravity="center"
                         ></TextView>
 
@@ -75,7 +83,7 @@
                         android:maxLength="120"
                         android:layout_gravity="center"
                         android:textSize="15sp"
-                        android:textColor="@color/white"
+                        android:textColor="@color/gray"
                         android:layout_marginStart="10sp"
                         android:layout_marginEnd="10sp"
                         android:paddingStart="10dp"

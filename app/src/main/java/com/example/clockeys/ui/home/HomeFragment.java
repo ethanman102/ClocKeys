@@ -52,7 +52,7 @@ public class HomeFragment extends Fragment implements OnEmployeeFiredCallback {
         recyclerView.setHasFixedSize(Boolean.TRUE);
 
         employeeList = company.getEmployees();
-        employeeAdapter = new EmployeeAdapter(getContext(),employeeList,this);
+        employeeAdapter = new EmployeeAdapter(getContext(),employeeList,this,company);
         recyclerView.setAdapter(employeeAdapter);
 
 

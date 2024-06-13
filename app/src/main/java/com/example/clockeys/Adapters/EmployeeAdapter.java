@@ -109,6 +109,8 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.MyView
                     boolean employeeFired = adapter.callback.onEmployeeFired(adapter.employeeList.get(getAdapterPosition()));
                     if (employeeFired){
                         adapter.company.fireEmployee(adapter.employeeList.get(getAdapterPosition()));
+                        adapter.employeeList = adapter.company.getEmployees();
+                        adapter.notifyDataSetChanged();
                     }else{
                         Log.d("GTA", "NOT REMOVED... ");
                     }

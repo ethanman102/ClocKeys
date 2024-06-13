@@ -72,6 +72,6 @@ public class HomeFragment extends Fragment implements OnEmployeeFiredCallback {
 
     @Override
     public boolean onEmployeeFired(Employee employee) {
-        return false;
+        return true;
     }
 }

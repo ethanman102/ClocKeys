@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.clockeys.R;
 import com.google.android.material.datepicker.MaterialDatePicker;
+import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 
 import java.util.Calendar;
 import java.util.TimeZone;
@@ -53,6 +54,14 @@ public class TimecardActivity extends AppCompatActivity {
             MaterialDatePicker materialDatePicker = createDateRangePicker();
             materialDatePicker.show(getSupportFragmentManager(),"MATERIAL_DATE_PICKER");
 
+            materialDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener<Pair<Long,Long>>() {
+                @Override
+                public void onPositiveButtonClick(Pair<Long,Long> selection) {
+                    long filterStart = selection.first;
+                    long filterEnd = selection.second;
+                }
+            });
+
             return Boolean.TRUE;
         }
         return super.onOptionsItemSelected(item);
@@ -65,7 +74,7 @@ public class TimecardActivity extends AppCompatActivity {
         Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
         calendar.set(Calendar.DAY_OF_WEEK,Calendar.SUNDAY);
         weekStart = calendar.getTimeInMillis();
-        calendar.add(Calendar.DAY_OF_WEEK,Calendar.SATURDAY);
+        calendar.add(Calendar.DAY_OF_WEEK,Calendar.FRIDAY);
         weekEnd = calendar.getTimeInMillis();
 
 

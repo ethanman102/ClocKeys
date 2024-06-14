@@ -2,6 +2,7 @@ package com.example.clockeys.Management;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.util.Pair;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.clockeys.R;
+import com.google.android.material.datepicker.MaterialDatePicker;
 
 public class TimecardActivity extends AppCompatActivity {
 
@@ -44,9 +46,19 @@ public class TimecardActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.dateRangeTimecard){
             Toast.makeText(this, "Date Range clicked", Toast.LENGTH_SHORT).show();
+            MaterialDatePicker materialDatePicker = createDateRangePicker();
+            materialDatePicker.show(getSupportFragmentManager(),"MATERIAL_DATE_PICKER");
             return Boolean.TRUE;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private MaterialDatePicker createDateRangePicker(){
+        MaterialDatePicker.Builder<Pair<Long, Long>> materialDateBuilder = MaterialDatePicker.Builder.dateRangePicker();
+        materialDateBuilder.setTitleText("Punch Date Range");
+
+        final MaterialDatePicker materialDatePicker = materialDateBuilder.build();
+        return  materialDatePicker;
     }
 
 }

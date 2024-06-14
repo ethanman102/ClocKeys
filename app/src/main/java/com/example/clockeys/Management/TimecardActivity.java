@@ -14,6 +14,9 @@ import android.widget.Toast;
 import com.example.clockeys.R;
 import com.google.android.material.datepicker.MaterialDatePicker;
 
+import java.util.Calendar;
+import java.util.TimeZone;
+
 public class TimecardActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
@@ -45,17 +48,29 @@ public class TimecardActivity extends AppCompatActivity {
         // Handle item selection
         int id = item.getItemId();
         if (id == R.id.dateRangeTimecard){
+            long startDate,endDate;
             Toast.makeText(this, "Date Range clicked", Toast.LENGTH_SHORT).show();
             MaterialDatePicker materialDatePicker = createDateRangePicker();
             materialDatePicker.show(getSupportFragmentManager(),"MATERIAL_DATE_PICKER");
+
             return Boolean.TRUE;
         }
         return super.onOptionsItemSelected(item);
     }
 
     private MaterialDatePicker createDateRangePicker(){
+
+        long weekStart,weekEnd;
+
+        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+        calendar.set(Calendar.DAY_OF_WEEK,Calendar.SUNDAY);
+        weekStart = calendar.getTimeInMillis();
+        calendar.add(Calendar.DAY_OF_WEEK,Calendar.SATURDAY);
+        weekEnd = calendar.getTimeInMillis();
+
+
         MaterialDatePicker.Builder<Pair<Long, Long>> materialDateBuilder = MaterialDatePicker.Builder.dateRangePicker();
-        materialDateBuilder.setTitleText("Punch Date Range");
+        materialDateBuilder.setTitleText("Punch Date Range").setSelection(Pair.create(weekStart,weekEnd));
 
         final MaterialDatePicker materialDatePicker = materialDateBuilder.build();
         return  materialDatePicker;

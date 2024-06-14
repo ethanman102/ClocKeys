@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Management.TimecardActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/timecardToolbar"
@@ -15,5 +16,45 @@
         app:navigationIcon="@drawable/signup_activity_back">
 
     </androidx.appcompat.widget.Toolbar>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/cream_200"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="10dp"
+        android:layout_marginBottom="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/punchTitleText"
+                android:layout_marginStart="20dp"
+                android:textSize="30sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Punches"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                >
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/employeePunchName"
+                android:textColor="@color/white"
+                android:text="Addison Rae"
+                android:layout_below="@id/punchTitleText"
+                android:layout_marginStart="20dp"
+                android:textSize="20sp"></TextView>
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>

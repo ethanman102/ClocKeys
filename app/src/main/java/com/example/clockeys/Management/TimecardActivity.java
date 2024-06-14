@@ -41,15 +41,12 @@ public class TimecardActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.dateRangeTimecard:
-                // Handle the settings click here
-                Toast.makeText(this, "Settings clicked", Toast.LENGTH_SHORT).show();
-                return true;
-            // Add more cases for other menu items if needed
-            default:
-                return super.onOptionsItemSelected(item);
+        int id = item.getItemId();
+        if (id == R.id.dateRangeTimecard){
+            Toast.makeText(this, "Date Range clicked", Toast.LENGTH_SHORT).show();
+            return Boolean.TRUE;
         }
+        return super.onOptionsItemSelected(item);
     }
 
 }

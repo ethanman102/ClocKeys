@@ -14,5 +14,6 @@
     <color name="transparent">#00989595</color>
     <color name="transparent_white">#A8FFFFFF</color>
     <color name="green_200">#DAE4D4</color>
+    <color name="green_700">#296C00</color>
     <color name="cream_100">#993C3C3C</color>
 </resources>

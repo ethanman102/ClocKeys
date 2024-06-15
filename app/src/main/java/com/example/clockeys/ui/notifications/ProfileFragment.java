@@ -22,6 +22,7 @@ import com.example.clockeys.databinding.FragmentProfileBinding;
 
 import org.w3c.dom.Text;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -88,7 +89,7 @@ public class ProfileFragment extends Fragment {
 
     private void startTimeCardActivity(){
         Intent intent = new Intent(getActivity(), TimecardActivity.class);
-        intent.putExtra("employee",user);
+        intent.putExtra("employee",(Serializable) user);
         startActivity(intent);
     }
     @Override

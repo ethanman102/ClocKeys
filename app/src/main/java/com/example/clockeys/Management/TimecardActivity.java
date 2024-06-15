@@ -6,6 +6,7 @@ import androidx.core.util.Pair;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -36,8 +37,9 @@ public class TimecardActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.timecardToolbar);
         setSupportActionBar(toolbar);
 
-        Intent intent = getIntent();
-        employee = intent.getSerializableExtra("employee", Employee.class);
+        employee = (Employee) getIntent().getSerializableExtra("employee");
+
+        bindViews();
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,10 +103,11 @@ public class TimecardActivity extends AppCompatActivity {
         dateRangeTextView = findViewById(R.id.timecardDates);
 
         // Set the initial texts.
-
-        employeeName.setText(employee.getName());
-        employeeId.setText(employee.getEmployeeNumber());
-
+        if (employee != null) {
+            Log.d("HHEY", "bindViews: entered" + employee.getName() + "TC" + employee.getTimecard());
+            employeeName.setText(employee.getName());
+            employeeId.setText(employee.getEmployeeNumber());
+        }
         Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
         calendar.set(Calendar.DAY_OF_WEEK,Calendar.SUNDAY);
         long weekStart = calendar.getTimeInMillis();

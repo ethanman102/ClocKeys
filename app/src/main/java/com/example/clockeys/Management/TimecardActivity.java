@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.clockeys.R;
+import com.example.clockeys.Time.Timecard;
 import com.example.clockeys.Users.Employee;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
@@ -27,8 +28,10 @@ import java.util.TimeZone;
 public class TimecardActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
-    private Employee employee;
+    private Intent intent;
+    private Timecard timecard;
     private TextView employeeName,employeeId, dateRangeTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +40,7 @@ public class TimecardActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.timecardToolbar);
         setSupportActionBar(toolbar);
 
-        employee = (Employee) getIntent().getSerializableExtra("employee");
+        timecard = (Timecard) getIntent().getSerializableExtra("employeeTimecard");
 
         bindViews();
 
@@ -103,11 +106,9 @@ public class TimecardActivity extends AppCompatActivity {
         dateRangeTextView = findViewById(R.id.timecardDates);
 
         // Set the initial texts.
-        if (employee != null) {
-            Log.d("HHEY", "bindViews: entered" + employee.getName() + "TC" + employee.getTimecard());
-            employeeName.setText(employee.getName());
-            employeeId.setText(employee.getEmployeeNumber());
-        }
+
+        employeeName.setText((String) intent.getSerializableExtra("employeeName"));
+        employeeId.setText((String)intent.getSerializableExtra("employeeId"));
         Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
         calendar.set(Calendar.DAY_OF_WEEK,Calendar.SUNDAY);
         long weekStart = calendar.getTimeInMillis();

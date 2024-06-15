@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Timecard implements Serializable {
     private ArrayList<Punch> clockedHours;
-    private String hi =  "checkhere";
+
 
     public Timecard(ArrayList<Punch> clockedHours){
         this.clockedHours = new ArrayList<Punch>(clockedHours);
@@ -34,10 +34,6 @@ public class Timecard implements Serializable {
         }else{
             clockedHours.get(clockedHours.size() - 1).createPunchOut(LocalDateTime.now());
         }
-    }
-
-    public void setCheck(String help){
-        hi = help;
     }
 
 }

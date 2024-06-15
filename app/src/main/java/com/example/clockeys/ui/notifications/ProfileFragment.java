@@ -89,7 +89,9 @@ public class ProfileFragment extends Fragment {
 
     private void startTimeCardActivity(){
         Intent intent = new Intent(getActivity(), TimecardActivity.class);
-        intent.putExtra("employee",(Serializable) user);
+        intent.putExtra("employeeTimecard",(Serializable) user.getTimecard());
+        intent.putExtra("employeeName",user.getName());
+        intent.putExtra("employeeId",user.getEmployeeNumber());
         startActivity(intent);
     }
     @Override

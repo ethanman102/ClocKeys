@@ -4,23 +4,30 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.util.Pair;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.clockeys.R;
+import com.example.clockeys.Users.Employee;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.TimeZone;
 
 public class TimecardActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
+    private Employee employee;
+    private TextView employeeName,employeeId, dateRangeTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +35,9 @@ public class TimecardActivity extends AppCompatActivity {
 
         toolbar = findViewById(R.id.timecardToolbar);
         setSupportActionBar(toolbar);
+
+        Intent intent = getIntent();
+        employee = intent.getSerializableExtra("employee", Employee.class);
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +93,38 @@ public class TimecardActivity extends AppCompatActivity {
 
         final MaterialDatePicker materialDatePicker = materialDateBuilder.build();
         return  materialDatePicker;
+    }
+
+    private void bindViews(){
+        employeeId = findViewById(R.id.punchEmployeeId);
+        employeeName = findViewById(R.id.employeePunchName);
+        dateRangeTextView = findViewById(R.id.timecardDates);
+
+        // Set the initial texts.
+
+        employeeName.setText(employee.getName());
+        employeeId.setText(employee.getEmployeeNumber());
+
+        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+        calendar.set(Calendar.DAY_OF_WEEK,Calendar.SUNDAY);
+        long weekStart = calendar.getTimeInMillis();
+        calendar.add(Calendar.DAY_OF_WEEK,Calendar.FRIDAY);
+        long weekEnd = calendar.getTimeInMillis();
+
+        Date start,end;
+        start = new Date(weekStart);
+        end = new Date(weekEnd);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("MMMM dd");
+        String formattedStart =  sdf.format(start);
+        String formattedEnd= sdf.format(end);
+
+        StringBuilder sb = new StringBuilder();
+        sb.append(formattedStart);
+        sb.append(" - ");
+        sb.append(formattedEnd);
+
+        dateRangeTextView.setText(sb.toString());
     }
 
 }

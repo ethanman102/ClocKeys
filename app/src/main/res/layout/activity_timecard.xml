@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Management.TimecardActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/timecardToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green_700"
+        app:title="Timecard"
+        app:titleTextColor="@color/white"
+        app:navigationIcon="@drawable/signup_activity_back">
+
+    </androidx.appcompat.widget.Toolbar>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/green_300"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="10dp"
+        android:layout_marginBottom="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/punchTitleText"
+                android:layout_marginStart="20dp"
+                android:textSize="30sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Punches"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                >
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/employeePunchName"
+                android:textColor="@color/white"
+                android:text="Addison Rae"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/punchTitleText"
+                android:layout_marginStart="20dp"
+                android:textSize="20sp"></TextView>
+
+            <ImageView
+                android:id="@+id/punchClockImageView"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/punch_clock_vector"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"></ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:id="@+id/punchEmployeeId"
+                android:text="127979"
+                android:layout_marginBottom="35dp"
+                android:textSize="15sp"
+                android:layout_below="@id/employeePunchName"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="-5dp">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="5dp"
+                android:text="July 1 - July 13"
+                android:id="@+id/timecardDates"
+                android:layout_below="@id/punchClockImageView"></TextView>
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray"
+        android:text="Working Periods"
+        android:layout_marginStart="10dp"
+        android:textSize="20sp"></TextView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/punchRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false" ></androidx.recyclerview.widget.RecyclerView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/green_200"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="5dp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/timecardGrandTotalText"
+                android:layout_width="wrap_content"
+                android:text="@string/timecard_total"
+                android:textSize="30sp"
+                android:textColor="@color/gray"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                >
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/timecardGrandTotalHrs"
+                android:textSize="30sp"
+                android:textColor="@color/gray"
+                android:text="0 Hrs"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"></TextView>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

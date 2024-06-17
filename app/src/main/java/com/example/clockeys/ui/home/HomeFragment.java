@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.clockeys.Adapters.EmployeeAdapter;
+import com.example.clockeys.Callbacks.OnEmployeeFiredCallback;
 import com.example.clockeys.Models.Company;
 import com.example.clockeys.R;
 import com.example.clockeys.Time.Punch;
@@ -24,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements OnEmployeeFiredCallback {
 
     private FragmentHomeBinding binding;
     private RecyclerView recyclerView;
@@ -51,7 +52,7 @@ public class HomeFragment extends Fragment {
         recyclerView.setHasFixedSize(Boolean.TRUE);
 
         employeeList = company.getEmployees();
-        employeeAdapter = new EmployeeAdapter(getContext(),employeeList);
+        employeeAdapter = new EmployeeAdapter(getContext(),employeeList,this,company);
         recyclerView.setAdapter(employeeAdapter);
 
 
@@ -67,5 +68,11 @@ public class HomeFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public boolean onEmployeeFired(Employee employee) {
+
+        return true;
     }
 }

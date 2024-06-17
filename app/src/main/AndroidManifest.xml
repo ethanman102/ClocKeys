@@ -13,6 +13,9 @@
         android:theme="@style/Theme.ClocKeys"
         tools:targetApi="31">
         <activity
+            android:name=".Management.TimecardActivity"
+            android:exported="false" />
+        <activity
             android:name=".Startups.Signup"
             android:exported="false" />
         <activity
@@ -28,7 +31,7 @@
         <activity
             android:name=".Startups.LoginStart"
             android:exported="true"
-            android:label="Login"></activity>
+            android:label="Login" />
     </application>
 
 </manifest>

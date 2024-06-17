@@ -44,9 +44,9 @@ public class ProfileFragment extends Fragment {
 
         ArrayList<Punch> punches = new ArrayList<Punch>();
         punches.add(new Punch(LocalDateTime.of(2024, 6, 16, 22, 56)));
-
+        Timecard tc = new Timecard(punches);
         bindViews(root); // bind the views to the root...
-        user = new Employee(1092,"Ethan Keys",new Date(),new Timecard(punches),new Date(),"Worker");
+        user = new Employee(1092,"Ethan Keys",new Date(),tc,new Date(),"Worker");
 
         timeCardButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -58,6 +58,7 @@ public class TimecardActivity extends AppCompatActivity {
         intent = getIntent();
         employee = (Employee) intent.getSerializableExtra("employee",Employee.class);
 
+        employee.getTimecard().newPunch();
         bindViews();
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -70,9 +71,6 @@ public class TimecardActivity extends AppCompatActivity {
         punchRecyclerView = findViewById(R.id.punchRecyclerView);
         punchRecyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
         punchRecyclerView.setHasFixedSize(Boolean.TRUE);
-
-
-        employee.getTimecard().newPunch();
 
         punchAdapter = new PunchAdapter(getBaseContext(),employee.getTimecard().getClockedHours());
         punchRecyclerView.setAdapter(punchAdapter);

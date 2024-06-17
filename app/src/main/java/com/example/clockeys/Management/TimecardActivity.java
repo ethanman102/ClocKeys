@@ -3,6 +3,7 @@ package com.example.clockeys.Management;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.util.Pair;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,9 +12,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.clockeys.Adapters.PunchAdapter;
 import com.example.clockeys.R;
 import com.example.clockeys.Time.Timecard;
 import com.example.clockeys.Users.Employee;
@@ -32,6 +35,8 @@ public class TimecardActivity extends AppCompatActivity {
     private Intent intent;
     private Employee employee;
     private TextView employeeName,employeeId, dateRangeTextView;
+    private PunchAdapter punchAdapter;
+    private RecyclerView punchRecyclerView;
 
 
     @Override
@@ -67,7 +72,6 @@ public class TimecardActivity extends AppCompatActivity {
         // Handle item selection
         int id = item.getItemId();
         if (id == R.id.dateRangeTimecard){
-            long startDate,endDate;
             Toast.makeText(this, "Date Range clicked", Toast.LENGTH_SHORT).show();
             MaterialDatePicker materialDatePicker = createDateRangePicker();
             materialDatePicker.show(getSupportFragmentManager(),"MATERIAL_DATE_PICKER");

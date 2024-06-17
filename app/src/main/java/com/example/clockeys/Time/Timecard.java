@@ -25,7 +25,7 @@ public class Timecard implements Serializable {
     public double calculateTime(){
         double totalTime = 0.00;
         for (Punch punch : clockedHours){
-            totalTime = totalTime + punch.punchTime();
+            totalTime += punch.punchTime();
             Log.d("HHEY", "calculateTime: " + String.valueOf(totalTime));
         }
 

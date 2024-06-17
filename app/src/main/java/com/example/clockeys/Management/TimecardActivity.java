@@ -34,7 +34,7 @@ public class TimecardActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private Intent intent;
     private Employee employee;
-    private TextView employeeName,employeeId, dateRangeTextView;
+    private TextView employeeName,employeeId, dateRangeTextView, totalHours;
     private PunchAdapter punchAdapter;
     private RecyclerView punchRecyclerView;
 
@@ -105,12 +105,14 @@ public class TimecardActivity extends AppCompatActivity {
         employeeId = findViewById(R.id.punchEmployeeId);
         employeeName = findViewById(R.id.employeePunchName);
         dateRangeTextView = findViewById(R.id.timecardDates);
+        totalHours = findViewById(R.id.timecardGrandTotalHrs);
 
         Pair<Long,Long> currentWeek = currentWeekMillis();
 
         // Set the initial texts.
         employeeName.setText(employee.getName());
         employeeId.setText(String.valueOf(employee.getEmployeeNumber()));
+        totalHours.setText(String.valueOf(employee.getTimecard().calculateTime()));
 
         dateRangeTextView.setText(dateRangeString(new Date(currentWeek.first),new Date(currentWeek.second)));
     }

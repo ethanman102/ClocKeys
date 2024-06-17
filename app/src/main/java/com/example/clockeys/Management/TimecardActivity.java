@@ -23,14 +23,16 @@ import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClic
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 import java.util.TimeZone;
 
 public class TimecardActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private Intent intent;
-    private Timecard timecard;
+    private Employee employee;
     private TextView employeeName,employeeId, dateRangeTextView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +42,8 @@ public class TimecardActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.timecardToolbar);
         setSupportActionBar(toolbar);
 
-        timecard = (Timecard) getIntent().getSerializableExtra("employeeTimecard");
+        intent = getIntent();
+        employee = (Employee) intent.getSerializableExtra("employee",Employee.class);
 
         bindViews();
 
@@ -74,6 +77,7 @@ public class TimecardActivity extends AppCompatActivity {
                 public void onPositiveButtonClick(Pair<Long,Long> selection) {
                     long filterStart = selection.first;
                     long filterEnd = selection.second;
+                    dateRangeTextView.setText(dateRangeFormat(new Date(filterStart),new Date(filterEnd)));
                 }
             });
 
@@ -107,8 +111,8 @@ public class TimecardActivity extends AppCompatActivity {
 
         // Set the initial texts.
 
-        employeeName.setText((String) intent.getSerializableExtra("employeeName"));
-        employeeId.setText((String)intent.getSerializableExtra("employeeId"));
+        employeeName.setText(employee.getName());
+
         Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
         calendar.set(Calendar.DAY_OF_WEEK,Calendar.SUNDAY);
         long weekStart = calendar.getTimeInMillis();
@@ -119,7 +123,12 @@ public class TimecardActivity extends AppCompatActivity {
         start = new Date(weekStart);
         end = new Date(weekEnd);
 
-        SimpleDateFormat sdf = new SimpleDateFormat("MMMM dd");
+        dateRangeTextView.setText(dateRangeFormat(start,end));
+    }
+
+    private String dateRangeFormat(Date start, Date end){
+        SimpleDateFormat sdf = new SimpleDateFormat("MMMM dd", Locale.getDefault());
+        sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
         String formattedStart =  sdf.format(start);
         String formattedEnd= sdf.format(end);
 
@@ -128,7 +137,7 @@ public class TimecardActivity extends AppCompatActivity {
         sb.append(" - ");
         sb.append(formattedEnd);
 
-        dateRangeTextView.setText(sb.toString());
+        return sb.toString();
     }
 
 }

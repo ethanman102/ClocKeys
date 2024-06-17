@@ -77,7 +77,7 @@ public class TimecardActivity extends AppCompatActivity {
                 public void onPositiveButtonClick(Pair<Long,Long> selection) {
                     long filterStart = selection.first;
                     long filterEnd = selection.second;
-                    dateRangeTextView.setText(dateRangeFormat(new Date(filterStart),new Date(filterEnd)));
+                    dateRangeTextView.setText(dateRangeString(new Date(filterStart),new Date(filterEnd)));
                 }
             });
 
@@ -90,15 +90,8 @@ public class TimecardActivity extends AppCompatActivity {
 
         long weekStart,weekEnd;
 
-        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
-        calendar.set(Calendar.DAY_OF_WEEK,Calendar.SUNDAY);
-        weekStart = calendar.getTimeInMillis();
-        calendar.add(Calendar.DAY_OF_WEEK,Calendar.FRIDAY);
-        weekEnd = calendar.getTimeInMillis();
-
-
         MaterialDatePicker.Builder<Pair<Long, Long>> materialDateBuilder = MaterialDatePicker.Builder.dateRangePicker();
-        materialDateBuilder.setTitleText("Punch Date Range").setSelection(Pair.create(weekStart,weekEnd));
+        materialDateBuilder.setTitleText("Punch Date Range").setSelection(currentWeekMillis());
 
         final MaterialDatePicker materialDatePicker = materialDateBuilder.build();
         return  materialDatePicker;
@@ -109,24 +102,16 @@ public class TimecardActivity extends AppCompatActivity {
         employeeName = findViewById(R.id.employeePunchName);
         dateRangeTextView = findViewById(R.id.timecardDates);
 
+        Pair<Long,Long> currentWeek = currentWeekMillis();
+
         // Set the initial texts.
-
         employeeName.setText(employee.getName());
+        employeeId.setText(String.valueOf(employee.getEmployeeNumber()));
 
-        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
-        calendar.set(Calendar.DAY_OF_WEEK,Calendar.SUNDAY);
-        long weekStart = calendar.getTimeInMillis();
-        calendar.add(Calendar.DAY_OF_WEEK,Calendar.FRIDAY);
-        long weekEnd = calendar.getTimeInMillis();
-
-        Date start,end;
-        start = new Date(weekStart);
-        end = new Date(weekEnd);
-
-        dateRangeTextView.setText(dateRangeFormat(start,end));
+        dateRangeTextView.setText(dateRangeString(new Date(currentWeek.first),new Date(currentWeek.second)));
     }
 
-    private String dateRangeFormat(Date start, Date end){
+    private String dateRangeString(Date start, Date end){
         SimpleDateFormat sdf = new SimpleDateFormat("MMMM dd", Locale.getDefault());
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
         String formattedStart =  sdf.format(start);
@@ -138,6 +123,15 @@ public class TimecardActivity extends AppCompatActivity {
         sb.append(formattedEnd);
 
         return sb.toString();
+    }
+
+    private Pair<Long,Long> currentWeekMillis(){
+        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+        calendar.set(Calendar.DAY_OF_WEEK,Calendar.SUNDAY);
+        long weekStart = calendar.getTimeInMillis();
+        calendar.add(Calendar.DAY_OF_WEEK,Calendar.FRIDAY);
+        long weekEnd = calendar.getTimeInMillis();
+        return Pair.create(weekStart,weekEnd);
     }
 
 }

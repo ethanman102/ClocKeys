@@ -1,8 +1,11 @@
 package com.example.clockeys.Management;
 
+import static java.security.AccessController.getContext;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.util.Pair;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -16,8 +19,10 @@ import android.widget.Adapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.clockeys.Adapters.EmployeeAdapter;
 import com.example.clockeys.Adapters.PunchAdapter;
 import com.example.clockeys.R;
+import com.example.clockeys.Time.Punch;
 import com.example.clockeys.Time.Timecard;
 import com.example.clockeys.Users.Employee;
 import com.google.android.material.datepicker.MaterialDatePicker;
@@ -26,6 +31,7 @@ import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClic
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 
@@ -37,6 +43,7 @@ public class TimecardActivity extends AppCompatActivity {
     private TextView employeeName,employeeId, dateRangeTextView, totalHours;
     private PunchAdapter punchAdapter;
     private RecyclerView punchRecyclerView;
+    private List<Punch> filteredPunches;
 
 
     @Override
@@ -58,6 +65,27 @@ public class TimecardActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        punchRecyclerView = findViewById(R.id.punchRecyclerView);
+        punchRecyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
+        punchRecyclerView.setHasFixedSize(Boolean.TRUE);
+
+        employee.getTimecard().newPunch();
+        employee.getTimecard().newPunch();
+
+        employee.getTimecard().newPunch();
+        employee.getTimecard().newPunch();
+        employee.getTimecard().newPunch();
+        employee.getTimecard().newPunch();
+        employee.getTimecard().newPunch();
+        employee.getTimecard().newPunch();
+        employee.getTimecard().newPunch();
+        employee.getTimecard().newPunch();
+        employee.getTimecard().newPunch();
+        employee.getTimecard().newPunch();
+
+        punchAdapter = new PunchAdapter(getBaseContext(),employee.getTimecard().getClockedHours());
+        punchRecyclerView.setAdapter(punchAdapter);
     }
 
     @Override
@@ -112,7 +140,7 @@ public class TimecardActivity extends AppCompatActivity {
         // Set the initial texts.
         employeeName.setText(employee.getName());
         employeeId.setText(String.valueOf(employee.getEmployeeNumber()));
-        totalHours.setText(String.valueOf(employee.getTimecard().calculateTime()));
+        totalHours.setText(String.valueOf(employee.getTimecard().calculateTime()) + " Hrs");
 
         dateRangeTextView.setText(dateRangeString(new Date(currentWeek.first),new Date(currentWeek.second)));
     }

@@ -28,7 +28,7 @@ public class Timecard implements Serializable {
         return  totalTime;
     }
 
-    private void newPunch(){
+    public void newPunch(){
         if (clockedHours.size() == 0 || clockedHours.get(clockedHours.size() - 1).getPunchOut() != null){
             clockedHours.add(new Punch(LocalDateTime.now()));
         }else{

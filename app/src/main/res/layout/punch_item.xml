@@ -42,7 +42,7 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:src="@drawable/employee_hire_vectotr"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="20dp"
                 app:tint="@color/white">
 
             </ImageView>
@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:text="7:00am - 5:00pm"
                 android:textColor="@color/white"
-                android:layout_marginEnd="10dp"
+                android:layout_marginEnd="20dp"
                 android:layout_alignParentRight="true"
                 android:textSize="20sp">
 
@@ -68,7 +68,7 @@
                 android:textSize="15sp"
                 android:text="10 Hours"
                 android:layout_below="@+id/punchTimeText"
-                android:layout_marginEnd="10dp"></TextView>
+                android:layout_marginEnd="20dp"></TextView>
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>

@@ -57,4 +57,5 @@
     <string name="new_user">New User</string>
     <string name="account_details">Account Details</string>
     <string name="timecard_and_manage"><u>Timecard and Manage</u></string>
+    <string name="timecard_total">Total:</string>
 </resources>

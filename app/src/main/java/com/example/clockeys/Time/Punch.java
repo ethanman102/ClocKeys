@@ -1,5 +1,7 @@
 package com.example.clockeys.Time;
 
+import android.util.Log;
+
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -30,7 +32,11 @@ public class Punch implements Serializable {
 
 
     public long punchTime(){
-        if (punchOut == null) return 0;
+        if (punchOut == null) {
+
+            Log.d("HHEY", "punchTime: is null");
+            return 0;
+        }
         else return (long) Math.ceil(((punchOut.getTime() - punchIn.getTime()) / 1000));
     }
 

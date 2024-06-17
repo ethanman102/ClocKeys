@@ -23,6 +23,7 @@ import com.example.clockeys.databinding.FragmentProfileBinding;
 import org.w3c.dom.Text;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -41,8 +42,11 @@ public class ProfileFragment extends Fragment {
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        ArrayList<Punch> punches = new ArrayList<Punch>();
+        punches.add(new Punch(LocalDateTime.of(2024, 6, 16, 22, 56)));
+
         bindViews(root); // bind the views to the root...
-        user = new Employee(1092,"Ethan Keys",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker");
+        user = new Employee(1092,"Ethan Keys",new Date(),new Timecard(punches),new Date(),"Worker");
 
         timeCardButton.setOnClickListener(new View.OnClickListener() {
             @Override

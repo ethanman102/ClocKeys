@@ -28,6 +28,7 @@ import com.example.clockeys.Users.Employee;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -70,18 +71,7 @@ public class TimecardActivity extends AppCompatActivity {
         punchRecyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
         punchRecyclerView.setHasFixedSize(Boolean.TRUE);
 
-        employee.getTimecard().newPunch();
-        employee.getTimecard().newPunch();
 
-        employee.getTimecard().newPunch();
-        employee.getTimecard().newPunch();
-        employee.getTimecard().newPunch();
-        employee.getTimecard().newPunch();
-        employee.getTimecard().newPunch();
-        employee.getTimecard().newPunch();
-        employee.getTimecard().newPunch();
-        employee.getTimecard().newPunch();
-        employee.getTimecard().newPunch();
         employee.getTimecard().newPunch();
 
         punchAdapter = new PunchAdapter(getBaseContext(),employee.getTimecard().getClockedHours());
@@ -140,7 +130,8 @@ public class TimecardActivity extends AppCompatActivity {
         // Set the initial texts.
         employeeName.setText(employee.getName());
         employeeId.setText(String.valueOf(employee.getEmployeeNumber()));
-        totalHours.setText(String.valueOf(employee.getTimecard().calculateTime()) + " Hrs");
+        DecimalFormat df = new DecimalFormat("#.00");
+        totalHours.setText(df.format(employee.getTimecard().calculateTime()) + " Hrs");
 
         dateRangeTextView.setText(dateRangeString(new Date(currentWeek.first),new Date(currentWeek.second)));
     }

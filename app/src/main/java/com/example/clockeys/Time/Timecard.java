@@ -1,5 +1,7 @@
 package com.example.clockeys.Time;
 
+import android.util.Log;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -20,12 +22,14 @@ public class Timecard implements Serializable {
     }
 
 
-    public long calculateTime(){
-        long totalTime = 0;
+    public double calculateTime(){
+        double totalTime = 0.00;
         for (Punch punch : clockedHours){
-            totalTime += punch.punchTime();
+            totalTime = totalTime + punch.punchTime();
+            Log.d("HHEY", "calculateTime: " + String.valueOf(totalTime));
         }
-        return  totalTime;
+
+        return  totalTime / 60.0 / 60.0;
     }
 
     public void newPunch(){

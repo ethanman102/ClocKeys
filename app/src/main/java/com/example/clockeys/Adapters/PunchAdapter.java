@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.clockeys.R;
 import com.example.clockeys.Time.Punch;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class PunchAdapter extends RecyclerView.Adapter<PunchAdapter.MyViewHolder> {
@@ -34,7 +35,8 @@ public class PunchAdapter extends RecyclerView.Adapter<PunchAdapter.MyViewHolder
     public void onBindViewHolder(@NonNull PunchAdapter.MyViewHolder holder, int position) {
         Punch punch = punches.get(position);
         holder.punchTime.setText(punch.toString());
-        holder.punchHours.setText(String.valueOf(punch.punchTime()));
+        DecimalFormat df = new DecimalFormat("#.00");
+        holder.punchHours.setText(df.format((punch.punchTime()) / 60.0 / 60.0) + " Hrs");
         holder.punchDate.setText(punch.getStringDate());
     }
 

@@ -1,4 +1,4 @@
-package com.example.clockeys.ui.dashboard;
+package com.example.clockeys.ui.punch;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,14 +12,14 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.clockeys.databinding.FragmentDashboardBinding;
 
-public class DashboardFragment extends Fragment {
+public class PunchFragment extends Fragment {
 
     private FragmentDashboardBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DashboardViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+        PunchViewModel dashboardViewModel =
+                new ViewModelProvider(this).get(PunchViewModel.class);
 
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

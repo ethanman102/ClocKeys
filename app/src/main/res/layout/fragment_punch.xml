@@ -12,7 +12,9 @@
         android:layout_marginEnd="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        app:cardBackgroundColor="@color/gray">
+        app:cardBackgroundColor="@color/gray"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="5dp">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -29,6 +31,13 @@
             </TextView>
 
             <TextView
+                android:text="NA"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:layout_marginEnd="5dp"
                 android:id="@+id/lastPunchTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"></TextView>

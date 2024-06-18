@@ -10,22 +10,20 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.clockeys.databinding.FragmentDashboardBinding;
+import com.example.clockeys.databinding.FragmentPunchBinding;
 
 public class PunchFragment extends Fragment {
 
-    private FragmentDashboardBinding binding;
+    private FragmentPunchBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         PunchViewModel dashboardViewModel =
                 new ViewModelProvider(this).get(PunchViewModel.class);
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = FragmentPunchBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textDashboard;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

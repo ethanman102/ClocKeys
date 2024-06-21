@@ -91,6 +91,19 @@
                 android:id="@+id/lastPunchTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:layout_below="@id/punchFragmentTV"
+                android:text="Punch Type:"
+                android:layout_marginStart="5dp"
+                android:id="@+id/punchFragmentPunchType"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

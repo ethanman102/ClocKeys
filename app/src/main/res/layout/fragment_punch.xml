@@ -29,6 +29,17 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp">
             </ImageView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_toRightOf="@id/punchFragmentVector"
+                android:text="Company Name"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="27sp"
+                android:layout_centerVertical="true"
+                android:id="@+id/punchFragmentCompanyName"></TextView>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView

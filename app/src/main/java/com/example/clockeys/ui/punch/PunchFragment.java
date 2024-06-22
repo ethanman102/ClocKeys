@@ -39,12 +39,13 @@ public class PunchFragment extends Fragment {
     }
 
     private void bindViews(View root){
-        
+
         punchType = root.findViewById(R.id.punchFragmentPunchType);
         lastPunchTime = root.findViewById(R.id.lastPunchTV);
         companyName = root.findViewById(R.id.punchFragmentCompanyName);
 
         textClock = root.findViewById(R.id.punchTextClock);
+        textClock.setFormat12Hour("hh:mm:ss a");
 
     }
 }

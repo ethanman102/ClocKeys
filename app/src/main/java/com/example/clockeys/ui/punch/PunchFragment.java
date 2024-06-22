@@ -28,6 +28,7 @@ public class PunchFragment extends Fragment {
 
         binding = FragmentPunchBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        bindViews(root);
 
         return root;
     }

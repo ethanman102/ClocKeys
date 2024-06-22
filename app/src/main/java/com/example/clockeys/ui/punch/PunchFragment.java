@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 
+import com.example.clockeys.R;
 import com.example.clockeys.databinding.FragmentPunchBinding;
 
 public class PunchFragment extends Fragment {
@@ -35,5 +36,15 @@ public class PunchFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    private void bindViews(View root){
+        
+        punchType = root.findViewById(R.id.punchFragmentPunchType);
+        lastPunchTime = root.findViewById(R.id.lastPunchTV);
+        companyName = root.findViewById(R.id.punchFragmentCompanyName);
+
+        textClock = root.findViewById(R.id.punchTextClock);
+
     }
 }

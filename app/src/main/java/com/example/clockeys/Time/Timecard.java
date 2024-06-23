@@ -32,11 +32,13 @@ public class Timecard implements Serializable {
         return  totalTime / 60.0 / 60.0;
     }
 
-    public void newPunch(){
+    public String newPunch(){
         if (clockedHours.size() == 0 || clockedHours.get(clockedHours.size() - 1).getPunchOut() != null){
             clockedHours.add(new Punch(LocalDateTime.now()));
+            return "In";
         }else{
             clockedHours.get(clockedHours.size() - 1).createPunchOut(LocalDateTime.now());
+            return "Out";
         }
     }
 

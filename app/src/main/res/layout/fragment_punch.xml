@@ -27,12 +27,13 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="5dp"
                 android:layout_width="50dp"
-                android:layout_height="50dp">
+                android:layout_height="50dp"
+                app:tint="@color/gray">
             </ImageView>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:textColor="@color/gray"
                 android:layout_toRightOf="@id/punchFragmentVector"
                 android:text="Company Name"
                 android:layout_marginTop="10dp"
@@ -51,6 +52,7 @@
         android:layout_width="match_parent"
         app:cardCornerRadius="5dp"
         app:cardElevation="10dp"
+
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp">
         <RelativeLayout
@@ -60,7 +62,7 @@
                 android:id="@+id/currentTimeTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Current Time"
+                android:text="Current Time:"
                 android:layout_marginTop="20dp"
                 android:textColor="@color/white"
                 android:textSize="25sp"
@@ -71,6 +73,7 @@
                 android:layout_height="70dp"
                 android:src="@drawable/timeclock_vector"
                 app:tint="@color/white"
+                android:layout_centerVertical="true"
                 android:layout_marginEnd="10dp"
                 android:layout_alignParentEnd="true"
                 ></ImageView>
@@ -90,7 +93,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="50sp"
+        android:textSize="30sp"
         android:text="Punch"
         android:id="@+id/punchButton"
         android:backgroundTint="@color/green_700"
@@ -151,7 +154,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
                 android:layout_marginStart="5dp"
-                android:text="In"
+                android:text="NA"
+                android:id="@+id/punchType"
                 android:layout_alignParentRight="true"
                 android:layout_below="@id/punchFragmentTV"
                 android:textColor="@color/white"

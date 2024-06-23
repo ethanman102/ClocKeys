@@ -134,7 +134,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:textColor="@color/white"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:layout_marginEnd="5dp"
                 android:id="@+id/lastPunchTV"
                 android:layout_width="wrap_content"

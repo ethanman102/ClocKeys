@@ -57,6 +57,8 @@ public class PunchFragment extends Fragment {
                 ZonedDateTime zonedDateTime = punch.atZone(ZoneId.systemDefault());
                 SimpleDateFormat sdf = new SimpleDateFormat("MMMM dd yyyy h:mm a", Locale.getDefault());
                 lastPunchTime.setText(sdf.format(Date.from(zonedDateTime.toInstant())));
+
+                punchType.setText(employee.getTimecard().newPunch());
             }
         });
 

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextClock;
 import android.widget.TextView;
 
@@ -19,6 +20,7 @@ public class PunchFragment extends Fragment {
 
     private TextView punchType,lastPunchTime,companyName;
     private TextClock textClock;
+    private Button punchButton;
     private FragmentPunchBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -47,6 +49,7 @@ public class PunchFragment extends Fragment {
 
         textClock = root.findViewById(R.id.punchTextClock);
         textClock.setFormat12Hour("hh:mm:ss a");
+
 
     }
 }

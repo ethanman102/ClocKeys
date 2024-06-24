@@ -67,10 +67,6 @@
                         android:layout_marginTop="10dp"
                         android:id="@+id/editProfilePortraitTV"
                         ></TextView>
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src=""></ImageButton>
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>

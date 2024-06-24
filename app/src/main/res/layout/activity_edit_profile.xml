@@ -46,7 +46,14 @@
                     android:layout_height="match_parent">
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="150dp"
-                        android:layout_height="150dp">
+                        android:layout_height="150dp"
+                        android:id="@+id/editProfilePortrait"
+                        app:civ_border_width="2dp"
+                        app:civ_border_color="@color/green_700"
+                        android:src="@drawable/addison_rae"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginStart="5dp">
                     </de.hdodenhof.circleimageview.CircleImageView>
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>

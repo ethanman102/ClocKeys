@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/green_700"
     tools:context=".Management.EditProfileActivity"
     android:orientation="vertical">
     <androidx.appcompat.widget.Toolbar
@@ -15,60 +16,27 @@
         app:titleTextColor="@color/white"
         app:navigationIcon="@drawable/signup_activity_back">
     </androidx.appcompat.widget.Toolbar>
-    <ScrollView
+    <View
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Personal Infomation"
-                android:textColor="@color/gray"
-                android:textSize="25sp"
-                android:layout_marginTop="20dp"
-                android:layout_marginStart="10dp"></TextView>
+        android:layout_height="3dp"
+        android:background="@color/gray"></View>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/nameLayout"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:text="Name"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:id="@+id/nameTV"
+            android:layout_marginStart="10dp">
+        </TextView>
+    </RelativeLayout>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/green_200"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="10dp">
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
-                        android:id="@+id/editProfilePortrait"
-                        app:civ_border_width="2dp"
-                        app:civ_border_color="@color/green_700"
-                        android:src="@drawable/addison_rae"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginStart="5dp">
-                    </de.hdodenhof.circleimageview.CircleImageView>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/gray"
-                        android:textSize="30sp"
-                        android:text="Profile Picture"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginEnd="20dp"
-                        android:layout_marginTop="10dp"
-                        android:id="@+id/editProfilePortraitTV"
-                        ></TextView>
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
-    </ScrollView>
 </LinearLayout>

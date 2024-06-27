@@ -73,11 +73,145 @@
             android:layout_marginBottom="15sp"
             android:layout_marginTop="15sp"
             android:id="@+id/employeeNameChangeable"
-            android:layout_toRightOf="@id/nameTV"
+
             android:textColor="@color/white"
-            android:layout_marginStart="50dp">
+            android:layout_marginStart="150dp">
         </TextView>
     </RelativeLayout>
+    <View
+        android:layout_width="300dp"
+        android:layout_gravity="right"
+        android:layout_height="2dp"
+        android:background="@color/gray"></View>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/birthdayLayout"
+        android:clickable="true"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:text="Date of birth"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:id="@+id/birthdayTV"
+            android:clickable="false"
+            android:layout_marginStart="10dp">
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="April 7, 2003"
+            android:layout_marginBottom="15sp"
+            android:layout_marginTop="15sp"
+            android:id="@+id/employeeBirthdayDate"
+            android:textColor="@color/white"
+            android:layout_marginStart="150dp">
+        </TextView>
+    </RelativeLayout>
+    <View
+        android:layout_width="300dp"
+        android:layout_gravity="right"
+        android:layout_height="2dp"
+        android:background="@color/gray"></View>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bioLayout"
+        android:clickable="true"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:text="Bio"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:id="@+id/bioTV"
+            android:clickable="false"
+            android:layout_marginStart="10dp">
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="I am a famous tiktoker who can only sing and dance and has no other talent"
+            android:layout_marginBottom="15sp"
+            android:layout_marginTop="15sp"
+            android:id="@+id/employeeBio"
+            android:textColor="@color/white"
+            android:layout_marginStart="150dp">
+        </TextView>
+    </RelativeLayout>
+    <View
+        android:layout_width="300dp"
+        android:layout_gravity="right"
+        android:layout_height="2dp"
+        android:background="@color/gray"></View>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/addressLayout"
+        android:clickable="true"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:text="Address"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:id="@+id/AddressTV"
+            android:clickable="false"
+            android:layout_marginStart="10dp">
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="2028 Haddow Drive NW"
+            android:layout_marginBottom="15sp"
+            android:layout_marginTop="15sp"
+            android:id="@+id/employeeAddress"
+            android:textColor="@color/white"
+            android:layout_marginStart="150dp">
+        </TextView>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/gray"></View>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/blue_700"
+        android:text="Leave Company"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:paddingStart="10dp"
+        android:id="@+id/leaveCompanyTV"></TextView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/gray"></View>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/blue_700"
+        android:text="Delete Profile"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:paddingStart="10dp"
+        android:id="@+id/deleteProfileTV"></TextView>
+
 
 
 </LinearLayout>

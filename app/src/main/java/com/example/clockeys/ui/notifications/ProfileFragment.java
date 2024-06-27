@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.clockeys.MainActivity;
+import com.example.clockeys.Management.EditProfileActivity;
 import com.example.clockeys.Management.TimecardActivity;
 import com.example.clockeys.R;
 import com.example.clockeys.Time.Punch;
@@ -94,6 +95,11 @@ public class ProfileFragment extends Fragment {
     private void startTimeCardActivity(){
         Intent intent = new Intent(getActivity(), TimecardActivity.class);
         intent.putExtra("employee",(Serializable) user);
+        startActivity(intent);
+    }
+
+    private void startInfoActivity(){
+        Intent intent = new Intent(getActivity(), EditProfileActivity.class);
         startActivity(intent);
     }
     @Override

@@ -18,12 +18,13 @@
     </androidx.appcompat.widget.Toolbar>
     <View
         android:layout_width="match_parent"
-        android:layout_height="3dp"
+        android:layout_height="2dp"
         android:background="@color/gray"></View>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/nameLayout"
+        android:clickable="true"
         >
         <TextView
             android:layout_width="wrap_content"
@@ -34,7 +35,20 @@
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
             android:id="@+id/nameTV"
+            android:clickable="false"
             android:layout_marginStart="10dp">
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Ethan Keys"
+            android:layout_marginBottom="15sp"
+            android:layout_marginTop="15sp"
+            android:id="@+id/employeeNameChangeable"
+            android:layout_toRightOf="@id/nameTV"
+            android:textColor="@color/white"
+            android:layout_marginStart="50dp">
         </TextView>
     </RelativeLayout>
 

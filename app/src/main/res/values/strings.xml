@@ -59,4 +59,7 @@
     <string name="timecard_and_manage"><u>Timecard and Manage</u></string>
     <string name="timecard_total">Total:</string>
     <string name="last_punch">Last Punch:</string>
+
+    <string name="name">Name</string>
+    <string name="name_description">Provide your profile with your first name, last name, or a nickname </string>
 </resources>

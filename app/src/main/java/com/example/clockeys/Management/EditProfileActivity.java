@@ -12,10 +12,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.clockeys.R;
+import com.example.clockeys.Users.Employee;
 
 
 public class EditProfileActivity extends AppCompatActivity {
 
+    private Employee employee;
     private Toolbar toolbar;
     private RelativeLayout name,birthdate,address,bio;
     private TextView leaveCompany,deleteProfile;
@@ -30,20 +32,23 @@ public class EditProfileActivity extends AppCompatActivity {
 
             if (result.getResultCode() == RESULT_OK && result.getData() != null){
                 Intent intent = result.getData();
-                switch (intent.getIntExtra("editType",0)){
-
-                }
+                employee = intent.getSerializableExtra("employee", Employee.class);
             }
-
-
-
 
         });
 
 
 
     }
+    private void launchEditName(){
+        Intent intent = new Intent();
 
+        intent.putExtra("employee",employee);
+        intent.putExtra("hint",getString(R.string.name));
+        intent.putExtra("description",getString(R.string.nameDescription));
+        intent.putExtra("length",30);
+
+    }
     private void bindViews(){
 
         // binding the layouts

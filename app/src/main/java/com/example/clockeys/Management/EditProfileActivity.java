@@ -13,7 +13,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.clockeys.R;
+import com.example.clockeys.Time.Punch;
+import com.example.clockeys.Time.Timecard;
 import com.example.clockeys.Users.Employee;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 
 public class EditProfileActivity extends AppCompatActivity {
@@ -28,6 +33,8 @@ public class EditProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
+
+        employee = new Employee(1092,"Ethan Keys",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker","bio");
 
         profileInputActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),result ->{
 
@@ -71,6 +78,7 @@ public class EditProfileActivity extends AppCompatActivity {
     private void launchEditBio(){
         Intent intent = new Intent(EditProfileActivity.this,ProfileInputActivity.class);
         intent.putExtra("employee",employee);
+        intent.putExtra("text",employee.getBio());
         intent.putExtra("hint",getString(R.string.bio));
         intent.putExtra("description",getString(R.string.bio_description));
         intent.putExtra("length",150);

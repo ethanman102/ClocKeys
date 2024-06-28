@@ -26,7 +26,7 @@ public class EditProfileActivity extends AppCompatActivity {
     private Employee employee;
     private Toolbar toolbar;
     private RelativeLayout name,birthdate,address,bio;
-    private TextView leaveCompany,deleteProfile;
+    private TextView leaveCompany,deleteProfile,nameTV,bioTV;
 
     private ActivityResultLauncher<Intent> profileInputActivityResultLauncher;
     @Override
@@ -41,11 +41,13 @@ public class EditProfileActivity extends AppCompatActivity {
             if (result.getResultCode() == RESULT_OK && result.getData() != null){
                 Intent intent = result.getData();
                 employee = intent.getSerializableExtra("employee", Employee.class);
+                setViews();
             }
 
         });
 
         bindViews();
+        setViews();
         name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,5 +96,13 @@ public class EditProfileActivity extends AppCompatActivity {
         birthdate = findViewById(R.id.birthdayLayout);
         address = findViewById(R.id.addressLayout);
 
+        bioTV = findViewById(R.id.employeeBio);
+        nameTV = findViewById(R.id.employeeNameChangeable);
+
+    }
+
+    private void setViews(){
+        nameTV.setText(employee.getName());
+        bioTV.setText(employee.getBio());
     }
 }

@@ -8,6 +8,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -37,16 +38,26 @@ public class EditProfileActivity extends AppCompatActivity {
 
         });
 
+        bindViews();
+        name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchEditName();
+            }
+        });
+
 
 
     }
     private void launchEditName(){
-        Intent intent = new Intent();
+        Intent intent = new Intent(EditProfileActivity.this,ProfileInputActivity.class);
 
         intent.putExtra("employee",employee);
         intent.putExtra("hint",getString(R.string.name));
-        intent.putExtra("description",getString(R.string.nameDescription));
+        intent.putExtra("description",getString(R.string.name_description));
         intent.putExtra("length",30);
+
+        profileInputActivityResultLauncher.launch(intent);
 
     }
     private void bindViews(){

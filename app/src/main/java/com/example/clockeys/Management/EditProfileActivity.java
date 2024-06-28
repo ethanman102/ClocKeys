@@ -46,6 +46,13 @@ public class EditProfileActivity extends AppCompatActivity {
             }
         });
 
+        bio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchEditBio();
+            }
+        });
+
 
 
     }
@@ -53,12 +60,22 @@ public class EditProfileActivity extends AppCompatActivity {
         Intent intent = new Intent(EditProfileActivity.this,ProfileInputActivity.class);
 
         intent.putExtra("employee",employee);
+        intent.putExtra("text",employee.getName());
         intent.putExtra("hint",getString(R.string.name));
         intent.putExtra("description",getString(R.string.name_description));
         intent.putExtra("length",30);
 
         profileInputActivityResultLauncher.launch(intent);
+    }
 
+    private void launchEditBio(){
+        Intent intent = new Intent(EditProfileActivity.this,ProfileInputActivity.class);
+        intent.putExtra("employee",employee);
+        intent.putExtra("hint",getString(R.string.bio));
+        intent.putExtra("description",getString(R.string.bio_description));
+        intent.putExtra("length",150);
+
+        profileInputActivityResultLauncher.launch(intent);
     }
     private void bindViews(){
 

@@ -8,7 +8,7 @@
     android:background="@color/green_700"
     android:orientation="vertical">
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/editProfileToolbar"
+        android:id="@+id/profileInputToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/green_700"
@@ -31,6 +31,7 @@
         android:layout_marginBottom="10dp"
         android:hint="Name"
         app:counterMaxLength="30"
+        android:id="@+id/profileInputInputLayout"
         app:counterEnabled="true"
         android:textColorHint="@color/white"
         app:endIconMode="clear_text"
@@ -39,7 +40,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/usernameInputEditText"
+            android:id="@+id/profileInputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Ethan Keys"
@@ -53,6 +54,7 @@
         android:textColor="@color/white"
         android:layout_marginTop="10dp"
         android:textSize="15sp"
+        android:id="@+id/profileInputDescription"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:text="This is the text that the user will see to help them decide how to input the user details"></TextView>

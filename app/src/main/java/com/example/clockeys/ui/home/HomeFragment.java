@@ -37,10 +37,10 @@ public class HomeFragment extends Fragment implements OnEmployeeFiredCallback {
                              ViewGroup container, Bundle savedInstanceState) {
 
         ArrayList<Employee> myEmployees = new ArrayList<Employee>();
-        myEmployees.add(new Employee(1092,"Ethan Keys",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker"));
-        myEmployees.add(new Employee(1092,"Ethan Keys2",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker2"));
-        myEmployees.add(new Employee(1092,"Ethan Keys3",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker3"));
-        myEmployees.add(new Employee(1092,"Ethan Keys4",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker4"));
+        myEmployees.add(new Employee(1092,"Ethan Keys",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker","bio"));
+        myEmployees.add(new Employee(1092,"Ethan Keys2",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker2","bio"));
+        myEmployees.add(new Employee(1092,"Ethan Keys3",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker3","bio"));
+        myEmployees.add(new Employee(1092,"Ethan Keys4",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker4","bio"));
 
         company = new Company("Resource Bearing",myEmployees.size(),myEmployees,"Image",19289,12);
 

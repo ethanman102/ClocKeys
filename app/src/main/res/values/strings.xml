@@ -61,5 +61,8 @@
     <string name="last_punch">Last Punch:</string>
 
     <string name="name">Name</string>
-    <string name="name_description">Provide your profile with your first name, last name, or a nickname </string>
+    <string name="name_description">Provide your profile with your first name, last name, or a nickname. </string>
+
+    <string name="bio">Bio</string>
+    <string name="bio_description">Describe yourself with a short biography highlighting some key personal accomplishments, goals, or livelihood!</string>
 </resources>

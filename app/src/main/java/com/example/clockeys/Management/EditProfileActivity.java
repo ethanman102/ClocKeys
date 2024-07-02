@@ -26,7 +26,7 @@ public class EditProfileActivity extends AppCompatActivity {
     private Employee employee;
     private Toolbar toolbar;
     private RelativeLayout name,birthdate,address,bio;
-    private TextView leaveCompany,deleteProfile,nameTV,bioTV;
+    private TextView leaveCompany,deleteProfile,nameTV,bioTV,addressTV;
 
     private ActivityResultLauncher<Intent> profileInputActivityResultLauncher;
     @Override
@@ -115,11 +115,13 @@ public class EditProfileActivity extends AppCompatActivity {
 
         bioTV = findViewById(R.id.employeeBio);
         nameTV = findViewById(R.id.employeeNameChangeable);
+        addressTV = findViewById(R.id.employeeAddress);
 
     }
 
     private void setViews(){
         nameTV.setText(employee.getName());
         bioTV.setText(employee.getBio());
+        addressTV.setText(employee.getAddress());
     }
 }

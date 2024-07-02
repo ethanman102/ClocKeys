@@ -67,6 +67,8 @@ public class ProfileInputActivity extends AppCompatActivity {
                 employee.setName(info);
             } else if (intent.getStringExtra("hint").equals(getString(R.string.bio))) {
                 employee.setBio(info);
+            }else if (intent.getStringExtra("hint").equals((getString(R.string.address)))){
+                employee.setAddress(info);
             }
 
 

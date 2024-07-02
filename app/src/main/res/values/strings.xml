@@ -65,4 +65,7 @@
 
     <string name="bio">Bio</string>
     <string name="bio_description">Describe yourself with a short biography highlighting some key personal accomplishments, goals, or livelihood!</string>
+
+    <string name="address">Address</string>
+    <string name="address_description">Provide your profile with your current specific address. Include the city, street name, and possibly your postal code!</string>
 </resources>

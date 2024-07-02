@@ -34,7 +34,7 @@ public class EditProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
 
-        employee = new Employee(1092,"Ethan Keys",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker","bio");
+        employee = new Employee(1092,"Ethan Keys",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker","bio","address");
 
         profileInputActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),result ->{
 
@@ -62,10 +62,15 @@ public class EditProfileActivity extends AppCompatActivity {
             }
         });
 
-
+        address.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchEditAddress();
+            }
+        });
 
     }
-    private void launchEditName(){
+    public void launchEditName(){
         Intent intent = new Intent(EditProfileActivity.this,ProfileInputActivity.class);
 
         intent.putExtra("employee",employee);
@@ -77,7 +82,7 @@ public class EditProfileActivity extends AppCompatActivity {
         profileInputActivityResultLauncher.launch(intent);
     }
 
-    private void launchEditBio(){
+    public void launchEditBio(){
         Intent intent = new Intent(EditProfileActivity.this,ProfileInputActivity.class);
         intent.putExtra("employee",employee);
         intent.putExtra("text",employee.getBio());
@@ -86,6 +91,18 @@ public class EditProfileActivity extends AppCompatActivity {
         intent.putExtra("length",150);
 
         profileInputActivityResultLauncher.launch(intent);
+    }
+
+    public void launchEditAddress(){
+        Intent intent = new Intent(EditProfileActivity.this,ProfileInputActivity.class);
+        intent.putExtra("employee",employee);
+        intent.putExtra("text",employee.getAddress());
+        intent.putExtra("hint",getString(R.string.address));
+        intent.putExtra("description",getString(R.string.address_description));
+        intent.putExtra("length",40);
+
+        profileInputActivityResultLauncher.launch(intent);
+
     }
     private void bindViews(){
 

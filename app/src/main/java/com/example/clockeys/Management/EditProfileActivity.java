@@ -8,6 +8,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -17,6 +18,7 @@ import com.example.clockeys.Time.Punch;
 import com.example.clockeys.Time.Timecard;
 import com.example.clockeys.Users.Employee;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -29,10 +31,13 @@ public class EditProfileActivity extends AppCompatActivity {
     private TextView leaveCompany,deleteProfile,nameTV,bioTV,addressTV;
 
     private ActivityResultLauncher<Intent> profileInputActivityResultLauncher;
+    private Intent intent,updatedIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
+
+        updatedIntent = new Intent();
 
         employee = new Employee(1092,"Ethan Keys",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker","bio","address");
 
@@ -69,6 +74,29 @@ public class EditProfileActivity extends AppCompatActivity {
             }
         });
 
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setResult(RESULT_CANCELED,updatedIntent);
+                finish();
+            }
+        });
+
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+        if (id == R.id.confirmButton){
+            updatedIntent.putExtra("employee",(Serializable) employee);
+            setResult(RESULT_OK,updatedIntent);
+        }
+        updatedIntent.putExtra("employee",(Serializable) employee);
+        setResult(RESULT_OK,updatedIntent);
+
+        finish();
+        return Boolean.TRUE;
     }
     public void launchEditName(){
         Intent intent = new Intent(EditProfileActivity.this,ProfileInputActivity.class);
@@ -103,6 +131,13 @@ public class EditProfileActivity extends AppCompatActivity {
 
         profileInputActivityResultLauncher.launch(intent);
 
+    }
+
+    public void launchEditBirthday(){
+        Intent intent = new Intent(EditProfileActivity.this,ProfileInputActivity.class);
+        intent.putExtra("employee",employee);
+
+        profileInputActivityResultLauncher.launch(intent);
     }
     private void bindViews(){
 

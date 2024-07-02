@@ -1,5 +1,7 @@
 package com.example.clockeys.ui.notifications;
 
+import static android.app.Activity.RESULT_OK;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -34,6 +38,7 @@ public class ProfileFragment extends Fragment {
     private FragmentProfileBinding binding;
     private LinearLayout timeCardButton,infoButton,logoutButton;
     private TextView employeeName,employeeId,employeeBio,employeeHometown,employeeCompany,employeeJobTitle,employeeJobAddress;
+    private ActivityResultLauncher<Intent> editProfileActivityResultLauncher;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -46,8 +51,22 @@ public class ProfileFragment extends Fragment {
         ArrayList<Punch> punches = new ArrayList<Punch>();
         punches.add(new Punch(LocalDateTime.of(2024, 6, 16, 22, 56)));
         Timecard tc = new Timecard(punches);
+
+
+
         bindViews(root); // bind the views to the root...
+        setViews();
         user = new Employee(1092,"Ethan Keys",new Date(),tc,new Date(),"Worker","bio","address");
+
+        editProfileActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result ->{
+
+            if (result.getResultCode() == RESULT_OK && result.getData() != null){
+                Intent intent = result.getData();
+                user = intent.getSerializableExtra("employee", Employee.class);
+                setViews();
+            }
+
+        });
 
         timeCardButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,7 +92,7 @@ public class ProfileFragment extends Fragment {
         return root;
     }
 
-    private void bindViews(View root){
+     public void bindViews(View root){
 
         // Get Linear Layouts
 
@@ -90,6 +109,13 @@ public class ProfileFragment extends Fragment {
         employeeCompany = root.findViewById(R.id.employeeProfileJobCompany);
         employeeJobAddress = root.findViewById(R.id.employeeProfileJobAddress);
         employeeJobTitle = root.findViewById(R.id.employeeProfileJobTitle);
+    }
+
+    public void setViews(){
+        employeeName.setText(user.getName());
+        employeeJobTitle.setText(user.getTitle());
+        employeeId.setText(Integer.toString(user.getEmployeeNumber()));
+        employeeBio.setText(user.getBio());
     }
 
     private void startTimeCardActivity(){

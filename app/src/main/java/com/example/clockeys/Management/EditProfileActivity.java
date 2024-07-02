@@ -39,8 +39,8 @@ public class EditProfileActivity extends AppCompatActivity {
 
         updatedIntent = new Intent();
 
-        employee = new Employee(1092,"Ethan Keys",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker","bio","address");
-
+        employee = getIntent().getSerializableExtra("employee",Employee.class);
+        
         profileInputActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),result ->{
 
             if (result.getResultCode() == RESULT_OK && result.getData() != null){

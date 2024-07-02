@@ -126,6 +126,7 @@ public class ProfileFragment extends Fragment {
 
     private void startInfoActivity(){
         Intent intent = new Intent(getActivity(), EditProfileActivity.class);
+        intent.putExtra("employee",user);
         startActivity(intent);
     }
     @Override

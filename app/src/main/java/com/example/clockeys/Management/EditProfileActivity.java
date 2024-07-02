@@ -40,7 +40,7 @@ public class EditProfileActivity extends AppCompatActivity {
         updatedIntent = new Intent();
 
         employee = getIntent().getSerializableExtra("employee",Employee.class);
-        
+
         profileInputActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),result ->{
 
             if (result.getResultCode() == RESULT_OK && result.getData() != null){

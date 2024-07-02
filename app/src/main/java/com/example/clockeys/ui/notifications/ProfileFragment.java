@@ -55,9 +55,10 @@ public class ProfileFragment extends Fragment {
 
 
         bindViews(root); // bind the views to the root...
-        setViews();
-        user = new Employee(1092,"Ethan Keys",new Date(),tc,new Date(),"Worker","bio","address");
 
+        user = new Employee(1092,"Ethan Keys",new Date(),tc,new Date(),"Worker","bios are for losers","address");
+
+        setViews();
         editProfileActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result ->{
 
             if (result.getResultCode() == RESULT_OK && result.getData() != null){
@@ -113,7 +114,6 @@ public class ProfileFragment extends Fragment {
 
     public void setViews(){
         employeeName.setText(user.getName());
-        employeeJobTitle.setText(user.getTitle());
         employeeId.setText(Integer.toString(user.getEmployeeNumber()));
         employeeBio.setText(user.getBio());
     }
@@ -127,7 +127,7 @@ public class ProfileFragment extends Fragment {
     private void startInfoActivity(){
         Intent intent = new Intent(getActivity(), EditProfileActivity.class);
         intent.putExtra("employee",user);
-        startActivity(intent);
+        editProfileActivityResultLauncher.launch(intent);
     }
     @Override
     public void onDestroyView() {

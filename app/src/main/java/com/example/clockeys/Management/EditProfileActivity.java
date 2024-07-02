@@ -8,6 +8,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -31,7 +33,7 @@ public class EditProfileActivity extends AppCompatActivity {
     private TextView leaveCompany,deleteProfile,nameTV,bioTV,addressTV;
 
     private ActivityResultLauncher<Intent> profileInputActivityResultLauncher;
-    private Intent intent,updatedIntent;
+    private Intent updatedIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,6 +87,12 @@ public class EditProfileActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.toolbar_edit_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         int id = item.getItemId();
@@ -147,6 +155,9 @@ public class EditProfileActivity extends AppCompatActivity {
         bio = findViewById(R.id.bioLayout);
         birthdate = findViewById(R.id.birthdayLayout);
         address = findViewById(R.id.addressLayout);
+
+        toolbar = findViewById(R.id.editProfileToolbar);
+        setSupportActionBar(toolbar);
 
         bioTV = findViewById(R.id.employeeBio);
         nameTV = findViewById(R.id.employeeNameChangeable);

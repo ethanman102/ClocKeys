@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/green_700"
-        app:title="Profile Name"
+        app:title="Profile Date of Birth"
         app:titleTextColor="@color/white"
         app:navigationIcon="@drawable/signup_activity_back">
     </androidx.appcompat.widget.Toolbar>

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.clockeys.R;
+import com.example.clockeys.Startups.UserSignup.SignupNameActivity;
 
 public class LoginStart extends AppCompatActivity {
 
@@ -29,7 +30,7 @@ public class LoginStart extends AppCompatActivity {
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginStart.this, Signup.class);
+                Intent intent = new Intent(LoginStart.this, SignupNameActivity.class);
                 startActivity(intent);
             }
         });

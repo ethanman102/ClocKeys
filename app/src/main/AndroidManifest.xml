@@ -13,6 +13,12 @@
         android:theme="@style/Theme.ClocKeys"
         tools:targetApi="31">
         <activity
+            android:name=".Startups.UserSignup.SignupDateOfBirthActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Startups.UserSignup.SignupNameActivity"
+            android:exported="false" />
+        <activity
             android:name=".Management.ProfileInputActivity"
             android:exported="false" />
         <activity

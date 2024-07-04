@@ -30,6 +30,8 @@ public class Employee implements Serializable {
         this.address = address;
     }
 
+    public Employee(){}
+
 
 
     // Common Getter and Setters:

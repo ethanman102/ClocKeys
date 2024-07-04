@@ -23,8 +23,8 @@ public class SignupAddressActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_address);
-
-        employee = getIntent().getSerializableExtra("employee", Employee.class);
+        intent = getIntent();
+        employee = intent.getSerializableExtra("employee", Employee.class);
 
         bindViews();
         setViews();

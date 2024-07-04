@@ -59,4 +59,13 @@
     <string name="timecard_and_manage"><u>Timecard and Manage</u></string>
     <string name="timecard_total">Total:</string>
     <string name="last_punch">Last Punch:</string>
+
+    <string name="name">Name</string>
+    <string name="name_description">Provide your profile with your first name, last name, or a nickname. </string>
+
+    <string name="bio">Bio</string>
+    <string name="bio_description">Describe yourself with a short biography highlighting some key personal accomplishments, goals, or livelihood!</string>
+
+    <string name="address">Address</string>
+    <string name="address_description">Provide your profile with your current specific address. Include the city, street name, and possibly your postal code!</string>
 </resources>

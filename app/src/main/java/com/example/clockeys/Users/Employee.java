@@ -13,17 +13,21 @@ public class Employee implements Serializable {
     private Date dateOfBirth;
     private Date hireDate;
 
+    private String bio;
+    private String address;
     private Timecard timecard;
     private String title;
 
 
-    public Employee(int employeeNumber, String name, Date dateOfBirth, Timecard timecard, Date hireDate,String title){
+    public Employee(int employeeNumber, String name, Date dateOfBirth, Timecard timecard, Date hireDate,String title,String bio, String address){
         this.employeeNumber = employeeNumber;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.timecard = timecard;
         this.hireDate = hireDate;
         this.title = title;
+        this.bio = bio;
+        this.address = address;
     }
 
 
@@ -54,5 +58,25 @@ public class Employee implements Serializable {
 
     public Timecard getTimecard(){
         return this.timecard;
+    }
+
+    public String getBio(){
+        return this.bio;
+    }
+
+    public void setBio(String bio){
+        this.bio = bio;
+    }
+
+    public void setAddress(String address){
+        this.address = address;
+    }
+
+    public String getAddress(){
+        return this.address;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth){
+        this.dateOfBirth = dateOfBirth;
     }
 }

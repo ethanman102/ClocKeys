@@ -48,7 +48,7 @@ public class PunchFragment extends Fragment {
         View root = binding.getRoot();
         bindViews(root);
 
-        employee = new Employee(1092,"Ethan Keys",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker");
+        employee = new Employee(1092,"Ethan Keys",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker","bio","address");
 
         punchButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -22,6 +22,8 @@
         android:background="@color/gray"></View>
 
     <RelativeLayout
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -32,7 +34,17 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:textSize="20sp"
+            android:layout_centerVertical="true"
             android:text="MMMM-dd-yyyy"></TextView>
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/signupDOBButton"
+            android:backgroundTint="@color/teal_700"
+            android:src="@drawable/signup_birthday_vector"
+            android:layout_alignParentRight="true"
+            ></ImageButton>
 
     </RelativeLayout>
 
@@ -49,7 +61,7 @@
         android:text="@string/dob_description"></TextView>
 
     <Button
-        android:id="@+id/signupDOBButton"
+        android:id="@+id/signupDOBConfirmButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"

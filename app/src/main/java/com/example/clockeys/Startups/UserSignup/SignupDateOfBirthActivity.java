@@ -105,8 +105,9 @@ public class SignupDateOfBirthActivity extends AppCompatActivity {
 
     public void launchNext(){
         if (employee.getDateOfBirth() != null){
-            Intent nextIntent = new Intent();
+            Intent nextIntent = new Intent(SignupDateOfBirthActivity.this,SignupAddressActivity.class);
             nextIntent.putExtra("employee",employee);
+            startActivity(nextIntent);
         }
     }
 

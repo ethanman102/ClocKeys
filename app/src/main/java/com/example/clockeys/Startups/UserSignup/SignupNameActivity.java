@@ -5,9 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
+
 import android.view.View;
 import android.widget.Button;
 
@@ -50,6 +48,7 @@ public class SignupNameActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.signupNameToolbar);
         confirmButton = findViewById(R.id.signupNameButton);
         name = findViewById(R.id.signupNameEditText);
+        setSupportActionBar(toolbar);
     }
 
     public void setViews(){

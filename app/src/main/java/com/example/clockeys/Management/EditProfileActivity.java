@@ -19,10 +19,15 @@ import com.example.clockeys.R;
 import com.example.clockeys.Time.Punch;
 import com.example.clockeys.Time.Timecard;
 import com.example.clockeys.Users.Employee;
+import com.google.android.material.datepicker.MaterialDatePicker;
+import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 
 public class EditProfileActivity extends AppCompatActivity {
@@ -30,7 +35,7 @@ public class EditProfileActivity extends AppCompatActivity {
     private Employee employee;
     private Toolbar toolbar;
     private RelativeLayout name,birthdate,address,bio;
-    private TextView leaveCompany,deleteProfile,nameTV,bioTV,addressTV;
+    private TextView leaveCompany,deleteProfile,nameTV,bioTV,addressTV,birthdayTV;
 
     private ActivityResultLauncher<Intent> profileInputActivityResultLauncher;
     private Intent updatedIntent;
@@ -84,6 +89,24 @@ public class EditProfileActivity extends AppCompatActivity {
             }
         });
 
+        birthdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MaterialDatePicker<Long> birthdayDatePicker = MaterialDatePicker.Builder.datePicker()
+                        .setTitleText("Select Date of Birth")
+                        .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+                        .build();
+                birthdayDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener<Long>() {
+                    @Override
+                    public void onPositiveButtonClick(Long selection) {
+                        Date selectedDate = new Date(selection);
+                        employee.setDateOfBirth(selectedDate);
+                        setViews();
+                    }
+                });
+                birthdayDatePicker.show(getSupportFragmentManager(),"birthday");
+            }
+        });
 
     }
 
@@ -140,13 +163,6 @@ public class EditProfileActivity extends AppCompatActivity {
         profileInputActivityResultLauncher.launch(intent);
 
     }
-
-    public void launchEditBirthday(){
-        Intent intent = new Intent(EditProfileActivity.this,ProfileInputActivity.class);
-        intent.putExtra("employee",employee);
-
-        profileInputActivityResultLauncher.launch(intent);
-    }
     private void bindViews(){
 
         // binding the layouts
@@ -162,6 +178,9 @@ public class EditProfileActivity extends AppCompatActivity {
         bioTV = findViewById(R.id.employeeBio);
         nameTV = findViewById(R.id.employeeNameChangeable);
         addressTV = findViewById(R.id.employeeAddress);
+        birthdayTV = findViewById(R.id.employeeBirthdayDate);
+
+
 
     }
 
@@ -169,5 +188,15 @@ public class EditProfileActivity extends AppCompatActivity {
         nameTV.setText(employee.getName());
         bioTV.setText(employee.getBio());
         addressTV.setText(employee.getAddress());
+
+        // Create a SimpleDateFormat with the desired format and time zone
+        SimpleDateFormat sdf = new SimpleDateFormat("MMMM-dd-yyyy", Locale.getDefault());
+        sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+
+        // Format the date using the SimpleDateFormat
+        String date = sdf.format(employee.getDateOfBirth());
+
+        // Display the formatted date
+        birthdayTV.setText(date);
     }
 }

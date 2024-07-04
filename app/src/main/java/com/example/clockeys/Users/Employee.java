@@ -75,4 +75,8 @@ public class Employee implements Serializable {
     public String getAddress(){
         return this.address;
     }
+
+    public void setDateOfBirth(Date dateOfBirth){
+        this.dateOfBirth = dateOfBirth;
+    }
 }

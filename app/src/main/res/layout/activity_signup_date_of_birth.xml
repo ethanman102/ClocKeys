@@ -21,6 +21,21 @@
         android:layout_height="2dp"
         android:background="@color/gray"></View>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp">
+        <TextView
+            android:id="@+id/signupDOBTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:text="MMMM-dd-yyyy"></TextView>
+
+    </RelativeLayout>
+
 
     <TextView
         android:layout_width="wrap_content"

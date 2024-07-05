@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/gray"
+    android:background="@color/white"
     tools:context=".Management.TimecardActivity">
     <FrameLayout
         android:layout_width="match_parent"
@@ -13,7 +13,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="200dp"
             android:src="@drawable/purple_header"
             android:scaleType="centerCrop"></ImageView>
         <androidx.appcompat.widget.Toolbar

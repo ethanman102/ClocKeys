@@ -22,7 +22,7 @@ public class Employee implements Serializable {
         public int compare(Employee employeeOne, Employee employeeTwo) {
             if (sortType.equalsIgnoreCase("name")) {
                 return employeeOne.name.compareTo(employeeTwo.name);
-            } else if (sortType.equalsIgnoreCase("hireDate")) {
+            } else if (sortType.equalsIgnoreCase("hire Date")) {
                 return employeeOne.hireDate.compareTo(employeeTwo.hireDate);
             } else if (sortType.equalsIgnoreCase("age")){
                 return employeeOne.dateOfBirth.compareTo(employeeTwo.dateOfBirth);

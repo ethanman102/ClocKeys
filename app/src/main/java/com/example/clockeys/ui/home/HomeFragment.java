@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,6 +25,7 @@ import com.example.clockeys.Users.Employee;
 import com.example.clockeys.databinding.FragmentHomeBinding;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -31,7 +35,10 @@ public class HomeFragment extends Fragment implements OnEmployeeFiredCallback {
     private RecyclerView recyclerView;
     private List<Employee> employeeList;
     private EmployeeAdapter employeeAdapter;
+    private ArrayAdapter<String> sortAdapter;
     private Company company;
+    private List<String> sortTypes;
+    private AutoCompleteTextView autoCompleteTextView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -56,7 +63,17 @@ public class HomeFragment extends Fragment implements OnEmployeeFiredCallback {
         recyclerView.setAdapter(employeeAdapter);
 
 
+        autoCompleteTextView = root.findViewById(R.id.employeeSorterAutoCompleteTextView);
+        sortTypes = Arrays.asList(getResources().getStringArray(R.array.sort_types));
+        sortAdapter = new ArrayAdapter<String>(getContext(),R.layout.sort_item,sortTypes);
+        autoCompleteTextView.setAdapter(sortAdapter);
+        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String sort = parent.getItemAtPosition(position).toString();
+            }
+        });
 
 
         return root;

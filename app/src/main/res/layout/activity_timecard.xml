@@ -10,22 +10,23 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/timecardToolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/transparent"
-        app:title="Timecard"
-        app:titleTextColor="@color/white"
-        app:navigationIcon="@drawable/signup_activity_back">
 
-
-    </androidx.appcompat.widget.Toolbar>
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/purple_header"
             android:scaleType="centerCrop"></ImageView>
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/timecardToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            app:title="Timecard"
+            app:titleTextColor="@color/white"
+            app:navigationIcon="@drawable/signup_activity_back">
+
+
+        </androidx.appcompat.widget.Toolbar>
     </FrameLayout>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

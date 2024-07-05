@@ -26,6 +26,7 @@ import com.example.clockeys.databinding.FragmentHomeBinding;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -44,10 +45,10 @@ public class HomeFragment extends Fragment implements OnEmployeeFiredCallback {
                              ViewGroup container, Bundle savedInstanceState) {
 
         ArrayList<Employee> myEmployees = new ArrayList<Employee>();
-        myEmployees.add(new Employee(1092,"Ethan Keys",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker","bio","address"));
-        myEmployees.add(new Employee(1092,"Ethan Keys2",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker2","bio","address"));
+        myEmployees.add(new Employee(1092,"Zion Keys",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker","bio","address"));
+        myEmployees.add(new Employee(1092,"Addison Keys2",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker2","bio","address"));
         myEmployees.add(new Employee(1092,"Ethan Keys3",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker3","bio","address"));
-        myEmployees.add(new Employee(1092,"Ethan Keys4",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker4","bio","address"));
+        myEmployees.add(new Employee(1092,"Brig Keys4",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker4","bio","address"));
 
         company = new Company("Resource Bearing",myEmployees.size(),myEmployees,"Image",19289,12);
 
@@ -71,7 +72,8 @@ public class HomeFragment extends Fragment implements OnEmployeeFiredCallback {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String sort = parent.getItemAtPosition(position).toString();
+                List<Employee> sortEmployees = sortEmployees(parent.getItemAtPosition(position).toString());
+                employeeAdapter.updateList(sortEmployees);
             }
         });
 
@@ -85,6 +87,12 @@ public class HomeFragment extends Fragment implements OnEmployeeFiredCallback {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    public List<Employee> sortEmployees(String sortType){
+        List<Employee> sortedEmployees = new ArrayList<>(company.getEmployees());
+        sortedEmployees.sort(new Employee.EmployeeComparator<>(sortType));
+        return Collections.unmodifiableList(sortedEmployees);
     }
 
     @Override

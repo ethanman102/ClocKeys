@@ -38,6 +38,12 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.MyView
         this.company = company;
     }
 
+    public void updateList(List<Employee> updated){
+        this.employeeList = updated;
+        expandedItems = new SparseBooleanArray();
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public EmployeeAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

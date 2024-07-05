@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -23,6 +24,7 @@ import com.example.clockeys.Time.Punch;
 import com.example.clockeys.Time.Timecard;
 import com.example.clockeys.Users.Employee;
 import com.example.clockeys.databinding.FragmentHomeBinding;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -40,7 +42,8 @@ public class HomeFragment extends Fragment implements OnEmployeeFiredCallback {
     private Company company;
     private List<String> sortTypes;
     private AutoCompleteTextView autoCompleteTextView;
-
+    private Button clearSort;
+    private TextInputLayout textInputLayout;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -68,12 +71,24 @@ public class HomeFragment extends Fragment implements OnEmployeeFiredCallback {
         sortTypes = Arrays.asList(getResources().getStringArray(R.array.sort_types));
         sortAdapter = new ArrayAdapter<String>(getContext(),R.layout.sort_item,sortTypes);
         autoCompleteTextView.setAdapter(sortAdapter);
+        textInputLayout = root.findViewById(R.id.employeeSorterInputLayout);
+        clearSort = root.findViewById(R.id.clearSortButton);
         autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 List<Employee> sortEmployees = sortEmployees(parent.getItemAtPosition(position).toString());
                 employeeAdapter.updateList(sortEmployees);
+                clearSort.setVisibility(View.VISIBLE);
+            }
+        });
+
+        clearSort.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                autoCompleteTextView.setText("");
+                clearSort.setVisibility(View.GONE);
+                employeeAdapter.updateList(company.getEmployees());
             }
         });
 

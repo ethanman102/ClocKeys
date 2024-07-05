@@ -5,19 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment"
-    android:background="@color/white"
+    android:background="@drawable/teal_gradient"
     android:orientation="vertical">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp">
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             app:cardCornerRadius="10dp"
+            app:cardElevation="10dp"
+            app:cardBackgroundColor="@color/dark_gray"
             android:layout_marginBottom="15dp"
             >
 
@@ -32,6 +30,7 @@
                     android:layout_height="wrap_content"
                     android:text="Company Name"
                     android:textSize="30sp"
+                    android:textColor="@color/white"
                     android:layout_centerHorizontal="true"
                     android:paddingStart="50dp"
                     android:paddingEnd="50dp"
@@ -41,7 +40,7 @@
                     android:id="@+id/tvCompanySize"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/gray"
+                    android:textColor="@color/white"
                     android:layout_below="@id/tvCompanyName"
                     android:paddingStart="50dp"
                     android:layout_marginTop="20dp"
@@ -56,22 +55,68 @@
                     android:layout_below="@id/tvCompanySize"
                     android:text="Owner:"
                     android:textSize="15sp"
-                    android:textColor="@color/gray" />
+                    android:textColor="@color/white" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="140dp"
-            android:src="@drawable/login_background"
-            android:scaleType="centerCrop"></ImageView>
-    </FrameLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/employeeRecyclerView"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/white"
+        android:layout_marginBottom="5dp"
+        android:text="Employees"></TextView>
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/white"
-        android:paddingBottom="100dp"
-        android:clipToPadding="false" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:hint="Sort Type"
+            app:startIconDrawable="@drawable/sort_icon_vector"
+            app:startIconTint="@color/black"
+
+            app:hintTextColor="@color/black"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:id="@+id/employeeSorterInputLayout">
+            <AutoCompleteTextView
+                android:id="@+id/employeeSorterAutoCompleteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none">
+
+            </AutoCompleteTextView>
+        </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/dark_gray"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:id="@+id/clearSortButton"
+            android:text="Clear Sort">
+
+        </Button>
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/rounded_corners">
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="10dp"
+            android:id="@+id/employeeRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingBottom="100dp"
+            android:clipToPadding="false" />
+    </LinearLayout>
+
 </LinearLayout>

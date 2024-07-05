@@ -69,4 +69,11 @@
     <string name="address">Address</string>
     <string name="address_description">Provide your profile with your current specific address. Include the city, street name, and possibly your postal code!</string>
     <string name="dob_description">Provide your profile with that special date that you call your birthday!</string>
+
+    <string-array name="sort_types">
+        <item>Age</item>
+        <item>Hire Date</item>
+        <item>ID</item>
+        <item>Name</item>
+    </string-array>
 </resources>

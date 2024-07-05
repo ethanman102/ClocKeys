@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Management.ProfileInputActivity"
-    android:background="@color/green_700"
+    android:background="@color/dark_gray"
     android:orientation="vertical">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/profileInputToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/green_700"
+        android:background="@color/transparent"
         app:title="User Input"
         app:titleTextColor="@color/white"
         app:navigationIcon="@drawable/signup_activity_back">

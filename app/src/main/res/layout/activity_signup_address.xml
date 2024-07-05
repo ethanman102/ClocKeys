@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Startups.UserSignup.SignupNameActivity"
-    android:background="@color/green_700"
+    android:background="@color/dark_gray"
     android:orientation="vertical">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/signupAddressToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/green_700"
+        android:background="@color/transparent"
         app:title="Profile Address"
         app:titleTextColor="@color/white"
         app:navigationIcon="@drawable/signup_activity_back">
@@ -66,7 +66,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:backgroundTint="@color/teal_700"
+        android:background="@drawable/button_gradient"
+        app:backgroundTint="@null"
         android:text="Confirm"
         android:layout_marginTop="50dp"
         android:textSize="15sp"></Button>

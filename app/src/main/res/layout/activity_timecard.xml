@@ -1,26 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/dark_gray"
     tools:context=".Management.TimecardActivity">
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/timecardToolbar"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/green_700"
-        app:title="Timecard"
-        app:titleTextColor="@color/white"
-        app:navigationIcon="@drawable/signup_activity_back">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/timecardToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            app:title="Timecard"
+            app:titleTextColor="@color/white"
+            app:navigationIcon="@drawable/signup_activity_back">
 
-    </androidx.appcompat.widget.Toolbar>
+
+        </androidx.appcompat.widget.Toolbar>
+
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/green_300"
-        android:layout_marginTop="15dp"
+        app:cardBackgroundColor="@color/gray"
+        android:layout_marginTop="30dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         app:cardCornerRadius="5dp"
@@ -29,7 +37,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/punch_gradient">
             <TextView
                 android:id="@+id/punchTitleText"
                 android:layout_marginStart="20dp"
@@ -93,7 +102,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/gray"
+        android:textColor="@color/white"
         android:text="Working Periods"
         android:layout_marginStart="10dp"
         android:textSize="20sp"></TextView>
@@ -107,7 +116,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/green_200"
+        app:cardBackgroundColor="@color/gray"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="15dp"
@@ -123,7 +132,7 @@
                 android:layout_width="wrap_content"
                 android:text="@string/timecard_total"
                 android:textSize="30sp"
-                android:textColor="@color/gray"
+                android:textColor="@color/white"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:paddingTop="10dp"
@@ -135,7 +144,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/timecardGrandTotalHrs"
                 android:textSize="30sp"
-                android:textColor="@color/gray"
+                android:textColor="@color/white"
                 android:text="0 Hrs"
                 android:layout_alignParentRight="true"
                 android:layout_marginEnd="20dp"
@@ -143,6 +152,6 @@
                 android:paddingBottom="10dp"></TextView>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
+    </LinearLayout>
 
-
-</LinearLayout>
+</FrameLayout>

@@ -24,7 +24,7 @@ public class Employee implements Serializable {
                 return employeeOne.name.compareTo(employeeTwo.name);
             } else if (sortType.equalsIgnoreCase("hireDate")) {
                 return employeeOne.hireDate.compareTo(employeeTwo.hireDate);
-            } else if (sortType.equalsIgnoreCase("birthdate")){
+            } else if (sortType.equalsIgnoreCase("age")){
                 return employeeOne.dateOfBirth.compareTo(employeeTwo.dateOfBirth);
             }else if (sortType.equalsIgnoreCase("id")){
                 return Integer.compare(employeeOne.employeeNumber,employeeTwo.employeeNumber);

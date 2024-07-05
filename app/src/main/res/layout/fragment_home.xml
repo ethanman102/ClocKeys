@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment"
-    android:background="@drawable/punch_gradient"
+    android:background="@drawable/button_gradient"
     android:orientation="vertical">
 
         <androidx.cardview.widget.CardView

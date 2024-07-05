@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green_700"
+    android:background="@color/dark_gray"
     tools:context=".Management.EditProfileActivity"
     android:orientation="vertical">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/editProfileToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/green_700"
+        android:background="@color/transparent"
         app:title="Edit Profile"
         app:titleTextColor="@color/white"
         app:navigationIcon="@drawable/signup_activity_back">

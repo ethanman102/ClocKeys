@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/punch_gradient"
+    android:background="@color/dark_gray"
     tools:context=".Management.TimecardActivity">
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/dark_gray"
+        app:cardBackgroundColor="@color/gray"
         android:layout_marginTop="30dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
@@ -37,7 +37,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/punch_gradient">
             <TextView
                 android:id="@+id/punchTitleText"
                 android:layout_marginStart="20dp"
@@ -115,7 +116,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/dark_gray"
+        app:cardBackgroundColor="@color/gray"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="15dp"

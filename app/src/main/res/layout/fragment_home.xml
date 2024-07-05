@@ -67,22 +67,34 @@
         android:textColor="@color/white"
         android:layout_marginBottom="5dp"
         android:text="Employees"></TextView>
-    <com.google.android.material.textfield.TextInputLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:hint="Sort Type"
-
-        app:hintTextColor="@color/black"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:id="@+id/employeeSorterInputLayout">
-        <AutoCompleteTextView
-            android:id="@+id/employeeSorterAutoCompleteTextView"
-            android:layout_width="match_parent"
+        android:orientation="horizontal">
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="none"></AutoCompleteTextView>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_margin="5dp"
+            android:hint="Sort Type"
+            app:startIconDrawable="@drawable/sort_icon_vector"
+            app:startIconTint="@color/black"
 
+            app:hintTextColor="@color/black"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:id="@+id/employeeSorterInputLayout">
+            <AutoCompleteTextView
+                android:id="@+id/employeeSorterAutoCompleteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none">
+
+            </AutoCompleteTextView>
+        </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></Button>
+
+    </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -68,12 +68,18 @@
         android:layout_marginBottom="5dp"
         android:text="Employees"></TextView>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/employeeRecyclerView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/gray_transparent"
-        android:paddingBottom="100dp"
-        android:clipToPadding="false" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/rounded_corners">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/employeeRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingBottom="100dp"
+            android:clipToPadding="false" />
+    </LinearLayout>
+
 </LinearLayout>

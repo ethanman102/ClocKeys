@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment"
-    android:background="@color/dark_gray"
+    android:background="@drawable/punch_gradient"
     android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
@@ -15,15 +15,14 @@
             android:layout_marginTop="10dp"
             app:cardCornerRadius="10dp"
             app:cardElevation="10dp"
-            app:cardBackgroundColor="@color/green_200"
+            app:cardBackgroundColor="@color/dark_gray"
             android:layout_marginBottom="15dp"
             >
 
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/punch_gradient">
+                android:layout_height="match_parent">
 
                 <TextView
                     android:id="@+id/tvCompanyName"
@@ -74,6 +73,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:background="@color/gray_transparent"
         android:paddingBottom="100dp"
         android:clipToPadding="false" />
 </LinearLayout>

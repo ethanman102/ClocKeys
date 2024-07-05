@@ -4,9 +4,35 @@ import com.example.clockeys.Time.Timecard;
 
 import java.io.Serializable;
 import java.sql.Time;
+import java.util.Comparator;
 import java.util.Date;
 
 public class Employee implements Serializable {
+
+    public static class EmployeeComparator<T extends Employee> implements Comparator<Employee>{
+        private String sortType;
+        public EmployeeComparator(){
+            this("name");
+        }
+
+        public EmployeeComparator(String sortType){
+            this.sortType = sortType;
+        }
+        @Override
+        public int compare(Employee employeeOne, Employee employeeTwo) {
+            if (sortType.equalsIgnoreCase("name")) {
+                return employeeOne.name.compareTo(employeeTwo.name);
+            } else if (sortType.equalsIgnoreCase("hireDate")) {
+                return employeeOne.hireDate.compareTo(employeeTwo.hireDate);
+            } else if (sortType.equalsIgnoreCase("birthdate")){
+                return employeeOne.dateOfBirth.compareTo(employeeTwo.dateOfBirth);
+            }else if (sortType.equalsIgnoreCase("id")){
+                return Integer.compare(employeeOne.employeeNumber,employeeTwo.employeeNumber);
+            }else{
+                return employeeOne.name.compareTo(employeeTwo.name);
+            }
+        }
+    }
 
     private int employeeNumber;
     private String name;
@@ -20,6 +46,9 @@ public class Employee implements Serializable {
 
 
     public Employee(int employeeNumber, String name, Date dateOfBirth, Timecard timecard, Date hireDate,String title,String bio, String address){
+
+
+
         this.employeeNumber = employeeNumber;
         this.name = name;
         this.dateOfBirth = dateOfBirth;

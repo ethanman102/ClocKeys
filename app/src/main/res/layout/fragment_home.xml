@@ -8,16 +8,14 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp">
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             app:cardCornerRadius="10dp"
+            app:cardElevation="10dp"
+            app:cardBackgroundColor="@color/green_200"
             android:layout_marginBottom="15dp"
             >
 
@@ -59,12 +57,7 @@
                     android:textColor="@color/gray" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="140dp"
-            android:src="@drawable/login_background"
-            android:scaleType="centerCrop"></ImageView>
-    </FrameLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/employeeRecyclerView"

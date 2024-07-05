@@ -66,7 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:backgroundTint="@dr"
+        android:background="@drawable/button_gradient"
         android:text="Confirm"
         android:layout_marginTop="50dp"
         android:textSize="15sp"></Button>

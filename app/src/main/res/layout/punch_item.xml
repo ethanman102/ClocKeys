@@ -22,7 +22,7 @@
             android:layout_height="match_parent"
             android:paddingTop="30dp"
             android:paddingBottom="30dp"
-            android:background="@drawable/punch_gradient"
+            android:background="@color/gray"
             >
 
 

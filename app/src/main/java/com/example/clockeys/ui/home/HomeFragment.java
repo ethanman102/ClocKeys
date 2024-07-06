@@ -73,6 +73,7 @@ public class HomeFragment extends Fragment implements OnEmployeeFiredCallback {
         autoCompleteTextView.setAdapter(sortAdapter);
         textInputLayout = root.findViewById(R.id.employeeSorterInputLayout);
         clearSort = root.findViewById(R.id.clearSortButton);
+        clearSort.setVisibility(View.GONE);
         autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
             @Override
@@ -114,5 +115,17 @@ public class HomeFragment extends Fragment implements OnEmployeeFiredCallback {
     public boolean onEmployeeFired(Employee employee) {
 
         return true;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        autoCompleteTextView.setText("");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        autoCompleteTextView.setText("");
     }
 }

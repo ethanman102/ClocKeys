@@ -1,9 +1,12 @@
 package com.example.clockeys.Notifications;
 
+import com.example.clockeys.Users.Employee;
+
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.util.Comparator;
 import java.util.Date;
 
 public class Notification {
@@ -16,6 +19,27 @@ public class Notification {
     private Date postDate;
 
 
+    public static class NotificationComparator<T extends Notification> implements Comparator<Notification>{
+        private String sortType;
+
+        public NotificationComparator(){
+            this("date");
+        }
+
+        public NotificationComparator(String sortType){
+            this.sortType = sortType;
+        }
+        @Override
+        public int compare(Notification o1, Notification o2) {
+            if (sortType.equalsIgnoreCase("urgency")){
+                return Integer.compare(o1.urgency, o2.urgency);
+            }else if (sortType.equalsIgnoreCase("date")){
+                return o1.postDate.compareTo(o2.postDate);
+            }else{
+                return o1.postDate.compareTo(o2.postDate); // default will be to sort by posting date!
+            }
+        }
+    }
 
     public Notification(){
     }

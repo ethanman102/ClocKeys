@@ -17,6 +17,7 @@ public abstract class Notification {
     private String posterName;
     private String title;
     private Date postDate;
+    private Date dismissTime;
 
 
     public static class NotificationComparator<T extends Notification> implements Comparator<Notification>{
@@ -44,19 +45,21 @@ public abstract class Notification {
     public Notification(){
     }
 
-    public Notification(int id, int companyId, String title, Date postDate, int urgency,int posterId, String posterName){
+    public Notification(int id, int companyId, String title, Date postDate, int urgency,int posterId, String posterName, Date dismissTime){
         this.id = id;
         this.companyId = companyId;
         this.title = title;
         this.postDate = postDate;
         this.posterId = posterId;
         this.posterName = posterName;
+        this.dismissTime = dismissTime;
 
         // Setting the urgency, Urgency should be a number from 0 - 10 (11 choices)
 
         if (urgency < 0) this.urgency = 0;
         else if (urgency > 10) this.urgency = 10;
         else this.urgency = urgency;
+
     }
 
     public abstract NotificationType getType();

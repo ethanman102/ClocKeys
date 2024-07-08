@@ -6,8 +6,8 @@ public class AnnouncementNotification extends Notification{
 
     private String announcement;
 
-    public AnnouncementNotification(int id, int companyId, String title, Date postDate, int urgency,int posterId,String posterName, String announcement) {
-        super(id, companyId, title, postDate, urgency,posterId,posterName);
+    public AnnouncementNotification(int id, int companyId, String title, Date postDate, int urgency,int posterId,String posterName,Date dismissTime, String announcement) {
+        super(id, companyId, title, postDate, urgency,posterId,posterName,dismissTime);
         this.announcement = announcement;
     }
 

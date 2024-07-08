@@ -65,7 +65,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         NotificationType notificationType = NotificationType.values()[viewType];
         switch (notificationType){
             case ANNOUNCEMENT: {
-                View view = layoutInflater.inflate(R.layout.annoucment_notification_item, parent, false);
+                View view = layoutInflater.inflate(R.layout.announcement_notification_item, parent, false);
                 return new AnnouncementNotificationViewHolder(view);
             } case IMAGE: {
                 View view = layoutInflater.inflate(R.layout.image_notification_item, parent, false);

@@ -18,6 +18,7 @@ public abstract class Notification {
     private String title;
     private Date postDate;
     private Date dismissTime;
+    private Boolean deletable;
 
 
     public static class NotificationComparator<T extends Notification> implements Comparator<Notification>{
@@ -60,6 +61,8 @@ public abstract class Notification {
         else if (urgency > 10) this.urgency = 10;
         else this.urgency = urgency;
 
+        this.deletable = Boolean.FALSE;
+
     }
 
     public abstract NotificationType getType();
@@ -69,8 +72,27 @@ public abstract class Notification {
         ZonedDateTime zonedDateTime = instant.atZone(ZoneId.of("UTC"));
         Date currentTime = Date.from(zonedDateTime.toInstant());
 
-        int hoursPassed = (int) ((currentTime.getTime() - postDate.getTime()) / 1000/60/60);
-        return Integer.toString(hoursPassed);
+        StringBuilder sb = new StringBuilder();
+
+        // Time for hours...
+        long timePassed = (currentTime.getTime() - postDate.getTime()) / 1000/60/60;
+        if (timePassed <= 24){
+            int hoursPassed = (int) timePassed;
+            sb.append(hoursPassed);
+            sb.append(" ");
+            sb.append("Hrs ago");
+            return sb.toString();
+        }
+        // Time for days...
+        timePassed = timePassed / 24;
+        if (timePassed <= 30){
+            int daysPassed = (int) timePassed;
+            sb.append(daysPassed);
+            sb.append(" ");
+            sb.append("Days ago");
+            return  sb.toString();
+        }
+        return "30+ Days ago"; // Will cap out at 30 days
     }
 
     public int getId(){
@@ -99,6 +121,18 @@ public abstract class Notification {
 
     public String getTitle(){
         return this.title;
+    }
+
+    public Boolean isDeletable(){
+        Instant instant = Instant.now();
+        ZonedDateTime zonedDateTime = instant.atZone(ZoneId.of("UTC"));
+        Date currentTime = Date.from(zonedDateTime.toInstant());
+        if (dismissTime.getTime() < currentTime.getTime()){
+            this.deletable = Boolean.TRUE;
+        }else{
+            this.deletable = Boolean.FALSE;
+        }
+        return  this.deletable;
     }
 
 

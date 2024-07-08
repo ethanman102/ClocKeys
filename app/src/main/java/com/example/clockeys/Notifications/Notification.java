@@ -9,7 +9,7 @@ import java.time.ZonedDateTime;
 import java.util.Comparator;
 import java.util.Date;
 
-public class Notification {
+public abstract class Notification {
     private int id;
     private int companyId;
     private int urgency;
@@ -59,6 +59,7 @@ public class Notification {
         else this.urgency = urgency;
     }
 
+    public abstract NotificationType getType();
 
     public String timeElapsed(){
         Instant instant = Instant.now();
@@ -83,6 +84,14 @@ public class Notification {
 
     public void setTitle(String title){
         this.title = title;
+    }
+
+    public int getPosterId() {
+        return this.posterId;
+    }
+
+    public String getPosterName() {
+        return this.posterName;
     }
 
     public String getTitle(){

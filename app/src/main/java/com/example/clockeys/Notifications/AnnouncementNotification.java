@@ -14,4 +14,9 @@ public class AnnouncementNotification extends Notification{
     public String getAnnouncement() {
         return this.announcement;
     }
+
+    @Override
+    public NotificationType getType() {
+        return NotificationType.ANNOUNCEMENT;
+    }
 }

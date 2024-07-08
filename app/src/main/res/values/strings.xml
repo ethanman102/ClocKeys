@@ -70,6 +70,7 @@
     <string name="address_description">Provide your profile with your current specific address. Include the city, street name, and possibly your postal code!</string>
     <string name="dob_description">Provide your profile with that special date that you call your birthday!</string>
     <string name="announcement_notification_example">This is the text where the author of the notification will write their message to the company. Users can choose to dismiss it or not.</string>
+    <string name="dismiss">Dismiss</string>
 
     <string-array name="sort_types">
         <item>Age</item>

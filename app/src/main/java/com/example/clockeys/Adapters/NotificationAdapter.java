@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 
+import com.example.clockeys.Notifications.AnnouncementNotification;
 import com.example.clockeys.Notifications.Notification;
 import com.example.clockeys.Notifications.NotificationType;
 import com.example.clockeys.R;
@@ -42,13 +43,14 @@ public class NotificationAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     public static class AnnouncementNotificationViewHolder extends RecyclerView.ViewHolder{
 
-        TextView posterName,announcement,datePosted,hoursAgo;
+        TextView title,posterName,announcement,datePosted,hoursAgo;
         public AnnouncementNotificationViewHolder(@NonNull View itemView) {
             super(itemView);
             posterName = itemView.findViewById(R.id.posterName);
             announcement = itemView.findViewById(R.id.announcementTextView);
             datePosted = itemView.findViewById(R.id.datePostedTextView);
             hoursAgo = itemView.findViewById(R.id.timePassedTextView);
+            title = itemView.findViewById(R.id.notificationTitle);
         }
     }
 
@@ -90,7 +92,17 @@ public class NotificationAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        NotificationType notificationType = notifications.get(position).getType();
+        switch (notificationType){
+            case  ANNOUNCEMENT:{
+                AnnouncementNotification announcementNotification = (AnnouncementNotification) notifications.get(position);
+                AnnouncementNotificationViewHolder viewHolder = (AnnouncementNotificationViewHolder) holder;
 
+                viewHolder.title.setText(announcementNotification.getTitle());
+
+            }
+
+        }
     }
 
 

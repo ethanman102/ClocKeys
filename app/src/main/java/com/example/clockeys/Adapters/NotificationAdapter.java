@@ -29,7 +29,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     private List<Notification> notifications;
     private Context context;
 
-    public NotificationAdapter(List<Notification> notifications, Context context){
+    public NotificationAdapter(Context context, List<Notification> notifications){
         this.context = context;
         this.notifications = notifications;
     }

@@ -18,6 +18,7 @@ import com.example.clockeys.Notifications.ImageNotification;
 import com.example.clockeys.Notifications.Notification;
 import com.example.clockeys.Notifications.NotificationType;
 import com.example.clockeys.R;
+import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -68,6 +69,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         private Button dismiss;
         private ViewPager viewPager;
         private ImageViewPagerAdapter imageViewPagerAdapter;
+        private WormDotsIndicator wormDotsIndicator;
 
         public ImageNotificationViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -78,6 +80,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             datePosted = itemView.findViewById(R.id.imageDatePostedTextView);
             hoursAgo = itemView.findViewById(R.id.imageTimePassedTextView);
             dismiss = itemView.findViewById(R.id.imageDismissButton);
+            wormDotsIndicator = itemView.findViewById(R.id.imageNotificationDots);
 
         }
     }
@@ -165,6 +168,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 // set the view pager..
                viewHolder.imageViewPagerAdapter = new ImageViewPagerAdapter(context.getApplicationContext(), imageNotification.getImages());
                viewHolder.viewPager.setAdapter(viewHolder.imageViewPagerAdapter);
+               viewHolder.wormDotsIndicator.attachTo(viewHolder.viewPager);
 
                 break;
             }

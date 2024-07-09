@@ -4,11 +4,11 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 
 import com.example.clockeys.Notifications.Notification;
@@ -42,18 +42,30 @@ public class NotificationAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     public static class AnnouncementNotificationViewHolder extends RecyclerView.ViewHolder{
 
-        TextView posterName,posterId,announcement,datePosted,hoursAgo;
+        TextView posterName,announcement,datePosted,hoursAgo;
         public AnnouncementNotificationViewHolder(@NonNull View itemView) {
             super(itemView);
+            posterName = itemView.findViewById(R.id.posterName);
+            announcement = itemView.findViewById(R.id.announcementTextView);
+            datePosted = itemView.findViewById(R.id.datePostedTextView);
+            hoursAgo = itemView.findViewById(R.id.timePassedTextView);
         }
     }
 
      public static class ImageNotificationViewHolder extends RecyclerView.ViewHolder{
-        private TextView title,posterId,text,posterName,datePosted,hoursAgo;
-        private ImageView imageView;
+        private TextView title,text,posterName,datePosted,hoursAgo;
+        private ViewPager viewPager;
+        private ImageViewPagerAdapter imageViewPagerAdapter;
 
         public ImageNotificationViewHolder(@NonNull View itemView) {
             super(itemView);
+            viewPager = itemView.findViewById(R.id.imageViewPager);
+            title = itemView.findViewById(R.id.imageNotificationTitle);
+            text = itemView.findViewById(R.id.imageTextView);
+            posterName = itemView.findViewById(R.id.imagePosterName);
+            datePosted = itemView.findViewById(R.id.imageDatePostedTextView);
+            hoursAgo = itemView.findViewById(R.id.imageTimePassedTextView);
+
         }
     }
 

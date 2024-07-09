@@ -39,6 +39,7 @@
                 android:textColor="@color/light_gray"
                 android:layout_marginStart="10dp"
                 android:text="Poster Name"
+                android:id="@+id/posterName"
                 android:textSize="15sp"></TextView>
         </LinearLayout>
         <TextView

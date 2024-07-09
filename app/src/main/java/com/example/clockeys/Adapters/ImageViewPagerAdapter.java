@@ -48,6 +48,7 @@ public class ImageViewPagerAdapter extends PagerAdapter {
         return imageUrls.size();
     }
 
+    // Resource https://www.geeksforgeeks.org/image-slider-in-android-using-viewpager/
     @Override public boolean isViewFromObject(@NonNull View view, @NonNull Object object){
         return view == ((LinearLayout) object);
     }

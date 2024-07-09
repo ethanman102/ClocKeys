@@ -31,16 +31,18 @@ public class ImageViewPagerAdapter extends PagerAdapter {
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
+        String url = imageUrls.get(position);
+
         View itemView = layoutInflater.inflate(R.layout.image_view_pager_item,container,false);
         ImageView imageView = itemView.findViewById(R.id.imageViewMain);
-        Glide.with(itemView).load("hi").fitCenter().into(imageView); // load the image into the correct position with the URLs...
+        Glide.with(context).load(url).fitCenter().into(imageView); // load the image into the correct position with the URLs...
         container.addView(itemView);
-        return imageView;
+        return itemView;
     }
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        container.removeView((LinearLayout) object);
+        container.removeView((View) object);
     }
 
     @Override
@@ -50,7 +52,7 @@ public class ImageViewPagerAdapter extends PagerAdapter {
 
     // Resource https://www.geeksforgeeks.org/image-slider-in-android-using-viewpager/
     @Override public boolean isViewFromObject(@NonNull View view, @NonNull Object object){
-        return view == ((LinearLayout) object);
+        return view ==  object;
     }
 
 }

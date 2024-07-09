@@ -1,6 +1,7 @@
 package com.example.clockeys.Adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -156,14 +157,16 @@ public class NotificationAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 SimpleDateFormat sdf = new SimpleDateFormat("MMMM-dd-yyyy", Locale.getDefault());
                 sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
 
+                Log.d("imagecreated..", "onBindViewHolder: "+imageNotification.getImages());
+
                 // set the date
                 viewHolder.datePosted.setText(sdf.format(imageNotification.getPostDate()));
 
                 // set the view pager..
-                viewHolder.imageViewPagerAdapter = new ImageViewPagerAdapter(this.context,imageNotification.getImages());
-                viewHolder.viewPager.setAdapter(viewHolder.imageViewPagerAdapter);
+               viewHolder.imageViewPagerAdapter = new ImageViewPagerAdapter(context.getApplicationContext(), imageNotification.getImages());
+               viewHolder.viewPager.setAdapter(viewHolder.imageViewPagerAdapter);
 
-
+                break;
             }
 
         }

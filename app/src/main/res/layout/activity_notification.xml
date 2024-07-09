@@ -7,6 +7,10 @@
     tools:context=".Management.NotificationActivity"
     android:background="@color/dark_gray"
     android:orientation="vertical">
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/testvp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></androidx.viewpager.widget.ViewPager>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notificationRecyclerView"

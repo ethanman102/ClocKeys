@@ -33,8 +33,8 @@ public class ImageViewPagerAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         View itemView = layoutInflater.inflate(R.layout.image_view_pager_item,container,false);
         ImageView imageView = itemView.findViewById(R.id.imageViewMain);
-        Glide.with(itemView).load(imageUrls.get(position)).fitCenter().into(imageView); // load the image into the correct position with the URLs...
-        Objects.requireNonNull(container).addView(itemView);
+        Glide.with(itemView).load("hi").fitCenter().into(imageView); // load the image into the correct position with the URLs...
+        container.addView(itemView);
         return imageView;
     }
 

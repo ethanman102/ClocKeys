@@ -44,7 +44,6 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment:2.7.4")
     implementation("androidx.navigation:navigation-ui:2.7.4")
     implementation("de.hdodenhof:circleimageview:3.1.0")
-    implementation ("com.github.smarteist:autoimageslider:1.3.9")
     implementation ("com.github.bumptech.glide:glide:4.11.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

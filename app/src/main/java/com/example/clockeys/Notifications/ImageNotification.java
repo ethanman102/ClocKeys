@@ -2,6 +2,7 @@ package com.example.clockeys.Notifications;
 
 import android.net.Uri;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -15,8 +16,8 @@ public class ImageNotification extends Notification{
         this.imageUrls = imageUrls;
     }
 
-    public Uri getImage(){
-        return Uri.EMPTY;
+    public List<String> getImages(){
+       return Collections.unmodifiableList(this.imageUrls);
     }
 
     public String getText(){

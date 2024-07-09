@@ -30,6 +30,7 @@ public class NotificationActivity extends AppCompatActivity {
         urls.add("https://th.bing.com/th/id/R.07c1ac85b2efd015deb654898d9db27f?rik=K%2fbd%2boTaPkCfSA&pid=ImgRaw&r=0");
         urls.add("https://th.bing.com/th/id/OIP.2jNruqshISvBDRXat-ag0QAAAA?rs=1&pid=ImgDetMain");
 
+        notifications = new ArrayList<>();
         Notification notification1 = new ImageNotification(90,901,"Welcome to Mcdonalds!",new Date(),9,10,"Ethan Keys",new Date(),"Today is your first shift at our new location! Welcome to the Mcondalds family all!",urls);
         notifications.add(notification1);
         Notification notification2 = new AnnouncementNotification(102,3930,"New Hire: Welcome Isabella",new Date(),2,901,"Alexis Johnson",new Date(),"Isabella is our newest addition to the team, Please welcome her with open arms and show her our Mcdonalds Spirit!");

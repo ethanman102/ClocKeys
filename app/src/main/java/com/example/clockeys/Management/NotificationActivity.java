@@ -1,6 +1,7 @@
 package com.example.clockeys.Management;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -40,8 +41,10 @@ public class NotificationActivity extends AppCompatActivity {
 
         notificationRecyclerView = findViewById(R.id.notificationRecyclerView);
 
-        notificationAdapter = new NotificationAdapter(getBaseContext(),notifications);
+        notificationAdapter = new NotificationAdapter(this,notifications);
         notificationRecyclerView.setAdapter(notificationAdapter);
+
+        notificationRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
     }
 }

@@ -127,7 +127,7 @@ public class AnnouncementNotificationActivity extends AppCompatActivity {
 
 
         Intent intent = new Intent(this,NotificationActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         intent.putExtra("notification",notification);
         startActivity(intent);
         finish();

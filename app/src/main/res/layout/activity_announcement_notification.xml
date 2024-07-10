@@ -143,7 +143,7 @@
 
                 android:layout_marginEnd="32dp"
                 android:layout_marginStart="32dp"
-                android:text="Choose the date in which your notification is allowed to be removed from the employee's notification bin"></TextView>
+                android:text="@string/dismiss_description"></TextView>
 
             <Button
                 android:id="@+id/announcementCreateButton"

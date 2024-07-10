@@ -73,6 +73,7 @@
     <string name="dismiss">Dismiss</string>
     <string name="announcement_title_description">Describe your announcement with a short and previse title.</string>
     <string name="announcement_details">Write a descriptive and detailed text to provide your company the notification with.</string>
+    <string name="dismiss_description">Choose the date in which your notification is allowed to be removed from the employee\'s notification bin.</string>
 
     <string-array name="sort_types">
         <item>Age</item>

@@ -50,7 +50,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
+        android:textColor="@color/light_gray"
         android:textSize="15sp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
@@ -85,7 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15sp"
-        android:textColor="@color/white"
+        android:textColor="@color/light_gray"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:text="@string/announcement_details"></TextView>
@@ -93,8 +93,15 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textColor="@color/white"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:text="Dismiss Date:"></TextView>
     <RelativeLayout
-        android:layout_marginTop="30dp"
+
         android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -105,7 +112,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="17sp"
             android:layout_centerVertical="true"
             android:text="MMMM-dd-yyyy"></TextView>
 
@@ -119,6 +126,29 @@
             ></ImageButton>
 
     </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/light_gray"
+        android:textSize="15sp"
+
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:text="Choose the date in which your notification is allowed to be removed from the employee's notification bin"></TextView>
+
+    <Button
+        android:id="@+id/announcementCreateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@null"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_gradient"
+        android:text="Create"
+        android:textSize="20sp"
+        android:paddingStart="50dp"
+        android:paddingEnd="50dp"></Button>
 
 
 </LinearLayout>

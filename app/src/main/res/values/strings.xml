@@ -71,6 +71,8 @@
     <string name="dob_description">Provide your profile with that special date that you call your birthday!</string>
     <string name="announcement_notification_example">This is the text where the author of the notification will write their message to the company. Users can choose to dismiss it or not.</string>
     <string name="dismiss">Dismiss</string>
+    <string name="announcement_title_description">Describe your announcement with a short and previse title.</string>
+    <string name="announcement_details">Write a descriptive and detailed text to provide your company the notification with.</string>
 
     <string-array name="sort_types">
         <item>Age</item>

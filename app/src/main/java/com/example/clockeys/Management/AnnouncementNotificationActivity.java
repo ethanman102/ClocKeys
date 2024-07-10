@@ -15,10 +15,15 @@ import com.example.clockeys.Notifications.AnnouncementNotification;
 import com.example.clockeys.Notifications.Notification;
 import com.example.clockeys.R;
 import com.example.clockeys.Users.Employee;
+import com.google.android.material.datepicker.MaterialDatePicker;
+import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 import com.google.android.material.slider.Slider;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 public class AnnouncementNotificationActivity extends AppCompatActivity {
 
@@ -56,6 +61,28 @@ public class AnnouncementNotificationActivity extends AppCompatActivity {
                 createNotification();
             }
         });
+
+        dismissDateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MaterialDatePicker<Long> dismissalDatePicker = MaterialDatePicker.Builder.datePicker()
+                        .setTitleText("Select Date of Dismissal")
+                        .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+                        .build();
+                dismissalDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener<Long>() {
+                    @Override
+                    public void onPositiveButtonClick(Long selection) {
+                        dismissDateObject = new Date(selection);
+                        SimpleDateFormat sdf = new SimpleDateFormat("MMMM-dd-yyyy", Locale.getDefault());
+                        sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+                        dismissDate.setText(sdf.format(dismissDateObject));
+
+                    }
+                });
+                dismissalDatePicker.show(getSupportFragmentManager(),"birthday");
+            }
+        });
+
     }
 
 

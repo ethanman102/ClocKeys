@@ -1,11 +1,17 @@
 package com.example.clockeys.Management;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.util.Pair;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.clockeys.Adapters.NotificationAdapter;
 import com.example.clockeys.Adapters.PunchAdapter;
@@ -15,6 +21,8 @@ import com.example.clockeys.Notifications.ImageNotification;
 import com.example.clockeys.Notifications.Notification;
 import com.example.clockeys.R;
 import com.example.clockeys.Users.Employee;
+import com.google.android.material.datepicker.MaterialDatePicker;
+import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -27,6 +35,7 @@ public class NotificationActivity extends AppCompatActivity {
     private List<Notification> notifications;
     private Employee employee;
     private Company company;
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +60,7 @@ public class NotificationActivity extends AppCompatActivity {
 
         notificationRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        bindViews();
     }
 
     @Override
@@ -59,5 +69,31 @@ public class NotificationActivity extends AppCompatActivity {
         setIntent(intent);
         notifications.add(intent.getSerializableExtra("notification", Notification.class));
         notificationAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.toolbar_notification_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        int id = item.getItemId();
+        if (id == R.id.notificationButton){
+            Intent intent = new Intent(this,AnnouncementNotification.class);
+            intent.putExtra("companyId",123);
+            intent.putExtra("employee",employee);
+            startActivity(intent);
+            return Boolean.TRUE;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void bindViews(){
+        toolbar = findViewById(R.id.notificationToolbar);
+        setSupportActionBar(toolbar);
     }
 }

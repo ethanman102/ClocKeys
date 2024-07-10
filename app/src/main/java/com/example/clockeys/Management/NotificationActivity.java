@@ -4,14 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.clockeys.Adapters.NotificationAdapter;
 import com.example.clockeys.Adapters.PunchAdapter;
+import com.example.clockeys.Models.Company;
 import com.example.clockeys.Notifications.AnnouncementNotification;
 import com.example.clockeys.Notifications.ImageNotification;
 import com.example.clockeys.Notifications.Notification;
 import com.example.clockeys.R;
+import com.example.clockeys.Users.Employee;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,6 +25,8 @@ public class NotificationActivity extends AppCompatActivity {
     private NotificationAdapter notificationAdapter;
     private RecyclerView notificationRecyclerView;
     private List<Notification> notifications;
+    private Employee employee;
+    private Company company;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,5 +51,13 @@ public class NotificationActivity extends AppCompatActivity {
 
         notificationRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+    }
+
+    @Override
+    protected void  onNewIntent(Intent intent){
+        super.onNewIntent(intent);
+        setIntent(intent);
+        notifications.add(intent.getSerializableExtra("notification", Notification.class));
+        notificationAdapter.notifyDataSetChanged();
     }
 }

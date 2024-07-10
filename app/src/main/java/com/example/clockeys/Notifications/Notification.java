@@ -2,6 +2,7 @@ package com.example.clockeys.Notifications;
 
 import com.example.clockeys.Users.Employee;
 
+import java.io.Serializable;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -9,7 +10,7 @@ import java.time.ZonedDateTime;
 import java.util.Comparator;
 import java.util.Date;
 
-public abstract class Notification {
+public abstract class Notification implements Serializable {
     private int id;
     private int companyId;
     private int urgency;

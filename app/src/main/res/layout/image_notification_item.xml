@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
+    app:cardBackgroundColor="@color/gray"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="10dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/imageNotificationTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15sp"
+            android:text="Notification Title"
+            android:textSize="25sp"></TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/light_gray"
+                android:text="Created By:"
+                android:layout_marginStart="10dp"></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/light_gray"
+                android:layout_marginStart="10dp"
+                android:text="Poster Name"
+                android:id="@+id/imagePosterName"
+                android:textSize="15sp"></TextView>
+        </LinearLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/imageViewPager"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_height="300dp">
+        </androidx.viewpager.widget.ViewPager>
+
+        <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
+            android:layout_width="wrap_content"
+            android:id="@+id/imageNotificationDots"
+            android:layout_marginTop="10dp"
+            app:dotsSize="10dp"
+            app:dotsSpacing="5dp"
+            app:dotsColor="@color/dark_blue"
+            android:layout_gravity="center"
+            android:layout_height="match_parent">
+
+        </com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator>
+        <TextView
+            android:id="@+id/imageTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15sp"
+            android:text="@string/announcement_notification_example"></TextView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/imageDatePostedTextView"
+                android:textColor="@color/light_gray"
+                android:textSize="15sp"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="10dp"
+                android:text="May 18 2024"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/imageTimePassedTextView"
+                android:textSize="15sp"
+                android:text="234 Hrs ago"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/light_gray"></TextView>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageDismissButton"
+                android:text="@string/dismiss"
+                app:backgroundTint="@null"
+                android:background="@drawable/button_gradient"
+                android:textSize="15sp"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/imageTimePassedTextView"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+            </Button>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

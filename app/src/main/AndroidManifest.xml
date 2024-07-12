@@ -16,6 +16,15 @@
         android:theme="@style/Theme.ClocKeys"
         tools:targetApi="31">
         <activity
+            android:name=".Startups.CompanyCreation.CreateCompanyLogoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Startups.CompanyCreation.CreateCompanyAddressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Startups.CompanyCreation.CreateCompanyNameActivity"
+            android:exported="false" />
+        <activity
             android:name=".Management.ChooseNotificationActivity"
             android:exported="false" />
         <activity

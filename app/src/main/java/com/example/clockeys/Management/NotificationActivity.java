@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.clockeys.Adapters.NotificationAdapter;
@@ -72,6 +73,13 @@ public class NotificationActivity extends AppCompatActivity {
         notificationRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         bindViews();
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override

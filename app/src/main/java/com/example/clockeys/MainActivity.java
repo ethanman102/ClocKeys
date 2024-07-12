@@ -8,6 +8,7 @@ import android.view.MenuItem;
 
 
 import com.example.clockeys.Management.ChooseNotificationActivity;
+import com.example.clockeys.Management.NotificationActivity;
 import com.example.clockeys.Notifications.Notification;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         // Handle item selection
         int id = item.getItemId();
         if (id == R.id.mainNotificationButton){
-            Intent intent = new Intent(this, Notification.class);
+            Intent intent = new Intent(this, NotificationActivity.class);
             startActivity(intent);
             return Boolean.TRUE;
         }

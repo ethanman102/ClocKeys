@@ -49,7 +49,7 @@ public class NotificationActivity extends AppCompatActivity {
         myEmployees.add(new Employee(1092,"Ethan Keys3",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker3","bio","address"));
         myEmployees.add(new Employee(1092,"Brig Keys4",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker4","bio","address"));
 
-        company = new Company("Resource Bearing",myEmployees.size(),myEmployees,"Image",19289,12);
+        company = new Company("Resource Bearing","Haddow Drive",myEmployees.size(),myEmployees,"Image",19289,12);
 
         employee = new Employee(1092,"Zion Keys",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker","bio","address");
         ArrayList<String> urls = new ArrayList<>();

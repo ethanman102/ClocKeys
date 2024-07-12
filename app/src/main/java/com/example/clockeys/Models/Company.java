@@ -16,6 +16,10 @@ public class Company implements Serializable {
     private String companyImageURL;
     private int companyID;
     private int ownerID;
+
+    public Company(){
+
+    }
     public Company(String companyName, int employeeCount, ArrayList<Employee> employees, String companyImageURL, int companyID, int ownerID){
         this.companyID = companyID;
         this.companyName = companyName;
@@ -70,5 +74,13 @@ public class Company implements Serializable {
 
     public int getCompanyID(){
         return this.companyID;
+    }
+
+    public String getCompanyName(){
+        return this.companyName;
+    }
+
+    public void setCompanyName(String companyName){
+        this.companyName = companyName;
     }
 }

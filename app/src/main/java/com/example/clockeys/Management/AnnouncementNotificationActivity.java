@@ -15,6 +15,9 @@ import com.example.clockeys.Notifications.AnnouncementNotification;
 import com.example.clockeys.Notifications.Notification;
 import com.example.clockeys.R;
 import com.example.clockeys.Users.Employee;
+import com.google.android.material.datepicker.CalendarConstraints;
+import com.google.android.material.datepicker.DateValidatorPointBackward;
+import com.google.android.material.datepicker.DateValidatorPointForward;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 import com.google.android.material.slider.Slider;
@@ -65,9 +68,13 @@ public class AnnouncementNotificationActivity extends AppCompatActivity {
         dismissDateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                CalendarConstraints.Builder constraintBuilder = new CalendarConstraints.Builder();
+                constraintBuilder.setValidator(DateValidatorPointForward.now());
+
                 MaterialDatePicker<Long> dismissalDatePicker = MaterialDatePicker.Builder.datePicker()
                         .setTitleText("Select Date of Dismissal")
-                        .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+                        .setSelection(MaterialDatePicker.todayInUtcMilliseconds()).setCalendarConstraints(constraintBuilder.build())
                         .build();
                 dismissalDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener<Long>() {
                     @Override

@@ -38,13 +38,20 @@ public class ChooseNotificationActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        announcementButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startCreateAnnouncement();
+            }
+        });
     }
 
     public void bindViews(){
         announcementButton = findViewById(R.id.createAnnouncement);
         imageButton = findViewById(R.id.createImage);
 
-        toolbar = findViewById(R.id.notificationToolbar);
+        toolbar = findViewById(R.id.createNotificationToolbar);
         setSupportActionBar(toolbar);
     }
 

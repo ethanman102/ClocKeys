@@ -42,6 +42,14 @@ public class NotificationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        ArrayList<Employee> myEmployees = new ArrayList<Employee>();
+        myEmployees.add(new Employee(1092,"Zion Keys",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker","bio","address"));
+        myEmployees.add(new Employee(1092,"Addison Keys2",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker2","bio","address"));
+        myEmployees.add(new Employee(1092,"Ethan Keys3",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker3","bio","address"));
+        myEmployees.add(new Employee(1092,"Brig Keys4",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker4","bio","address"));
+
+        company = new Company("Resource Bearing",myEmployees.size(),myEmployees,"Image",19289,12);
+
         employee = new Employee(1092,"Zion Keys",new Date(),new Timecard(new ArrayList<Punch>()),new Date(),"Worker","bio","address");
         ArrayList<String> urls = new ArrayList<>();
         urls.add("https://www.geeksforgeeks.org/wp-content/uploads/gfg_200X200-1.png");
@@ -86,8 +94,8 @@ public class NotificationActivity extends AppCompatActivity {
         // Handle item selection
         int id = item.getItemId();
         if (id == R.id.notificationButton){
-            Intent intent = new Intent(this,AnnouncementNotificationActivity.class);
-            intent.putExtra("companyId",123);
+            Intent intent = new Intent(this,ChooseNotificationActivity.class);
+            intent.putExtra("company",company);
             intent.putExtra("employee",employee);
             startActivity(intent);
             return Boolean.TRUE;

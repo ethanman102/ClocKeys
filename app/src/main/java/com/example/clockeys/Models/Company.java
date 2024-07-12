@@ -2,12 +2,13 @@ package com.example.clockeys.Models;
 
 import com.example.clockeys.Users.Employee;
 
+import java.io.Serializable;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Company {
+public class Company implements Serializable {
 
     private String companyName;
     private int employeeCount;
@@ -65,5 +66,9 @@ public class Company {
 
     public List<Employee> getEmployees(){
         return Collections.unmodifiableList(employees);
+    }
+
+    public int getCompanyID(){
+        return this.companyID;
     }
 }

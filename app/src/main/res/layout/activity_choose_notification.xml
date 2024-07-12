@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Management.ChooseNotificationActivity"
+    android:background="@color/dark_gray"
+    android:orientation="vertical">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/createNotificationToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        app:title="New Notification"
+        app:titleTextColor="@color/white"
+        app:navigationIcon="@drawable/signup_activity_back">
+    </androidx.appcompat.widget.Toolbar>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/gray"></View>
+    <Button
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"
+        android:id="@+id/createAnnouncement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/light_gray"
+        android:text="Announcement"
+        android:gravity="left"
+        android:background="@drawable/dark_gray_rect"
+        app:backgroundTint="@null"></Button>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/gray"></View>
+    <Button
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"
+        android:id="@+id/createImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/light_gray"
+        android:text="Images"
+        android:gravity="left"
+        android:background="@drawable/dark_gray_rect"
+        app:backgroundTint="@null"></Button>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/gray"></View>
+
+</LinearLayout>

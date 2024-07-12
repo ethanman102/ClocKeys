@@ -16,6 +16,9 @@
         android:theme="@style/Theme.ClocKeys"
         tools:targetApi="31">
         <activity
+            android:name=".Management.ChooseNotificationActivity"
+            android:exported="false" />
+        <activity
             android:name=".Management.AnnouncementNotificationActivity"
             android:exported="false" />
         <activity

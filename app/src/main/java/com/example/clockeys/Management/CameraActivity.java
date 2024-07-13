@@ -38,7 +38,6 @@ public class CameraActivity extends AppCompatActivity {
     private ImageButton galleryButton,pictureButton,backButton;
     private PreviewView previewView;
     private ImageCapture imageCapture;
-    private ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +55,7 @@ public class CameraActivity extends AppCompatActivity {
                         byte[] bytes = new byte[buffer.capacity()];
                         buffer.get(bytes);
                         Bitmap bitmapImage = BitmapFactory.decodeByteArray(bytes, 0, bytes.length, null);
-                        imageView.setImageBitmap(bitmapImage);
+
                     }
 
                     @Override
@@ -104,6 +103,6 @@ public class CameraActivity extends AppCompatActivity {
         pictureButton = findViewById(R.id.pictureButton);
         backButton = findViewById(R.id.cameraBackButton);
         previewView = findViewById(R.id.cameraActivityPreviewView);
-        imageView = findViewById(R.id.imageViewCamera);
+
     }
 }

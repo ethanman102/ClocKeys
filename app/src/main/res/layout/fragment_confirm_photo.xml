@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Management.ConfirmPhotoFragment">
+    <ImageView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/fragmentPhotoTaken">
+
+    </ImageView>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/fragmentConfirmButton"></ImageButton>
+        <ImageButton
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/fragmentRejectButton"></ImageButton>
+    </LinearLayout>
+</FrameLayout>

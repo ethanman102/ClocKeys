@@ -40,6 +40,7 @@ public class ConfirmPhotoFragment extends Fragment {
         ConfirmPhotoFragment fragment = new ConfirmPhotoFragment(listener);
         Bundle args = new Bundle();
         args.putParcelable("image",bitmap);
+        fragment.setArguments(args);
         return fragment;
     }
 
@@ -48,19 +49,7 @@ public class ConfirmPhotoFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             bitmap = getArguments().getParcelable("image", Bitmap.class);
-            confirmButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    listener.onConfirmPressed(bitmap);
-                }
-            });
 
-            rejectButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    listener.onRejectPressed();
-                }
-            });
         }else throw new RuntimeException("No photo passed");
     }
 
@@ -73,6 +62,20 @@ public class ConfirmPhotoFragment extends Fragment {
         imageView = view.findViewById(R.id.fragmentPhotoTaken);
         confirmButton = view.findViewById(R.id.fragmentConfirmButton);
         rejectButton = view.findViewById(R.id.fragmentRejectButton);
+
+        confirmButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onConfirmPressed(bitmap);
+            }
+        });
+
+        rejectButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onRejectPressed();
+            }
+        });
 
         imageView.setImageBitmap(bitmap);
         return view;

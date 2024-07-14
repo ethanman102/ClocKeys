@@ -12,6 +12,8 @@ import androidx.camera.core.Preview;
 import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.camera.view.PreviewView;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.LifecycleOwner;
 
 import android.content.Intent;
@@ -32,8 +34,6 @@ import java.util.concurrent.Executor;
 
 public class CameraActivity extends AppCompatActivity implements ConfirmPhotoFragment.onConfirmPhotoFragmentInteractionListener{
 
-    private static final int REQUEST_CODE_PERMISSIONS = 10;
-    private final String[] REQUIRED_PERMISSIONS = new String[]{"android.permission.CAMERA"};
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
     private ImageButton galleryButton,pictureButton,backButton;
     private PreviewView previewView;
@@ -45,17 +45,32 @@ public class CameraActivity extends AppCompatActivity implements ConfirmPhotoFra
 
         bindViews();
 
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setResult(RESULT_CANCELED);
+                finish();
+            }
+        });
+
         pictureButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 imageCapture.takePicture(getExecutor(), new ImageCapture.OnImageCapturedCallback() {
                     @Override
                     public void onCaptureSuccess(@NonNull ImageProxy image) {
+                        setViewsInvisible();
                         ByteBuffer buffer = image.getPlanes()[0].getBuffer();
                         byte[] bytes = new byte[buffer.capacity()];
                         buffer.get(bytes);
                         Bitmap bitmapImage = BitmapFactory.decodeByteArray(bytes, 0, bytes.length, null);
-
+                        ConfirmPhotoFragment confirmPhotoFragment = ConfirmPhotoFragment.newInstance(bitmapImage,CameraActivity.this);
+                        FragmentManager fragmentManager = getSupportFragmentManager();
+                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                        fragmentTransaction.replace(R.id.cameraFragmentFrameLayout,confirmPhotoFragment);
+                        fragmentTransaction.addToBackStack("confirmFragment");
+                        fragmentTransaction.commit();
+                        image.close();
                     }
 
                     @Override
@@ -109,7 +124,7 @@ public class CameraActivity extends AppCompatActivity implements ConfirmPhotoFra
     @Override
     public void onConfirmPressed(Bitmap bitmap) {
         this.getSupportFragmentManager().popBackStack(); // remove the current fragment
-
+        setViewsVisible();
         Intent updatedIntent = new Intent();
         updatedIntent.putExtra("bitmap",bitmap);
         setResult(RESULT_OK,updatedIntent);
@@ -118,6 +133,19 @@ public class CameraActivity extends AppCompatActivity implements ConfirmPhotoFra
 
     @Override
     public void onRejectPressed() {
-        this.getSupportFragmentManager().popBackStack(); // just rejected the bitmap
+        this.getSupportFragmentManager().popBackStack();
+        setViewsVisible();// just rejected the bitmap
+    }
+
+    public void setViewsInvisible(){
+        pictureButton.setVisibility(View.GONE);
+        backButton.setVisibility(View.GONE);
+        galleryButton.setVisibility(View.GONE);
+    }
+
+    public void setViewsVisible(){
+        pictureButton.setVisibility(View.VISIBLE);
+        backButton.setVisibility(View.VISIBLE);
+        galleryButton.setVisibility(View.VISIBLE);
     }
 }

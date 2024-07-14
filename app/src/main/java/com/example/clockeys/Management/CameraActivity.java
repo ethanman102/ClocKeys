@@ -30,7 +30,7 @@ import java.nio.ByteBuffer;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 
-public class CameraActivity extends AppCompatActivity {
+public class CameraActivity extends AppCompatActivity implements ConfirmPhotoFragment.onConfirmPhotoFragmentInteractionListener{
 
     private static final int REQUEST_CODE_PERMISSIONS = 10;
     private final String[] REQUIRED_PERMISSIONS = new String[]{"android.permission.CAMERA"};
@@ -104,5 +104,20 @@ public class CameraActivity extends AppCompatActivity {
         backButton = findViewById(R.id.cameraBackButton);
         previewView = findViewById(R.id.cameraActivityPreviewView);
 
+    }
+
+    @Override
+    public void onConfirmPressed(Bitmap bitmap) {
+        this.getSupportFragmentManager().popBackStack(); // remove the current fragment
+
+        Intent updatedIntent = new Intent();
+        updatedIntent.putExtra("bitmap",bitmap);
+        setResult(RESULT_OK,updatedIntent);
+        finish();
+    }
+
+    @Override
+    public void onRejectPressed() {
+        this.getSupportFragmentManager().popBackStack(); // just rejected the bitmap
     }
 }

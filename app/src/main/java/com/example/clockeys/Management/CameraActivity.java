@@ -28,6 +28,7 @@ import android.widget.ImageView;
 import com.example.clockeys.R;
 import com.google.common.util.concurrent.ListenableFuture;
 
+import java.io.ByteArrayOutputStream;
 import java.nio.ByteBuffer;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
@@ -126,7 +127,7 @@ public class CameraActivity extends AppCompatActivity implements ConfirmPhotoFra
         this.getSupportFragmentManager().popBackStack(); // remove the current fragment
         setViewsVisible();
         Intent updatedIntent = new Intent();
-        updatedIntent.putExtra("bitmap",bitmap);
+        updatedIntent.putExtra("bitmap",convertBitmapToBytes(bitmap));
         setResult(RESULT_OK,updatedIntent);
         finish();
     }
@@ -147,5 +148,11 @@ public class CameraActivity extends AppCompatActivity implements ConfirmPhotoFra
         pictureButton.setVisibility(View.VISIBLE);
         backButton.setVisibility(View.VISIBLE);
         galleryButton.setVisibility(View.VISIBLE);
+    }
+
+    public byte[] convertBitmapToBytes(Bitmap bitmap){
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG,100,byteArrayOutputStream);
+        return byteArrayOutputStream.toByteArray();
     }
 }

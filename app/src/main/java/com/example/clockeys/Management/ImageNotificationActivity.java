@@ -51,6 +51,7 @@ public class ImageNotificationActivity extends AppCompatActivity {
 
         imageRecyclerView.setAdapter(imageAdapter);
 
+        imageRecyclerView.setVisibility(View.GONE);
 
         takePhotoButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +70,7 @@ public class ImageNotificationActivity extends AppCompatActivity {
                     Bitmap bitmap = BitmapFactory.decodeStream(fileInputStream);
                     images.add(bitmap);
                     imageAdapter.notifyDataSetChanged();
+                    imageRecyclerView.setVisibility(View.VISIBLE);
                     Log.d("IMAGENOTIF", "# of images is " + Integer.toString(images.size()));
                 }catch (Exception e){
                     Log.d("IMAGENOTIF", "saveBitmapToDisk: errorrrr...");

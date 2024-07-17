@@ -21,7 +21,6 @@ import java.util.ArrayList;
 public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> {
     private Context context;
     private ArrayList<Bitmap> images;
-    private OnItemClickListener listener;
 
     public ImageAdapter(Context context, ArrayList<Bitmap> images){
         super();
@@ -40,12 +39,6 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Bitmap bitmap = images.get(position);
         holder.image.setImageBitmap(bitmap);
-        holder.image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.onClick(holder.image,bitmap);
-            }
-        });
     }
 
     @Override
@@ -63,10 +56,4 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
         }
     }
 
-    public void setOnItemClickListener(OnItemClickListener listener){
-        this.listener = listener;
-    }
-    public interface OnItemClickListener{
-        void onClick(ImageView imageView,Bitmap bitmap);
-    }
 }

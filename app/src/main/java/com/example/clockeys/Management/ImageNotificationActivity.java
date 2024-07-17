@@ -73,5 +73,10 @@ public class ImageNotificationActivity extends AppCompatActivity {
         textEditText = findViewById(R.id.imageTextEditText);
     }
 
+    public void launchCameraActivity(){
+        Intent intent = new Intent(ImageNotificationActivity.this,CameraActivity.class);
+        imageNotificationActivityResultLauncher.launch(intent);
+    }
+
 
 }

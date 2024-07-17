@@ -47,9 +47,10 @@ public class ImageNotificationActivity extends AppCompatActivity {
 
         images = new ArrayList<>();
         imageAdapter = new ImageAdapter(this,images);
+        imageRecyclerView.setLayoutManager(new CarouselLayoutManager());
+
         imageRecyclerView.setAdapter(imageAdapter);
 
-        imageRecyclerView.setLayoutManager(new CarouselLayoutManager());
 
         takePhotoButton.setOnClickListener(new View.OnClickListener() {
             @Override

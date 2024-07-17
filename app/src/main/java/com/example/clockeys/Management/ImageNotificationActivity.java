@@ -21,6 +21,7 @@ import com.example.clockeys.R;
 import com.example.clockeys.Users.Employee;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.io.FileInputStream;
 import java.util.ArrayList;
 
 public class ImageNotificationActivity extends AppCompatActivity {
@@ -56,10 +57,16 @@ public class ImageNotificationActivity extends AppCompatActivity {
 
             if (result.getResultCode() == RESULT_OK && result.getData() != null){
                 Intent intent = result.getData();
-                byte[] imageBytes = intent.getByteArrayExtra("image");
-                Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length, null);
-                images.add(bitmap);
-                imageAdapter.notifyDataSetChanged();
+                String imageFile = intent.getStringExtra("imageFile");
+                try{
+                    FileInputStream fileInputStream = ImageNotificationActivity.this.openFileInput(imageFile);
+                    Bitmap bitmap = BitmapFactory.decodeStream(fileInputStream);
+                    images.add(bitmap);
+                    imageAdapter.notifyDataSetChanged();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
             }
 
         });

@@ -16,6 +16,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.LifecycleOwner;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -29,6 +30,8 @@ import com.example.clockeys.R;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.nio.ByteBuffer;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
@@ -127,7 +130,7 @@ public class CameraActivity extends AppCompatActivity implements ConfirmPhotoFra
         this.getSupportFragmentManager().popBackStack(); // remove the current fragment
         setViewsVisible();
         Intent updatedIntent = new Intent();
-        updatedIntent.putExtra("bitmap",convertBitmapToBytes(bitmap));
+        updatedIntent.putExtra("imageFile",saveBitmapToDisk(bitmap));
         setResult(RESULT_OK,updatedIntent);
         finish();
     }
@@ -150,9 +153,21 @@ public class CameraActivity extends AppCompatActivity implements ConfirmPhotoFra
         galleryButton.setVisibility(View.VISIBLE);
     }
 
-    public byte[] convertBitmapToBytes(Bitmap bitmap){
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG,100,byteArrayOutputStream);
-        return byteArrayOutputStream.toByteArray();
+    public String saveBitmapToDisk(Bitmap bitmap){
+        // source code via stack overflow and used for my project.
+        // https://stackoverflow.com/questions/11010386/passing-android-bitmap-data-within-activity-using-intent-in-android
+        // Special thanks to user starball for the Uri conversion!
+        String filename = "bitmap.png";
+        try{
+            FileOutputStream fileOutputStream = this.openFileOutput(filename, Context.MODE_PRIVATE);
+            bitmap.compress(Bitmap.CompressFormat.PNG,100,fileOutputStream);
+
+            fileOutputStream.close();
+            bitmap.recycle();
+
+        } catch (Exception exception){
+            exception.printStackTrace();
+        }
+        return filename;
     }
 }

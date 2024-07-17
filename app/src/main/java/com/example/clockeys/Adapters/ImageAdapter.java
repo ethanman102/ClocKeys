@@ -25,13 +25,13 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
     public ImageAdapter(Context context, ArrayList<Bitmap> images){
         super();
         this.context = context;
-        this.images = new ArrayList<>(images);
+        this.images = images;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.image_view_pager_item,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.image_item,parent,false);
         return new ViewHolder(view);
     }
 

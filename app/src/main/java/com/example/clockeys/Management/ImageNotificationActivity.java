@@ -4,12 +4,14 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +21,7 @@ import android.widget.TextView;
 import com.example.clockeys.Adapters.ImageAdapter;
 import com.example.clockeys.R;
 import com.example.clockeys.Users.Employee;
+import com.google.android.material.carousel.CarouselLayoutManager;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.io.FileInputStream;
@@ -46,6 +49,8 @@ public class ImageNotificationActivity extends AppCompatActivity {
         imageAdapter = new ImageAdapter(this,images);
         imageRecyclerView.setAdapter(imageAdapter);
 
+        imageRecyclerView.setLayoutManager(new CarouselLayoutManager());
+
         takePhotoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,7 +68,9 @@ public class ImageNotificationActivity extends AppCompatActivity {
                     Bitmap bitmap = BitmapFactory.decodeStream(fileInputStream);
                     images.add(bitmap);
                     imageAdapter.notifyDataSetChanged();
+                    Log.d("IMAGENOTIF", "# of images is " + Integer.toString(images.size()));
                 }catch (Exception e){
+                    Log.d("IMAGENOTIF", "saveBitmapToDisk: errorrrr...");
                     e.printStackTrace();
                 }
 

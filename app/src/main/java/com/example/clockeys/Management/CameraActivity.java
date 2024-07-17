@@ -22,6 +22,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -159,13 +160,15 @@ public class CameraActivity extends AppCompatActivity implements ConfirmPhotoFra
         // Special thanks to user starball for the Uri conversion!
         String filename = "bitmap.png";
         try{
-            FileOutputStream fileOutputStream = this.openFileOutput(filename, Context.MODE_PRIVATE);
+            Context context = getApplicationContext();
+            FileOutputStream fileOutputStream = context.openFileOutput(filename, Context.MODE_PRIVATE);
             bitmap.compress(Bitmap.CompressFormat.PNG,100,fileOutputStream);
 
             fileOutputStream.close();
             bitmap.recycle();
 
         } catch (Exception exception){
+            Log.d("CAMACTIVITY", "saveBitmapToDisk: errorrrr...");
             exception.printStackTrace();
         }
         return filename;

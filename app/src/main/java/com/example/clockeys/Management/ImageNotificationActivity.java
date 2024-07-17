@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -42,6 +43,13 @@ public class ImageNotificationActivity extends AppCompatActivity {
         images = new ArrayList<>();
         imageAdapter = new ImageAdapter(this,images);
         imageRecyclerView.setAdapter(imageAdapter);
+
+        takePhotoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchCameraActivity();
+            }
+        });
 
         imageNotificationActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result ->{
 

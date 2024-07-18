@@ -11,4 +11,27 @@
         android:layout_marginTop="20dp"
         android:layout_gravity="center"></View>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/openCameraActivityLayout"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp">
+        <ImageView
+            android:id="@+id/cameraImageVector"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/signup_activity_back">
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/cameraImageVector"
+            android:text="Upload from camera or library"
+            android:textSize="20sp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:textColor="@color/white"></TextView>
+    </RelativeLayout>
+
 </LinearLayout>

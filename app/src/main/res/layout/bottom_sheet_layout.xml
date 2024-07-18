@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@drawable/bottom_sheet_background">
     <View
@@ -32,6 +33,29 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="20dp"
             android:textColor="@color/white"></TextView>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/removePhotoLayout"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <ImageView
+            android:id="@+id/garbageImageVector"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:tint="@color/red"
+            android:src="@drawable/signup_activity_back">
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/garbageImageVector"
+            android:text="Remove Photo"
+            android:textSize="20sp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:textColor="@color/red"></TextView>
     </RelativeLayout>
 
 </LinearLayout>

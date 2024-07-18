@@ -6,6 +6,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -235,5 +237,32 @@ public class EditProfileActivity extends AppCompatActivity {
 
         // Display the formatted date
         birthdayTV.setText(date);
+    }
+
+    public void showDialog(){
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.bottom_sheet_layout);
+
+        RelativeLayout cameraActivity = dialog.findViewById(R.id.openCameraActivityLayout);
+        RelativeLayout removePhoto = dialog.findViewById(R.id.removePhotoLayout);
+
+        removePhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                profilePicture.setImageResource(R.drawable.mcdonalds);
+                dialog.dismiss();
+            }
+        });
+
+        cameraActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cameraIntent = new Intent(EditProfileActivity.this,CameraActivity.class);
+                cameraActivityResultLauncher.launch(cameraIntent);
+            }
+        });
+
+
     }
 }

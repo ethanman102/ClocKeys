@@ -21,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -264,14 +265,17 @@ public class EditProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent cameraIntent = new Intent(EditProfileActivity.this,CameraActivity.class);
                 cameraActivityResultLauncher.launch(cameraIntent);
+                dialog.dismiss();
             }
         });
 
-        dialog.show();
+
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         dialog.getWindow().setGravity(Gravity.BOTTOM);
+        dialog.show();
+
 
 
     }

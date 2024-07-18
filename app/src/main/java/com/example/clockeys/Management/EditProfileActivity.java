@@ -7,7 +7,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -22,6 +25,7 @@ import com.example.clockeys.Users.Employee;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 
+import java.io.FileInputStream;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -29,12 +33,15 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 
 public class EditProfileActivity extends AppCompatActivity {
 
     private Employee employee;
     private Toolbar toolbar;
     private RelativeLayout name,birthdate,address,bio;
+    private CircleImageView profilePicture;
     private TextView leaveCompany,deleteProfile,nameTV,bioTV,addressTV,birthdayTV;
 
     private ActivityResultLauncher<Intent> profileInputActivityResultLauncher;
@@ -57,6 +64,8 @@ public class EditProfileActivity extends AppCompatActivity {
             }
 
         });
+
+
 
         bindViews();
         setViews();

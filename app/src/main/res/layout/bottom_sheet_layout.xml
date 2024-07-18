@@ -6,9 +6,9 @@
     android:orientation="vertical"
     android:background="@drawable/bottom_sheet_background">
     <View
-        android:layout_width="100dp"
-        android:layout_height="2dp"
-        android:background="@color/dark_gray"
+        android:layout_width="75dp"
+        android:layout_height="3dp"
+        android:background="@color/light_gray"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"></View>
     <View
@@ -24,6 +24,7 @@
         android:orientation="horizontal"
         android:layout_marginTop="30dp">
         <ImageView
+            app:tint="@color/light_gray"
             android:id="@+id/cameraImageVector"
             android:layout_width="30dp"
             android:layout_height="30dp"
@@ -37,7 +38,7 @@
             android:textSize="20sp"
             android:layout_centerVertical="true"
             android:layout_marginStart="20dp"
-            android:textColor="@color/white"></TextView>
+            android:textColor="@color/light_gray"></TextView>
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"

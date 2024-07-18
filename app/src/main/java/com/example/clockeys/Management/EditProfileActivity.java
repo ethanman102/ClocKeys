@@ -42,9 +42,9 @@ public class EditProfileActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private RelativeLayout name,birthdate,address,bio;
     private CircleImageView profilePicture;
-    private TextView leaveCompany,deleteProfile,nameTV,bioTV,addressTV,birthdayTV;
+    private TextView leaveCompany,deleteProfile,nameTV,bioTV,addressTV,birthdayTV,editPhoto;
 
-    private ActivityResultLauncher<Intent> profileInputActivityResultLauncher;
+    private ActivityResultLauncher<Intent> profileInputActivityResultLauncher,cameraActivityResultLauncher;
     private Intent updatedIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,10 +65,35 @@ public class EditProfileActivity extends AppCompatActivity {
 
         });
 
+        cameraActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result ->{
+
+            if (result.getResultCode() == RESULT_OK && result.getData() != null){
+                Intent intent = result.getData();
+                String imageFile = intent.getStringExtra("imageFile");
+                try{
+                    FileInputStream fileInputStream = EditProfileActivity.this.openFileInput(imageFile);
+                    Bitmap bitmap = BitmapFactory.decodeStream(fileInputStream);
+                    profilePicture.setImageBitmap(bitmap);
+                }catch (Exception e){
+                    Log.d("IMAGENOTIF", "saveBitmapToDisk: errorrrr...");
+                    e.printStackTrace();
+                }
+
+            }
+
+        });
+
 
 
         bindViews();
         setViews();
+
+        editPhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog();
+            }
+        });
         name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -188,6 +213,9 @@ public class EditProfileActivity extends AppCompatActivity {
         nameTV = findViewById(R.id.employeeNameChangeable);
         addressTV = findViewById(R.id.employeeAddress);
         birthdayTV = findViewById(R.id.employeeBirthdayDate);
+
+        profilePicture = findViewById(R.id.editProfileProfilePicture);
+        editPhoto = findViewById(R.id.editPictureTV);
 
 
 

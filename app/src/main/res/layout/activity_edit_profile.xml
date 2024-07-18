@@ -40,6 +40,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/blue_700"
             android:textSize="16sp"
+            android:id="@+id/editPictureTV"
             android:layout_gravity="center"
             android:layout_marginBottom="20sp"
             android:text="Edit Picture"></TextView>

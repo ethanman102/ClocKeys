@@ -38,6 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/removePhotoLayout"
+        android:layout_marginBottom="50dp"
         android:orientation="horizontal"
         android:layout_marginTop="10dp">
         <ImageView

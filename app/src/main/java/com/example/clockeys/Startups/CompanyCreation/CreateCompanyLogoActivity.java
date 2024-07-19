@@ -70,6 +70,13 @@ public class CreateCompanyLogoActivity extends AppCompatActivity {
 
         });
 
+        cameraButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchCameraActivity();
+            }
+        });
+
 
         remove.setOnClickListener(new View.OnClickListener() {
             @Override

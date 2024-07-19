@@ -38,29 +38,31 @@
         android:layout_marginEnd="32dp"
         android:layout_marginTop="10dp">
         <ImageView
-            android:layout_width="200dp"
+            android:layout_width="match_parent"
             android:scaleType="centerCrop"
-            android:layout_height="200dp"
+            android:layout_height="300dp"
             android:background="@color/light_gray"
             android:id="@+id/createCompanyLogoImage"></ImageView>
         <ImageButton
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:id="@+id/logoPhotoButton"
+
+            android:layout_below="@id/createCompanyLogoImage"></ImageButton>
+        <Button
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
             android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"></ImageButton>
+            android:id="@+id/removePhotoButton"
+            android:layout_below="@+id/createCompanyLogoImage"
+            android:text="Remove Photo"
+            android:backgroundTint="@color/gray"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"></Button>
     </RelativeLayout>
-    <Button
-        android:visibility="gone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:id="@+id/removePhotoButton"
-        android:text="Remove Photo"
-        android:backgroundTint="@color/gray"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="10dp"></Button>
+
 
     <View
         android:layout_width="match_parent"

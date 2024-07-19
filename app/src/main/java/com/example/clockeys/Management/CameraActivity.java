@@ -1,5 +1,6 @@
 package com.example.clockeys.Management;
 
+import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
 import androidx.annotation.OptIn;
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,6 +41,7 @@ import java.util.concurrent.Executor;
 public class CameraActivity extends AppCompatActivity implements ConfirmPhotoFragment.onConfirmPhotoFragmentInteractionListener{
 
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
+    private ActivityResultLauncher<Intent> galleryResultLauncher;
     private ImageButton galleryButton,pictureButton,backButton;
     private PreviewView previewView;
     private ImageCapture imageCapture;
@@ -50,6 +52,12 @@ public class CameraActivity extends AppCompatActivity implements ConfirmPhotoFra
 
         bindViews();
 
+        galleryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchGallery();
+            }
+        });
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -172,5 +180,12 @@ public class CameraActivity extends AppCompatActivity implements ConfirmPhotoFra
             exception.printStackTrace();
         }
         return filename;
+    }
+
+    public void launchGallery(){
+        Intent galleryIntent = new Intent();
+        galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+        galleryIntent.setType("image/*");
+        galleryResultLauncher.launch(Intent.createChooser(galleryIntent,"picture"));
     }
 }

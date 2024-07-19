@@ -16,7 +16,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import com.example.clockeys.Management.CameraActivity;
 import com.example.clockeys.Management.EditProfileActivity;
+import com.example.clockeys.Management.ImageNotificationActivity;
 import com.example.clockeys.Models.Company;
 import com.example.clockeys.R;
 
@@ -88,6 +90,11 @@ public class CreateCompanyLogoActivity extends AppCompatActivity {
         logo = findViewById(R.id.createCompanyLogoImage);
         remove = findViewById(R.id.removePhotoButton);
         confirm = findViewById(R.id.createCompanyLogoButton);
+    }
+
+    public void launchCameraActivity(){
+        Intent cameraIntent = new Intent(CreateCompanyLogoActivity.this, CameraActivity.class);
+        cameraActivityResultLauncher.launch(cameraIntent);
     }
 
 }

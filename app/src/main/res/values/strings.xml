@@ -74,6 +74,8 @@
     <string name="announcement_title_description">Describe your announcement with a short and previse title.</string>
     <string name="announcement_details">Write a descriptive and detailed text to provide your company the notification with.</string>
     <string name="dismiss_description">Choose the date in which your notification is allowed to be removed from the employee\'s notification bin.</string>
+    <string name="company_name_description">Provide the professional name of your company in which you plan to use the app to manage yourself and your team</string>
+    <string name="company_address_description">Provide the most descriptive and accurate address of your company workplace/head quarters/meeting grounds, etc.</string>
 
     <string-array name="sort_types">
         <item>Age</item>
@@ -81,4 +83,8 @@
         <item>ID</item>
         <item>Name</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="image_notification_description">Describe your notification with a short and precise title.</string>
+    <string name="image_notification_picture_text">Provide one or more images to represent your new notification to your company.</string>
 </resources>

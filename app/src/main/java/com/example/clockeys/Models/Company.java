@@ -16,13 +16,19 @@ public class Company implements Serializable {
     private String companyImageURL;
     private int companyID;
     private int ownerID;
-    public Company(String companyName, int employeeCount, ArrayList<Employee> employees, String companyImageURL, int companyID, int ownerID){
+    private String address;
+
+    public Company(){
+
+    }
+    public Company(String companyName,String address ,int employeeCount, ArrayList<Employee> employees, String companyImageURL, int companyID, int ownerID){
         this.companyID = companyID;
         this.companyName = companyName;
         this.companyImageURL = companyImageURL;
         this.ownerID = ownerID;
         this.employeeCount = employeeCount;
         this.employees = employees;
+        this.address = address;
     }
 
     public String generateCode(){
@@ -54,6 +60,14 @@ public class Company implements Serializable {
         }
     }
 
+    public void setAddress(String address){
+        this.address = address;
+    }
+
+    public String getAddress(){
+        return this.address;
+    }
+
     public Boolean hireEmployee(Employee employee){
         if (employees.contains(employee)){
             return Boolean.FALSE;
@@ -71,4 +85,14 @@ public class Company implements Serializable {
     public int getCompanyID(){
         return this.companyID;
     }
+
+    public String getCompanyName(){
+        return this.companyName;
+    }
+
+    public void setCompanyName(String companyName){
+        this.companyName = companyName;
+    }
+
+
 }

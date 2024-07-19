@@ -6,12 +6,22 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -22,6 +32,7 @@ import com.example.clockeys.Users.Employee;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 
+import java.io.FileInputStream;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -29,15 +40,18 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 
 public class EditProfileActivity extends AppCompatActivity {
 
     private Employee employee;
     private Toolbar toolbar;
     private RelativeLayout name,birthdate,address,bio;
-    private TextView leaveCompany,deleteProfile,nameTV,bioTV,addressTV,birthdayTV;
+    private CircleImageView profilePicture;
+    private TextView leaveCompany,deleteProfile,nameTV,bioTV,addressTV,birthdayTV,editPhoto;
 
-    private ActivityResultLauncher<Intent> profileInputActivityResultLauncher;
+    private ActivityResultLauncher<Intent> profileInputActivityResultLauncher,cameraActivityResultLauncher;
     private Intent updatedIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +72,35 @@ public class EditProfileActivity extends AppCompatActivity {
 
         });
 
+        cameraActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result ->{
+
+            if (result.getResultCode() == RESULT_OK && result.getData() != null){
+                Intent intent = result.getData();
+                String imageFile = intent.getStringExtra("imageFile");
+                try{
+                    FileInputStream fileInputStream = EditProfileActivity.this.openFileInput(imageFile);
+                    Bitmap bitmap = BitmapFactory.decodeStream(fileInputStream);
+                    profilePicture.setImageBitmap(bitmap);
+                }catch (Exception e){
+                    Log.d("IMAGENOTIF", "saveBitmapToDisk: errorrrr...");
+                    e.printStackTrace();
+                }
+
+            }
+
+        });
+
+
+
         bindViews();
         setViews();
+
+        editPhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog();
+            }
+        });
         name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -180,6 +221,9 @@ public class EditProfileActivity extends AppCompatActivity {
         addressTV = findViewById(R.id.employeeAddress);
         birthdayTV = findViewById(R.id.employeeBirthdayDate);
 
+        profilePicture = findViewById(R.id.editProfileProfilePicture);
+        editPhoto = findViewById(R.id.editPictureTV);
+
 
 
     }
@@ -198,5 +242,41 @@ public class EditProfileActivity extends AppCompatActivity {
 
         // Display the formatted date
         birthdayTV.setText(date);
+    }
+
+    public void showDialog(){
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.bottom_sheet_layout);
+
+        RelativeLayout cameraActivity = dialog.findViewById(R.id.openCameraActivityLayout);
+        RelativeLayout removePhoto = dialog.findViewById(R.id.removePhotoLayout);
+
+        removePhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                profilePicture.setImageResource(R.drawable.mcdonalds);
+                dialog.dismiss();
+            }
+        });
+
+        cameraActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cameraIntent = new Intent(EditProfileActivity.this,CameraActivity.class);
+                cameraActivityResultLauncher.launch(cameraIntent);
+                dialog.dismiss();
+            }
+        });
+
+
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        dialog.getWindow().setGravity(Gravity.BOTTOM);
+        dialog.show();
+
+
+
     }
 }

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Management.ImageNotificationActivity"
+    android:background="@color/dark_gray">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/imageNotificationToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        app:title="New Image Notification"
+        app:titleTextColor="@color/white"
+        app:navigationIcon="@drawable/signup_activity_back">
+    </androidx.appcompat.widget.Toolbar>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/gray"></View>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="32dp"
+                android:hint="Title"
+                app:counterMaxLength="30"
+                android:id="@+id/imageTitleLayout"
+                app:counterEnabled="true"
+                android:textColorHint="@color/white"
+                app:endIconMode="clear_text"
+                app:counterTextColor="@color/white"
+
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/imageTitleEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:maxLength="30"
+                    android:textColor="@color/white"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/light_gray"
+                android:textSize="15sp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:text="@string/image_notification_description"></TextView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="32dp"
+                android:hint="Text"
+                app:counterMaxLength="500"
+                android:id="@+id/imageTextLayout"
+                app:counterEnabled="true"
+                android:textColorHint="@color/white"
+                app:endIconMode="clear_text"
+                app:counterTextColor="@color/white"
+
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/imageTextEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="500"
+                    android:textColor="@color/white"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/light_gray"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:text="@string/announcement_details"></TextView>
+            <RelativeLayout
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:textColor="@color/white"
+
+                    android:layout_marginEnd="32dp"
+                    android:text="Images:"
+                    android:layout_centerVertical="true"></TextView>
+                <ImageButton
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+
+                    android:id="@+id/imageNotificationTakePhotoButton"
+                    android:backgroundTint="@color/teal_700"
+                    android:src="@drawable/employee_hire_vectotr"
+                    android:layout_alignParentRight="true"
+                    ></ImageButton>
+            </RelativeLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:id="@+id/imageNotificationRecyclerView"
+                app:layoutManager="com.google.android.material.carousel.CarouselLayoutManager"
+                android:orientation="horizontal"></androidx.recyclerview.widget.RecyclerView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/light_gray"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:text="@string/image_notification_picture_text"></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:textColor="@color/white"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:text="Urgency:"
+                android:layout_marginTop="20dp"></TextView>
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/imageUrgencySlider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:thumbColor="@color/teal_700"
+                android:valueFrom="0.0"
+                android:valueTo="10.0"
+                android:stepSize="1.0"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"></com.google.android.material.slider.Slider>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/light_gray"
+                android:text="Provide your notification an urgency rating indicating how important it is !"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:textColor="@color/white"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:text="Dismiss Date:"></TextView>
+            <RelativeLayout
+
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp">
+                <TextView
+                    android:id="@+id/imageDismissDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    android:layout_centerVertical="true"
+                    android:text="MMMM-dd-yyyy"></TextView>
+
+                <ImageButton
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/imageDismissButton"
+                    android:backgroundTint="@color/teal_700"
+                    android:src="@drawable/employee_hire_vectotr"
+                    android:layout_alignParentRight="true"
+                    ></ImageButton>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/light_gray"
+                android:textSize="15sp"
+
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:text="@string/dismiss_description"></TextView>
+
+            <Button
+                android:id="@+id/imageCreateButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:backgroundTint="@null"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button_gradient"
+                android:text="Create"
+                android:textSize="20sp"
+                android:paddingStart="50dp"
+                android:paddingEnd="50dp"></Button>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

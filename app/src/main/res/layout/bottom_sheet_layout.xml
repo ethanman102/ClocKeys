@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/bottom_sheet_background">
+    <View
+        android:layout_width="75dp"
+        android:layout_height="3dp"
+        android:background="@color/light_gray"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"></View>
+    <View
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/dark_gray"></View>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/openCameraActivityLayout"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp">
+        <ImageView
+            app:tint="@color/light_gray"
+            android:id="@+id/cameraImageVector"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/signup_activity_back">
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/cameraImageVector"
+            android:text="Upload from camera or library"
+            android:textSize="20sp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:textColor="@color/light_gray"></TextView>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/removePhotoLayout"
+        android:layout_marginBottom="50dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <ImageView
+            android:id="@+id/garbageImageVector"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:tint="@color/red"
+            android:src="@drawable/signup_activity_back">
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/garbageImageVector"
+            android:text="Remove Photo"
+            android:textSize="20sp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:textColor="@color/red"></TextView>
+    </RelativeLayout>
+
+</LinearLayout>

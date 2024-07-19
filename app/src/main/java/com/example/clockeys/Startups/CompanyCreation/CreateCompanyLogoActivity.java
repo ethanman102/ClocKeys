@@ -58,6 +58,7 @@ public class CreateCompanyLogoActivity extends AppCompatActivity {
                     FileInputStream fileInputStream = CreateCompanyLogoActivity.this.openFileInput(imageFile);
                     Bitmap bitmap = BitmapFactory.decodeStream(fileInputStream);
                     logo.setImageBitmap(bitmap);
+                    remove.setVisibility(View.VISIBLE);
                 }catch (Exception e){
                     Log.d("IMAGENOTIF", "saveBitmapToDisk: errorrrr...");
                     e.printStackTrace();
@@ -72,6 +73,7 @@ public class CreateCompanyLogoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 logo.setImageBitmap(null);
+                remove.setVisibility(View.GONE);
             }
         });
 

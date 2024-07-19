@@ -34,7 +34,7 @@
             android:exported="false" />
         <activity
             android:name=".Startups.CompanyCreation.CreateCompanyNameActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Management.ChooseNotificationActivity"
             android:exported="false" />

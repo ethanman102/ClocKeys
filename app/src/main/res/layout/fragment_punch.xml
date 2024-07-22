@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dark_gray"
     tools:context=".ui.punch.PunchFragment"
     android:orientation="vertical">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/companyNameCardView"
         app:cardCornerRadius="5dp"
         app:cardElevation="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="5dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        app:cardBackgroundColor="@color/green_200">
+        app:cardBackgroundColor="@color/blue_700">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -28,12 +30,12 @@
                 android:layout_marginEnd="5dp"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                app:tint="@color/gray">
+                app:tint="@color/white">
             </ImageView>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/gray"
+                android:textColor="@color/white"
                 android:layout_toRightOf="@id/punchFragmentVector"
                 android:text="Company Name"
                 android:layout_marginTop="10dp"
@@ -48,8 +50,9 @@
         android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        app:cardBackgroundColor="@color/green_300"
+        app:cardBackgroundColor="@color/teal_700"
         android:layout_width="match_parent"
+        android:id="@+id/currentTimeCardView"
         app:cardCornerRadius="5dp"
         app:cardElevation="10dp"
 
@@ -95,8 +98,13 @@
         android:layout_height="wrap_content"
         android:textSize="30sp"
         android:text="Punch"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"
+        android:paddingStart="60dp"
+        android:paddingEnd="60dp"
         android:id="@+id/punchButton"
-        android:backgroundTint="@color/green_700"
+        android:background="@drawable/button_gradient"
+        app:backgroundTint="@null"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="50dp"></Button>
@@ -112,6 +120,7 @@
         android:layout_marginBottom="5dp"
         app:cardBackgroundColor="@color/gray"
         app:cardElevation="10dp"
+        android:id="@+id/lastPunchCardView"
         app:cardCornerRadius="5dp">
         <RelativeLayout
             android:layout_width="match_parent"

@@ -30,6 +30,8 @@
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:layout_centerHorizontal="true"
+            android:background="@drawable/take_photo_background"
+            android:src="@drawable/camera_vector"
             android:id="@+id/pictureButton"
             ></ImageButton>
 
@@ -38,6 +40,8 @@
             android:layout_height="50dp"
             android:layout_centerVertical="true"
             android:id="@+id/galleryButton"
+            android:background="@drawable/square_outline_background"
+            android:src="@drawable/photo_album_vector"
             android:layout_marginStart="30dp"></ImageButton>
 
 

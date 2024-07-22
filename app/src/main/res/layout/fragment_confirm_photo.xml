@@ -11,6 +11,14 @@
         android:id="@+id/fragmentPhotoTaken">
 
     </ImageView>
+    <ImageButton
+        android:layout_marginStart="10dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/cancel_vector"
+        android:background="@drawable/take_photo_background"
+        android:id="@+id/fragmentRejectButton"></ImageButton>
     <LinearLayout
         android:orientation="horizontal"
         android:gravity="center"
@@ -22,12 +30,9 @@
             android:layout_marginEnd="20dp"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:background="@drawable/take_photo_background"
+            android:src="@drawable/confirm_change_vector"
+            android:scaleType="fitXY"
             android:id="@+id/fragmentConfirmButton"></ImageButton>
-        <ImageButton
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:id="@+id/fragmentRejectButton"></ImageButton>
     </LinearLayout>
 </FrameLayout>

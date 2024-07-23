@@ -1,5 +1,7 @@
 package com.example.clockeys.Management;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.OptIn;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,7 +23,10 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.Image;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -31,8 +36,11 @@ import com.example.clockeys.R;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
@@ -40,6 +48,7 @@ import java.util.concurrent.Executor;
 public class CameraActivity extends AppCompatActivity implements ConfirmPhotoFragment.onConfirmPhotoFragmentInteractionListener{
 
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
+    private ActivityResultLauncher<Intent> galleryResultLauncher;
     private ImageButton galleryButton,pictureButton,backButton;
     private PreviewView previewView;
     private ImageCapture imageCapture;
@@ -50,6 +59,30 @@ public class CameraActivity extends AppCompatActivity implements ConfirmPhotoFra
 
         bindViews();
 
+        galleryResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result ->{
+
+            if (result.getResultCode() == RESULT_OK && result.getData() != null ){
+                Intent intent = result.getData();
+                Uri selected = intent.getData();
+                Bitmap bitmap = null;
+                try {
+                    InputStream stream = getContentResolver().openInputStream(selected);
+                    bitmap = BitmapFactory.decodeStream(stream);
+                    stream.close();
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+                showConfirmationFragment(bitmap);
+            }
+
+        });
+
+        galleryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchGallery();
+            }
+        });
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,12 +102,7 @@ public class CameraActivity extends AppCompatActivity implements ConfirmPhotoFra
                         byte[] bytes = new byte[buffer.capacity()];
                         buffer.get(bytes);
                         Bitmap bitmapImage = BitmapFactory.decodeByteArray(bytes, 0, bytes.length, null);
-                        ConfirmPhotoFragment confirmPhotoFragment = ConfirmPhotoFragment.newInstance(bitmapImage,CameraActivity.this);
-                        FragmentManager fragmentManager = getSupportFragmentManager();
-                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                        fragmentTransaction.replace(R.id.cameraFragmentFrameLayout,confirmPhotoFragment);
-                        fragmentTransaction.addToBackStack("confirmFragment");
-                        fragmentTransaction.commit();
+                        showConfirmationFragment(bitmapImage);
                         image.close();
                     }
 
@@ -172,5 +200,21 @@ public class CameraActivity extends AppCompatActivity implements ConfirmPhotoFra
             exception.printStackTrace();
         }
         return filename;
+    }
+
+    public void launchGallery(){
+        Intent galleryIntent = new Intent();
+        galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+        galleryIntent.setType("image/*");
+        galleryResultLauncher.launch(Intent.createChooser(galleryIntent,"picture"));
+    }
+
+    public void showConfirmationFragment(Bitmap bitmapImage){
+        ConfirmPhotoFragment confirmPhotoFragment = ConfirmPhotoFragment.newInstance(bitmapImage,CameraActivity.this);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.cameraFragmentFrameLayout,confirmPhotoFragment);
+        fragmentTransaction.addToBackStack("confirmFragment");
+        fragmentTransaction.commit();
     }
 }

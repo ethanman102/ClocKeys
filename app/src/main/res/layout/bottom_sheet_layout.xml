@@ -28,7 +28,7 @@
             android:id="@+id/cameraImageVector"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/signup_activity_back">
+            android:src="@drawable/camera_vector">
         </ImageView>
         <TextView
             android:layout_width="wrap_content"
@@ -52,7 +52,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             app:tint="@color/red"
-            android:src="@drawable/signup_activity_back">
+            android:src="@drawable/cancel_vector">
         </ImageView>
         <TextView
             android:layout_width="wrap_content"

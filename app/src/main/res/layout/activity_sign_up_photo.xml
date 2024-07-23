@@ -8,11 +8,11 @@
     android:background="@color/dark_gray"
     tools:context=".Startups.CompanyCreation.CreateCompanyNameActivity">
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/createCompanyLogoToolbar"
+        android:id="@+id/userSignupPhotoToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/transparent"
-        app:title="Company Logo"
+        app:title="Profile Picture"
         app:titleTextColor="@color/white"
         app:navigationIcon="@drawable/signup_activity_back">
     </androidx.appcompat.widget.Toolbar>
@@ -33,23 +33,23 @@
             android:scaleType="centerCrop"
             android:layout_height="300dp"
             android:background="@drawable/square_outline_background"
-            android:id="@+id/createCompanyLogoImage"></ImageView>
+            android:id="@+id/userSignupPhoto"></ImageView>
         <ImageButton
             android:layout_width="75dp"
             android:layout_height="75dp"
-            android:id="@+id/logoPhotoButton"
-            android:background="@drawable/button_gradient"
+            android:id="@+id/userPhotoButton"
+            android:background="@drawable/take_photo_background"
             android:layout_marginTop="10dp"
             android:src="@drawable/camera_vector"
-            android:layout_below="@id/createCompanyLogoImage"></ImageButton>
+            android:layout_below="@id/userSignupPhoto"></ImageButton>
         <Button
             android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15sp"
             android:layout_alignParentEnd="true"
-            android:id="@+id/removePhotoButton"
-            android:layout_below="@+id/createCompanyLogoImage"
+            android:id="@+id/userSignupRemovePhoto"
+            android:layout_below="@+id/userSignupPhoto"
             android:text="Remove Photo"
             android:backgroundTint="@color/gray"
             android:layout_marginTop="10dp"
@@ -65,7 +65,7 @@
 
     <Button
 
-        android:id="@+id/createCompanyLogoButton"
+        android:id="@+id/userPhotoConfirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"

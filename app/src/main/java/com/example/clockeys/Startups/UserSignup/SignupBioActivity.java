@@ -67,7 +67,8 @@ public class SignupBioActivity extends AppCompatActivity {
     }
 
     public void launchNext(){
-        Intent nextIntent = new Intent();
+        Intent nextIntent = new Intent(SignupBioActivity.this, SignupPhotoActivity.class);
         nextIntent.putExtra("employee",employee);
+        startActivity(nextIntent);
     }
 }

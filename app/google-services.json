@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "941308123077",
+    "project_id": "clockeys-4d276",
+    "storage_bucket": "clockeys-4d276.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:941308123077:android:0df811c64b49dd92055dac",
+        "android_client_info": {
+          "package_name": "com.example.clockeys"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQVfyL3SmlIKoLdf5NFhKV0XaH1CoXX6w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

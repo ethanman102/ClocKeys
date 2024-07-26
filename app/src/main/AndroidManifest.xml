@@ -21,6 +21,9 @@
         android:theme="@style/Theme.ClocKeys"
         tools:targetApi="31">
         <activity
+            android:name=".Startups.UserSignup.SignupRegisterActivity"
+            android:exported="false" />
+        <activity
             android:name=".Startups.UserSignup.SignupPhotoActivity"
             android:exported="false" />
         <activity

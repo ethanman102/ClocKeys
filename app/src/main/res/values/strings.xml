@@ -87,4 +87,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="image_notification_description">Describe your notification with a short and precise title.</string>
     <string name="image_notification_picture_text">Provide one or more images to represent your new notification to your company.</string>
+    <string name="register_description">Provide an email address and a strong password to finish your account creation.</string>
 </resources>

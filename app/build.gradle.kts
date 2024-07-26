@@ -1,5 +1,6 @@
 plugins {
     id("com.android.application")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -52,6 +53,7 @@ dependencies {
     implementation("androidx.camera:camera-camera2:1.1.0-alpha05")
     implementation("androidx.camera:camera-lifecycle:1.1.0-alpha05")
     implementation("androidx.camera:camera-view:1.0.0-alpha25")
+    implementation("com.google.firebase:firebase-auth:23.0.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

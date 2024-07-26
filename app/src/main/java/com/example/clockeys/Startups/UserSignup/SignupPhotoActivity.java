@@ -37,6 +37,7 @@ public class SignupPhotoActivity extends AppCompatActivity {
     private String imageFile;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

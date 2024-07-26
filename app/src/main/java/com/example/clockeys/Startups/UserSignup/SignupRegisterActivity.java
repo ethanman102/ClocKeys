@@ -18,6 +18,7 @@ import com.example.clockeys.Users.Employee;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -31,6 +32,8 @@ public class SignupRegisterActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private FirebaseAuth mAuth;
     private ProgressBar progressBar;
+    private View viewTint;
+    private TextInputLayout emailLayout,passwordLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,13 +85,21 @@ public class SignupRegisterActivity extends AppCompatActivity {
     public void bindViews(){
         confirm = findViewById(R.id.signupRegisterButton);
         email = findViewById(R.id.signupEmailEditText);
+        emailLayout = findViewById(R.id.signupEmailInputLayout);
         password = findViewById(R.id.signupPasswordEditText);
+        passwordLayout = findViewById(R.id.signupPasswordInputLayout);
         toolbar = findViewById(R.id.signupRegisterToolbar);
         setSupportActionBar(toolbar);
         progressBar = findViewById(R.id.registerProgressBar);
+        viewTint = findViewById(R.id.registerViewTint)
     }
 
     public boolean createAccount(){
         return true;
+    }
+
+    public void setUnclickable(){
+        confirm.setClickable(false);
+
     }
 }

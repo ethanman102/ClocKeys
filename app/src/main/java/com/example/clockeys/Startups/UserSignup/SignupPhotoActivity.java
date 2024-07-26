@@ -34,6 +34,7 @@ public class SignupPhotoActivity extends AppCompatActivity {
     private Intent intent;
     private Employee employee;
     private ActivityResultLauncher<Intent> cameraActivityResultLauncher;
+    private String imageFile;
 
 
     @Override
@@ -63,7 +64,7 @@ public class SignupPhotoActivity extends AppCompatActivity {
 
             if (result.getResultCode() == RESULT_OK && result.getData() != null){
                 Intent intent = result.getData();
-                String imageFile = intent.getStringExtra("imageFile");
+                imageFile = intent.getStringExtra("imageFile");
                 try{
                     FileInputStream fileInputStream = SignupPhotoActivity.this.openFileInput(imageFile);
                     Bitmap bitmap = BitmapFactory.decodeStream(fileInputStream);
@@ -86,6 +87,13 @@ public class SignupPhotoActivity extends AppCompatActivity {
             }
         });
 
+        confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchNext();
+            }
+        });
+
     }
 
     public void bindViews(){
@@ -101,5 +109,12 @@ public class SignupPhotoActivity extends AppCompatActivity {
     public void launchCameraActivity(){
         Intent cameraIntent = new Intent(SignupPhotoActivity.this, CameraActivity.class);
         cameraActivityResultLauncher.launch(cameraIntent);
+    }
+
+    public void launchNext(){
+        Intent nextIntent = new Intent(SignupPhotoActivity.this,SignupRegisterActivity.class);
+        nextIntent.putExtra("imagePath",imageFile);
+        nextIntent.putExtra("employee",employee);
+        startActivity(intent);
     }
 }

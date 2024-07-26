@@ -98,7 +98,7 @@ public class SignupRegisterActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.signupRegisterToolbar);
         setSupportActionBar(toolbar);
         progressBar = findViewById(R.id.registerProgressBar);
-        viewTint = findViewById(R.id.registerViewTint)
+        viewTint = findViewById(R.id.registerViewTint);
     }
 
     public boolean createAccount(){

@@ -48,6 +48,7 @@ public class SignupRegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String emailText = String.valueOf(email.getText());
                 String passwordText = String.valueOf(password.getText());
+                progressBar.setVisibility(View.VISIBLE);
 
                 if(TextUtils.isEmpty(passwordText) || TextUtils.isEmpty(emailText)) return;
 
@@ -58,10 +59,12 @@ public class SignupRegisterActivity extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     // Sign in success, update UI with the signed-in user's information
                                     FirebaseUser user = mAuth.getCurrentUser();
+                                    progressBar.setVisibility(View.GONE);
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     Toast.makeText(SignupRegisterActivity.this, "Authentication failed.",
                                             Toast.LENGTH_SHORT).show();
+                                    progressBar.setVisibility(View.GONE);
                                 }
                             }
                         });
@@ -82,6 +85,7 @@ public class SignupRegisterActivity extends AppCompatActivity {
         password = findViewById(R.id.signupPasswordEditText);
         toolbar = findViewById(R.id.signupRegisterToolbar);
         setSupportActionBar(toolbar);
+        progressBar = findViewById(R.id.registerProgressBar);
     }
 
     public boolean createAccount(){

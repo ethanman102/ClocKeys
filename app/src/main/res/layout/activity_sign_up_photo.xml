@@ -27,21 +27,24 @@
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginTop="10dp">
-        <ImageView
-
-            android:layout_width="match_parent"
-            android:scaleType="centerCrop"
-            android:layout_height="300dp"
-            android:background="@drawable/square_outline_background"
-            android:id="@+id/userSignupPhoto"></ImageView>
-        <ImageButton
-            android:layout_width="75dp"
-            android:layout_height="75dp"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:id="@+id/userSignupPhoto"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/white"
+            android:src="@drawable/addison_rae"
+            android:layout_centerHorizontal="true"></de.hdodenhof.circleimageview.CircleImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/userPhotoButton"
-            android:background="@drawable/take_photo_background"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/camera_vector"
-            android:layout_below="@id/userSignupPhoto"></ImageButton>
+            android:textColor="@color/blue_900"
+            android:text="Replace Photo"
+            android:textSize="20sp"
+            android:layout_below="@+id/userSignupPhoto"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"></TextView>
         <Button
             android:visibility="gone"
             android:layout_width="wrap_content"
@@ -57,11 +60,6 @@
     </RelativeLayout>
 
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/gray"
-        android:layout_marginTop="10dp"></View>
 
     <Button
 

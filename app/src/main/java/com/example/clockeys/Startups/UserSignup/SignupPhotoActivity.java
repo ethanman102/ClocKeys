@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.clockeys.Management.CameraActivity;
 import com.example.clockeys.R;
@@ -22,11 +23,13 @@ import com.example.clockeys.Users.Employee;
 
 import java.io.FileInputStream;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class SignupPhotoActivity extends AppCompatActivity {
 
-    private ImageButton photoButton;
+    private TextView photoButton;
     private Button confirm,remove;
-    private ImageView photo;
+    private CircleImageView photo;
     private Toolbar toolbar;
     private Intent intent;
     private Employee employee;

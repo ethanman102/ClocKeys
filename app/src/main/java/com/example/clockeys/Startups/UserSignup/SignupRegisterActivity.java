@@ -26,6 +26,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class SignupRegisterActivity extends AppCompatActivity {
 
     private Employee employee;
+    private String filePath;
     private Intent intent;
     private Button confirm;
     private TextInputEditText email,password;
@@ -65,11 +66,15 @@ public class SignupRegisterActivity extends AppCompatActivity {
                                     // Sign in success, update UI with the signed-in user's information
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     progressBar.setVisibility(View.GONE);
+                                    viewTint.setVisibility(View.GONE);
+                                    setClickable();
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     Toast.makeText(SignupRegisterActivity.this, "Authentication failed.",
                                             Toast.LENGTH_SHORT).show();
                                     progressBar.setVisibility(View.GONE);
+                                    viewTint.setVisibility(View.GONE);
+                                    setClickable();
                                 }
                             }
                         });

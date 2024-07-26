@@ -52,6 +52,8 @@ public class SignupRegisterActivity extends AppCompatActivity {
                 String emailText = String.valueOf(email.getText());
                 String passwordText = String.valueOf(password.getText());
                 progressBar.setVisibility(View.VISIBLE);
+                viewTint.setVisibility(View.VISIBLE);
+                setUnclickable();
 
                 if(TextUtils.isEmpty(passwordText) || TextUtils.isEmpty(emailText)) return;
 
@@ -100,6 +102,19 @@ public class SignupRegisterActivity extends AppCompatActivity {
 
     public void setUnclickable(){
         confirm.setClickable(false);
+        emailLayout.setClickable(false);
+        passwordLayout.setClickable(false);
+        email.setClickable(false);
+        password.setClickable(false);
+        toolbar.setClickable(false);
+    }
 
+    public void setClickable(){
+        confirm.setClickable(true);
+        emailLayout.setClickable(true);
+        passwordLayout.setClickable(true);
+        email.setClickable(true);
+        password.setClickable(true);
+        toolbar.setClickable(true);
     }
 }
